@@ -31,6 +31,7 @@ import SideDrawer from "./SideDrawer";
 import Balance from "./Balance";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
 import profilePicture from "../../dummy_data/images/profilePicture.jpg";
+import LogoImage from "../../../assets/images/Logo.png";
 
 const styles = theme => ({
   appBar: {
@@ -229,22 +230,16 @@ function NavBar(props) {
               </Box>
             </Hidden>
             <Hidden xsDown>
-              <Typography
-                variant="h4"
+              <Link
                 className={classes.brandText}
                 display="inline"
-                color="primary"
               >
-                Wa
-              </Typography>
-              <Typography
-                variant="h4"
-                className={classes.brandText}
-                display="inline"
-                color="secondary"
-              >
-                Ver
-              </Typography>
+                <img
+                  src={LogoImage}
+                  className={classes.logo}
+                  alt="Main Logo"
+                />
+              </Link>
             </Hidden>
           </Box>
           <Box

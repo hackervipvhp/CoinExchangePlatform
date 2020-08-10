@@ -117,6 +117,20 @@ const theme = createMuiTheme({
           paddingRight: spacing
         }
       }
+    },
+    MuiButton: {
+      root:{
+        border: `1px solid ${primary}`,
+        marginLeft: `5px`,
+        borderRadius: `30px`,
+        padding: `2px !important`,
+        textTransform: `none`
+      },
+      label:{
+        backgroundColor: primary,
+        borderRadius: `30px`,
+        padding: `3px 20px`
+      }
     }
   },
   typography: {
