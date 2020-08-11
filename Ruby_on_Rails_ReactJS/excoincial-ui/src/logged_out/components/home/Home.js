@@ -6,6 +6,7 @@ import TableSection from "./TableSection";
 import SlideSection from "./SlideSection";
 import LatestNewsSection from "./LatestNewsSection";
 import HowItWorksSection from "./HowItWorksSection";
+import PartnersSection from "./PartnersSection";
 
 function Home(props) {
   const { selectHome } = props;
@@ -20,6 +21,7 @@ function Home(props) {
       <LatestNewsSection />
       <FeatureSection />
       <HowItWorksSection />
+      <PartnersSection />
     </Fragment>
   );
 }
