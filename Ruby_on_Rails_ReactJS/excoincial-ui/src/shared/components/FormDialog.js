@@ -83,15 +83,11 @@ function FormDialog(props) {
               src={DialogImage}
               className={classes.dialogImage1}
             />
-<<<<<<< HEAD
             <img
               src={LogoImage}
               className={classes.dialogImage2}
             />  
           </div>          
-=======
-          </div>
->>>>>>> 8352db432289aa00ffd77c3d89bf9418d2c07450
         </Hidden>
         <div className={classes.dialogContent1}>
           <form onSubmit={onFormSubmit}>
