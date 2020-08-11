@@ -29,7 +29,9 @@ const styles = theme => ({
   dialogContent1: {
     width: `50%`,
   },
-  dialogImage1
+  dialogImage1:{
+
+  }
 });
 
 /**
@@ -71,8 +73,8 @@ function FormDialog(props) {
             <img
               src={DialogImage}
               className={classes.dialogImage1}
-            />  
-          </div>          
+            />
+          </div>
         </Hidden>
         <div className={classes.dialogContent1}>
           <form onSubmit={onFormSubmit}>
@@ -81,7 +83,7 @@ function FormDialog(props) {
               {actions}
             </Box>
           </form>
-        </div>        
+        </div>
       </DialogContent>
     </Dialog>
   );
