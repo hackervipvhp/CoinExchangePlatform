@@ -2,10 +2,10 @@ import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import HeadSection from "./HeadSection";
 import FeatureSection from "./FeatureSection";
-import PricingSection from "./PricingSection";
 import TableSection from "./TableSection";
 import SlideSection from "./SlideSection";
 import LatestNewsSection from "./LatestNewsSection";
+import HowItWorksSection from "./HowItWorksSection";
 
 function Home(props) {
   const { selectHome } = props;
@@ -19,7 +19,7 @@ function Home(props) {
       <SlideSection />
       <LatestNewsSection />
       <FeatureSection />
-      {/* <PricingSection /> */}
+      <HowItWorksSection />
     </Fragment>
   );
 }
