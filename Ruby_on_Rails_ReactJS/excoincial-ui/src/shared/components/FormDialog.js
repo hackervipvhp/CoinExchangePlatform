@@ -35,16 +35,11 @@ const styles = theme => ({
     width: `100%`,
     height: `100%`
   },
-<<<<<<< HEAD
   dialogImage2: {
     position: `absolute`,
     width: `20%`,
     top: `25px`,
     left: `25px`
-=======
-  dialogImage1:{
-
->>>>>>> 8352db432289aa00ffd77c3d89bf9418d2c07450
   }
 });
 
