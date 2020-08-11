@@ -10,10 +10,13 @@ import {
   Box,
   withStyles,
   withWidth,
-  isWidthUp
+  isWidthUp,
+  TextField,
+  MenuItem
 } from "@material-ui/core";
-import headerImage from "../../dummy_data/images/headerImage.jpg";
-import WaveBorder from "../../../shared/components/WaveBorder";
+import tableSectionImage from "../../../assets/images/table-bg.png";
+import landingImage from "../../../assets/images/Main-Home-page-banner.png";
+import reviewImage from "../../../assets/images/trustpiol.png";
 
 const styles = theme => ({
   extraLargeButtonLabel: {
@@ -66,27 +69,20 @@ const styles = theme => ({
   },
   wrapper: {
     position: "relative",
-    backgroundColor: theme.palette.secondary.main,
-    paddingBottom: theme.spacing(2)
-  },
-  image: {
-    maxWidth: "100%",
-    verticalAlign: "middle",
-    borderRadius: theme.shape.borderRadius,
-    boxShadow: theme.shadows[4]
+    height: `866px`,
+    // backgroundColor: theme.palette.secondary.main,
+    // paddingBottom: theme.spacing(2)
   },
   container: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(12),
-    [theme.breakpoints.down("md")]: {
-      marginBottom: theme.spacing(9)
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: theme.spacing(6)
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: theme.spacing(3)
-    }
+    background: `url(${landingImage}) center no-repeat`,
+    backgroundSize: `100% 100%`,
+    height: `100%`,
+  },
+  reviewImage: {
+    width: `145px`,
+    paddingTop: `250px`,
+    marginLeft: `auto`,
+    marginRight: `auto`
   },
   containerFix: {
     [theme.breakpoints.up("md")]: {
@@ -95,82 +91,143 @@ const styles = theme => ({
   },
   waveBorder: {
     paddingTop: theme.spacing(4)
+  },
+  landingText: {
+    color: `#fff`,
+    fontSize: `36px`,
+    width: `100%`,
+    lineSpacing: `0.08em`,
+    textAlign: `center`
+  },
+  contactUS:{
+    boxShadow: theme.shadows[6],
+    backgroundColor: `#fff`,
+    display: `flex`,
+    width: `60vw`,
+    marginLeft: `auto`,
+    marginRight: `auto`,
+    marginTop: `200px`,
+    borderLeft: `5px solid red`,
+  },
+  coinInput: {
+    padding: `30px 10px 50px 60px`
+  },
+  coinInput1: {
+    padding: `30px 30px 50px 10px`
+  },
+  coinInputTextField: {
+    display: `flex`,
+  },
+  buyBTCButton: {
+		fontSize: theme.typography.body1.fontSize,
+		fontWeight: theme.typography.h6.fontWeight,
+		color: theme.palette.common.white,
+    height: `100%`,
+    marginTop: `8px`,
+    marginLeft: '30px'
+  },
+  tableSection: {
+    background: `url(${tableSectionImage}) center no-repeat`,
+    backgroundSize: `100% 100%`,
+    height: '800px'
+  },
+  markets: {
+
   }
 });
+
+const currencies = [
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+];
+
+const coins = [
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },  
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+];
+
 
 function HeadSection(props) {
   const { classes, theme, width } = props;
   return (
     <Fragment>
-      <div className={classNames("lg-p-top", classes.wrapper)}>
-        <div className={classNames("container-fluid", classes.container)}>
-          <Box display="flex" justifyContent="center" className="row">
-            <Card
-              className={classes.card}
-              data-aos-delay="200"
-              data-aos="zoom-in"
-            >
-              <div className={classNames(classes.containerFix, "container")}>
-                <Box justifyContent="space-between" className="row">
-                  <Grid item xs={12} md={5}>
-                    <Box
-                      display="flex"
-                      flexDirection="column"
-                      justifyContent="space-between"
-                      height="100%"
-                    >
-                      <Box mb={4}>
-                        <Typography
-                          variant={isWidthUp("lg", width) ? "h3" : "h4"}
-                        >
-                          Free Template for building an SaaS app using
-                          Material-UI
-                        </Typography>
-                      </Box>
-                      <div>
-                        <Box mb={2}>
-                          <Typography
-                            variant={isWidthUp("lg", width) ? "h6" : "body1"}
-                            color="textSecondary"
-                          >
-                            Lorem ipsum dolor sit amet, consetetur sadipscing
-                            elitr, sed diam nonumy eirmod tempor invidunt
-                          </Typography>
-                        </Box>
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          fullWidth
-                          className={classes.extraLargeButton}
-                          classes={{ label: classes.extraLargeButtonLabel }}
-                          href="https://github.com/dunky11/react-saas-template"
-                        >
-                          Download from GitHub
-                        </Button>
-                      </div>
-                    </Box>
-                  </Grid>
-                  <Hidden smDown>
-                    <Grid item md={6}>
-                      <img
-                        src={headerImage}
-                        className={classes.image}
-                        alt="header example"
-                      />
-                    </Grid>
-                  </Hidden>
-                </Box>
-              </div>
-            </Card>
-          </Box>
+      <div className={classes.wrapper}>
+        <div className={classes.container}>
+          <div className={classes.reviewImage}>
+            <img
+              src={reviewImage}
+            />
+          </div>
+          <h1 className={classes.landingText}>
+            The most <strong style={{color:`red`}}>TRUSTED</strong> platform <br></br>for trading <strong style={{color:`red`}}>FIAT</strong> & <strong style={{color:`red`}}>CRYPTOCURRENCIES</strong>
+          </h1>
+          <p style={{color: `#fff`, fontSize: `16px`, lineHeight: `24px`, lineSpacing: `0.03em`, textAlign: `center`}}>
+            We offer newbies and professional traders the possibility to trade a variety of digital<br></br> assets on a highly secure, insurance backed Exchange platform.
+          </p>
+          <form className={classes.root} noValidate autoComplete="off">
+            <Grid className={classes.contactUS}>
+              <Grid item xl={8} lg={8} md={8}  sm={12} xs={12}>
+                <div className={classes.coinInput}>
+                  <h3>I WANT TO SPLURGE</h3>
+                  <div className={classes.coinInputTextField}>
+                    <TextField color="primary" variant="outlined" style={{width: `70%`}}></TextField>
+                    <TextField color="primary" select variant="outlined" value={"USD"} style={{width: `30%`}}>
+                      {currencies.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
+                <div className={classes.coinInput1}>
+                  <h3>I WANT TO BUY</h3>
+                  <div className={classes.coinInputTextField}>
+                    <TextField color="primary" select variant="outlined" value={"BTC"} style={{width: `50%`}}>
+                      {coins.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                    <Button key={`buy-btc`} classes={{ text: classes.buyBTCButton }} style={{width: `50%`}}>BUY BTC</Button>
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </form>
         </div>
       </div>
-      <WaveBorder
-        upperColor={theme.palette.secondary.main}
-        lowerColor="#FFFFFF"
-        className={classes.waveBorder}
-        animationNegativeDelay={2}
-      />
     </Fragment>
   );
 }

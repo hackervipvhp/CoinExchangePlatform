@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Dialog, DialogContent, Box, withStyles } from "@material-ui/core";
+import { Dialog, DialogContent, Box, withStyles, Hidden } from "@material-ui/core";
 import DialogTitleWithCloseIcon from "./DialogTitleWithCloseIcon";
+import DialogImage from "../../assets/images/Login-&-Signup.png";
 
 const styles = theme => ({
   dialogPaper: {
@@ -9,7 +10,7 @@ const styles = theme => ({
     flexDirection: "column",
     alignItems: "center",
     paddingBottom: theme.spacing(3),
-    maxWidth: 420
+    maxWidth: 840
   },
   actions: {
     marginTop: theme.spacing(2)
@@ -18,9 +19,17 @@ const styles = theme => ({
     maxHeight: "none"
   },
   dialogContent: {
+    display: `flex`,
     paddingTop: 0,
     paddingBottom: 0
-  }
+  },
+  dialogImage:{
+    width: `50%`
+  },
+  dialogContent1: {
+    width: `50%`,
+  },
+  dialogImage1
 });
 
 /**
@@ -51,18 +60,28 @@ function FormDialog(props) {
       }}
       hideBackdrop={hideBackdrop ? hideBackdrop : false}
     >
-      <DialogTitleWithCloseIcon
+      {/* <DialogTitleWithCloseIcon
         title={headline}
         onClose={onClose}
         disabled={loading}
-      />
+      /> */}
       <DialogContent className={classes.dialogContent}>
-        <form onSubmit={onFormSubmit}>
-          <div>{content}</div>
-          <Box width="100%" className={classes.actions}>
-            {actions}
-          </Box>
-        </form>
+        <Hidden smDown>
+          <div className={classes.dialogImage}>
+            <img
+              src={DialogImage}
+              className={classes.dialogImage1}
+            />  
+          </div>          
+        </Hidden>
+        <div className={classes.dialogContent1}>
+          <form onSubmit={onFormSubmit}>
+            <div>{content}</div>
+            <Box width="100%" className={classes.actions}>
+              {actions}
+            </Box>
+          </form>
+        </div>        
       </DialogContent>
     </Dialog>
   );

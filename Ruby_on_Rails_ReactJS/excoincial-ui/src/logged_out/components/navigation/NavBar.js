@@ -23,7 +23,7 @@ import menuIcon from "../../../assets/images/MenuIcons/menu.png";
 
 const styles = theme => ({
 	appBar: {
-		// boxShadow: theme.shadows[6],
+		boxShadow: theme.shadows[6],
 	},
 	toolbar: {
 		display: "flex",
@@ -48,13 +48,24 @@ const styles = theme => ({
 		width: "100%",
 		marginTop: "10px",
 	},
-	landingSection: {
-		backgroundImage: `url(${landingImage})`,
-		height: "90%",
-	},
 	imageLink: {
 		paddingTop: `10px`,
 		marginLeft: `10px`
+	},
+	imageLink1: {
+		marginTop: `20px`,
+		marginLeft: `20px`
+	},
+	mainMenu: {
+		textDecoration: "none !important",
+		fontSize: theme.typography.body1.fontSize,
+		fontWeight: theme.typography.h6.fontWeight,
+		color: theme.palette.common.white,
+		marginLeft: `20px`,
+		marginTop: `3px`
+	},
+	menuItem: {
+		margin: `0px !important`,
 	}
 });
 
@@ -93,96 +104,166 @@ function NavBar(props) {
 	];
 	return (
 		<div className={classes.root}>
-			<div className={classes.landingSection}>
-				<AppBar position="sticky" color='transparent'>
-					<Toolbar className={classes.toolbar}>
-						<div>
-							<Link 
-								to = {""}
-								className={classes.brandText}
-								display="inline"
+			<AppBar position="fixed" color='transparent' className={classes.AppBar}>
+				<Toolbar className={classes.toolbar}>
+					<div>
+						<Link 
+							to = {""}
+							className={classes.brandText}
+							display="inline"
+						>
+							<img
+								src={LogoImage}
+								className={classes.logo}
+								alt="Main Logo"
+							/>
+						</Link>
+					</div>
+					<div style={{display: `flex`, float: `left`}}>
+						<Hidden smDown>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.noDecoration}
+								onClick={handleMobileDrawerClose}
 							>
 								<img
-									src={LogoImage}
-									className={classes.logo}
+									src={menuIcon}
+									className={classes.imageLink1}
 									alt="Main Logo"
 								/>
 							</Link>
-						</div>
-						<div>
-							<Hidden smDown>
-								<Link
-									key={"menu-1"}
-									to={""}
-									className={classes.noDecoration}
-									onClick={handleMobileDrawerClose}
-								>
-									<img
-										src={menuIcon}
-										className={classes.imageLink}
-										alt="Main Logo"
-									/>
-								</Link>
-							</Hidden>
-						</div>
-						<div>
-							<Hidden mdUp>
-								<Button
-									size="large"
-									onClick={openRegisterDialog}
-									classes={{ text: classes.menuButtonText }}
-									key={"sign-up-1"}
-								>
-									Sign up
-								</Button>
-								<IconButton
-									className={classes.menuButton}
-									onClick={handleMobileDrawerOpen}
-									aria-label="Open Navigation"
-								>
-									<MenuIcon color="primary" />
-								</IconButton>
-							</Hidden>
-							<Hidden smDown>
-								{menuItems.map(element => {
-									if (element.link) {
-										return (
-											<Link
-												key={element.name}
-												to={element.link}
-												className={classes.noDecoration}
-												onClick={handleMobileDrawerClose}
-											>
-												<img
-													src={element.icon}
-													className={classes.imageLink}
-													alt="Main Logo"
-												/>
-											</Link>
-										);
-									}
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Markets</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Features</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Supports</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Wallets</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Exchange</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Trading</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>P2P DEX</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Products</h4>
+							</Link>
+							<Link
+								key={"menu-1"}
+								to={""}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Services</h4>
+							</Link>
+						</Hidden>
+					</div>
+					<div>
+						<Hidden mdUp>
+							<Button
+								size="large"
+								onClick={openRegisterDialog}
+								classes={{ text: classes.menuButtonText }}
+								key={"sign-up-1"}
+							>
+								Sign up
+							</Button>
+							<IconButton
+								className={classes.menuButton}
+								onClick={handleMobileDrawerOpen}
+								aria-label="Open Navigation"
+							>
+								<MenuIcon color="primary" />
+							</IconButton>
+						</Hidden>
+						<Hidden smDown>
+							{menuItems.map(element => {
+								if (element.link) {
 									return (
-										<Button
-											onClick={element.onClick}
-											classes={{ text: classes.menuButtonText }}
+										<Link
 											key={element.name}
+											to={element.link}
+											className={classes.noDecoration}
+											onClick={handleMobileDrawerClose}
 										>
-											{element.name}
-										</Button>
+											<img
+												src={element.icon}
+												className={classes.imageLink}
+												alt="Main Logo"
+											/>
+										</Link>
 									);
-								})}
-							</Hidden>
-						</div>
-					</Toolbar>
-				</AppBar>
-				<NavigationDrawer
-					menuItems={menuItems}
-					anchor="right"
-					open={mobileDrawerOpen}
-					selectedItem={selectedTab}
-					onClose={handleMobileDrawerClose}
-				/>
-			</div>
+								}
+								return (
+									<Button
+										onClick={element.onClick}
+										classes={{ text: classes.menuButtonText }}
+										key={element.name}
+									>
+										{element.name}
+									</Button>
+								);
+							})}
+						</Hidden>
+					</div>
+				</Toolbar>
+			</AppBar>
+			<NavigationDrawer
+				menuItems={menuItems}
+				anchor="right"
+				open={mobileDrawerOpen}
+				selectedItem={selectedTab}
+				onClose={handleMobileDrawerClose}
+			/>
 		</div>
 	);
 }
