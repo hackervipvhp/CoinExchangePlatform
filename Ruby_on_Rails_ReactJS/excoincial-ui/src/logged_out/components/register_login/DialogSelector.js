@@ -33,6 +33,7 @@ function DialogSelector(props) {
             openTermsDialog={openTermsDialog}
             status={registerStatus}
             setStatus={setRegisterStatus}
+            openLoginDialog={openLoginDialog}
           />
         );
       case "termsOfService":
@@ -44,6 +45,7 @@ function DialogSelector(props) {
             status={loginStatus}
             setStatus={setLoginStatus}
             openChangePasswordDialog={openChangePasswordDialog}
+            openRegisterDialog={openRegisterDialog}
           />
         );
       case "changePassword":

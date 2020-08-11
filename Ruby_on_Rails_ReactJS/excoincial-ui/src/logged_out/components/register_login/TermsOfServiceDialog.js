@@ -24,6 +24,10 @@ const styles = theme => ({
   },
   backIcon: {
     marginRight: theme.spacing(1)
+  },
+  container:{
+    padding: 20,
+    scrollbarWidth: `thin`
   }
 });
 
@@ -32,7 +36,7 @@ function TermsOfServiceDialog(props) {
   return (
     <Dialog open scroll="paper" onClose={onClose} hideBackdrop>
       <DialogTitle>Terms and Conditions</DialogTitle>
-      <DialogContent>
+      <DialogContent className={classes.container}>
         <Typography variant="h6" color="primary" paragraph>
           Introduction
         </Typography>

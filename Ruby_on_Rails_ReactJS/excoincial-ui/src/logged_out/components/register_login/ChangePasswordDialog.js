@@ -13,7 +13,7 @@ import ButtonCircularProgress from "../../../shared/components/ButtonCircularPro
 
 const styles = (theme) => ({
   dialogContent: {
-    paddingTop: theme.spacing(2),
+    padding: theme.spacing(2),
   },
   dialogActions: {
     paddingTop: theme.spacing(2),

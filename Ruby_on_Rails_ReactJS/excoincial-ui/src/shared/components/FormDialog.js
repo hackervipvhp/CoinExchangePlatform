@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Dialog, DialogContent, Box, withStyles, Hidden } from "@material-ui/core";
-import DialogTitleWithCloseIcon from "./DialogTitleWithCloseIcon";
+import DialogCloseIcon from "./DialogCloseIcon";
 import DialogImage from "../../assets/images/Login-&-Signup.png";
 import LogoImage from "../../assets/images/Logo.png";
 
@@ -29,7 +29,8 @@ const styles = theme => ({
   },
   dialogContent1: {
     width: `50%`,
-    padding: `15px`
+    padding: `15px`,
+    marginTop: `30px`
   },
   dialogImage1: {
     width: `100%`,
@@ -71,11 +72,11 @@ function FormDialog(props) {
       }}
       hideBackdrop={hideBackdrop ? hideBackdrop : false}
     >
-      {/* <DialogTitleWithCloseIcon
+      <DialogCloseIcon
         title={headline}
         onClose={onClose}
         disabled={loading}
-      /> */}
+      />
       <DialogContent className={classes.dialogContent}>
         <Hidden smDown>
           <div className={classes.dialogImage}>

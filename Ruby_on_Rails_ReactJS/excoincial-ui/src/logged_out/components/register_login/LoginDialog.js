@@ -14,6 +14,7 @@ import FormDialog from "../../../shared/components/FormDialog";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
+import LockIcon from "@material-ui/icons/Lock";
 
 const styles = (theme) => ({
   forgotPassword: {
@@ -34,6 +35,39 @@ const styles = (theme) => ({
   formControlLabel: {
     marginRight: 0,
   },
+  title: {
+    color: theme.palette.common.black,
+    fontSize: 36,
+    fontWeight:900,
+  },
+  checkURL:{
+    marginTop:20,
+    color:theme.palette.common.black,
+    fontSize: 16,
+  },
+  suggestURL: {
+    marginTop:10,
+    display: `flex`,
+    marginLeft: `auto`,
+    marginRight: `auto`,
+    marginBottom: 40,
+    width: `fit-content`,
+    padding: `1px 20px`,
+    color: theme.palette.common.black,
+    border: `1px solid ${theme.palette.common.black}`,
+    borderRadius: `30px`,
+    fontSize: 16,
+  },
+  LockIcon:{
+    color: `green`,
+    fontSize: 16,
+    marginTop: 4,
+    marginRight:10,
+  },
+  actionsDiv: {
+    display: `flex`,
+    justifyContent: `space-between`,
+  }
 });
 
 function LoginDialog(props) {
@@ -44,6 +78,7 @@ function LoginDialog(props) {
     onClose,
     openChangePasswordDialog,
     status,
+    openRegisterDialog
   } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -84,6 +119,28 @@ function LoginDialog(props) {
         headline="Login"
         content={
           <Fragment>
+            <Typography
+              align="center"
+              className={classes.title}
+            >
+              LOGIN
+            </Typography>
+            <Typography
+              align="center"
+              className={classes.checkURL}
+            >
+              Welcome to Excoincial
+            </Typography>
+            <Typography
+              align="center"
+              className={classes.suggestURL}
+            >
+              <div style={{height:20}}>
+                <LockIcon className={classes.LockIcon} />
+              </div>
+              https://excoincial.com/accounts/login
+            </Typography>
+
             <TextField
               variant="outlined"
               margin="normal"
@@ -142,35 +199,59 @@ function LoginDialog(props) {
               type="submit"
               fullWidth
               variant="contained"
-              color="secondary"
               disabled={isLoading}
               size="large"
+              style={{color: `#fff`}}
             >
-              Login
+              LOGIN
               {isLoading && <ButtonCircularProgress />}
             </Button>
-            <Typography
-              align="center"
-              className={classNames(
-                classes.forgotPassword,
-                isLoading ? classes.disabledText : null
-              )}
-              color="primary"
-              onClick={isLoading ? null : openChangePasswordDialog}
-              tabIndex={0}
-              role="button"
-              onKeyDown={(event) => {
-                // For screenreaders listen to space and enter events
-                if (
-                  (!isLoading && event.keyCode === 13) ||
-                  event.keyCode === 32
-                ) {
-                  openChangePasswordDialog();
-                }
-              }}
-            >
-              Forgot Password?
-            </Typography>
+            <div className={classes.actionsDiv}>
+              <Typography
+                align="center"
+                className={classNames(
+                  classes.forgotPassword,
+                  isLoading ? classes.disabledText : null
+                )}
+                color="primary"
+                onClick={isLoading ? null : openChangePasswordDialog}
+                tabIndex={0}
+                role="button"
+                onKeyDown={(event) => {
+                  // For screenreaders listen to space and enter events
+                  if (
+                    (!isLoading && event.keyCode === 13) ||
+                    event.keyCode === 32
+                  ) {
+                    openChangePasswordDialog();
+                  }
+                }}
+              >
+                Forgot Password?
+              </Typography>
+              <Typography
+                align="center"
+                className={classNames(
+                  classes.forgotPassword,
+                  isLoading ? classes.disabledText : null
+                )}
+                color="primary"
+                onClick={isLoading ? null : openRegisterDialog}
+                tabIndex={0}
+                role="button"
+                onKeyDown={(event) => {
+                  // For screenreaders listen to space and enter events
+                  if (
+                    (!isLoading && event.keyCode === 13) ||
+                    event.keyCode === 32
+                  ) {
+                    openRegisterDialog();
+                  }
+                }}
+              >
+                Not on Excoincial yet? Register
+              </Typography>
+            </div>
           </Fragment>
         }
       />
@@ -185,6 +266,7 @@ LoginDialog.propTypes = {
   openChangePasswordDialog: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   status: PropTypes.string,
+  openRegisterDialog: PropTypes.func.isRequired,
 };
 
 export default withRouter(withStyles(styles)(LoginDialog));

@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef, Fragment } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import {
   FormHelperText,
   TextField,
@@ -15,6 +16,21 @@ import ButtonCircularProgress from "../../../shared/components/ButtonCircularPro
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
 
 const styles = (theme) => ({
+  forgotPassword: {
+    marginTop: theme.spacing(2),
+    color: theme.palette.primary.main,
+    cursor: "pointer",
+    "&:enabled:hover": {
+      color: theme.palette.primary.dark,
+    },
+    "&:enabled:focus": {
+      color: theme.palette.primary.dark,
+    },
+  },
+  disabledText: {
+    cursor: "auto",
+    color: theme.palette.text.disabled,
+  },
   link: {
     transition: theme.transitions.create(["background-color"], {
       duration: theme.transitions.duration.complex,
@@ -29,10 +45,25 @@ const styles = (theme) => ({
       color: theme.palette.primary.dark,
     },
   },
+  title: {
+    color: theme.palette.common.black,
+    fontSize: 28,
+    letterSpacing: 0,
+    fontWeight: 900,
+  },
+  checkURL:{
+    marginTop:20,
+    color:theme.palette.common.black,
+    fontSize: 16,
+  },
+  termsOfService: {
+    fontSize: 12,
+    letterSpacing: `-0.03em`
+  }
 });
 
 function RegisterDialog(props) {
-  const { setStatus, theme, onClose, openTermsDialog, status, classes } = props;
+  const { setStatus, theme, onClose, openTermsDialog, status, classes, openLoginDialog } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [hasTermsOfServiceError, setHasTermsOfServiceError] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -79,6 +110,18 @@ function RegisterDialog(props) {
       hasCloseIcon
       content={
         <Fragment>
+          <Typography
+              align="center"
+              className={classes.title}
+            >
+              CREATE A FREE ACCOUNT
+            </Typography>
+            <Typography
+              align="center"
+              className={classes.checkURL}
+            >
+              Please check that you are visiting the correct URL
+            </Typography>
           <TextField
             variant="outlined"
             margin="normal"
@@ -171,8 +214,8 @@ function RegisterDialog(props) {
               />
             }
             label={
-              <Typography variant="body1">
-                I agree to the
+              <Typography variant="body1" className={classes.termsOfService}>
+                I have read and agree to the 
                 <span
                   className={classes.link}
                   onClick={isLoading ? null : openTermsDialog}
@@ -189,7 +232,7 @@ function RegisterDialog(props) {
                   }}
                 >
                   {" "}
-                  terms of service
+                  Terms of Service. Excoincial Terms
                 </span>
               </Typography>
             }
@@ -219,17 +262,41 @@ function RegisterDialog(props) {
         </Fragment>
       }
       actions={
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          size="large"
-          color="secondary"
-          disabled={isLoading}
-        >
-          Register
-          {isLoading && <ButtonCircularProgress />}
-        </Button>
+        <Fragment>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            size="large"
+            color="secondary"
+            disabled={isLoading}
+          >
+            CREATE ACCOUNT
+            {isLoading && <ButtonCircularProgress />}
+          </Button>
+          <Typography
+            align="center"
+            className={classNames(
+              classes.forgotPassword,
+              isLoading ? classes.disabledText : null
+            )}
+            color="primary"
+            onClick={isLoading ? null : openLoginDialog}
+            tabIndex={0}
+            role="button"
+            onKeyDown={(event) => {
+              // For screenreaders listen to space and enter events
+              if (
+                (!isLoading && event.keyCode === 13) ||
+                event.keyCode === 32
+              ) {
+                openLoginDialog();
+              }
+            }}
+          >
+            Already registered? Log in
+          </Typography>
+        </Fragment>
       }
     />
   );
@@ -242,6 +309,7 @@ RegisterDialog.propTypes = {
   status: PropTypes.string,
   setStatus: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
+  openLoginDialog: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(RegisterDialog);
