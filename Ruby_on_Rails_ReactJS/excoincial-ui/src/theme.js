@@ -103,6 +103,11 @@ const theme = createMuiTheme({
         maxWidth: 430,
         marginLeft: spacing,
         marginRight: spacing
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        padding: `0px`,
       }
     },
     MuiTooltip: {

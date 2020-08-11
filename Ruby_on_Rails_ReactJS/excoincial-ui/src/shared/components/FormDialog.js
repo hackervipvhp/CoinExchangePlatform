@@ -3,14 +3,15 @@ import PropTypes from "prop-types";
 import { Dialog, DialogContent, Box, withStyles, Hidden } from "@material-ui/core";
 import DialogTitleWithCloseIcon from "./DialogTitleWithCloseIcon";
 import DialogImage from "../../assets/images/Login-&-Signup.png";
+import LogoImage from "../../assets/images/Logo.png";
 
 const styles = theme => ({
   dialogPaper: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingBottom: theme.spacing(3),
-    maxWidth: 840
+    // paddingBottom: theme.spacing(3),
+    maxWidth: 840,
   },
   actions: {
     marginTop: theme.spacing(2)
@@ -20,16 +21,26 @@ const styles = theme => ({
   },
   dialogContent: {
     display: `flex`,
-    paddingTop: 0,
+    paddingTop: `0px !important`,
     paddingBottom: 0
   },
   dialogImage:{
-    width: `50%`
+    width: `50%`,
   },
   dialogContent1: {
     width: `50%`,
+    padding: `15px`
   },
-  dialogImage1
+  dialogImage1: {
+    width: `100%`,
+    height: `100%`
+  },
+  dialogImage2: {
+    position: `absolute`,
+    width: `20%`,
+    top: `25px`,
+    left: `25px`
+  }
 });
 
 /**
@@ -71,6 +82,10 @@ function FormDialog(props) {
             <img
               src={DialogImage}
               className={classes.dialogImage1}
+            />
+            <img
+              src={LogoImage}
+              className={classes.dialogImage2}
             />  
           </div>          
         </Hidden>
