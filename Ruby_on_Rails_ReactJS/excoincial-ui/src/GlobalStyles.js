@@ -88,6 +88,15 @@ const styles = theme => ({
       [theme.breakpoints.down("xs")]: {
         paddingTop: `${theme.spacing(14)}px !important`
       }
+    },
+    ".alice-carousel__prev-btn": {
+      display: `none !important`
+    },
+    ".alice-carousel__next-btn": {
+      display: `none !important`
+    },
+    ".alice-carousel__dots-item:hover, .alice-carousel__dots-item.__active": {
+      backgroundColor: `#de0d2c !important`
     }
   }
 });

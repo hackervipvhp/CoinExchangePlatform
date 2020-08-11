@@ -1,17 +1,13 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-// import Carousel from 'react-bootstrap/Carousel';
+import AliceCarousel from 'react-alice-carousel';
+import "react-alice-carousel/lib/alice-carousel.css";
+import image1 from "../../../assets/images/first-add.png";
+import image2 from "../../../assets/images/sec-add.png";
+import image3 from "../../../assets/images/thired-add.png";
 import {
   withStyles,
   withWidth,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableFooter,
-  Paper
 } from "@material-ui/core";
 import slideSectionImage from "../../../assets/images/circle-bg.png";
 
@@ -21,28 +17,60 @@ const styles = theme => ({
     // backgroundSize: `100% 100%`,
     height: '500px',
     paddingTop: `200px`,
+  },
+  slider:{
+    display: `flex`,
+    justifyContent: `center`
+  },
+  sliderDiv:{
+    padding: `0px 10px`
+  },
+  sliderImage:{
+    borderRadius: 25
   }
 });
 
-function createData(name, lastPrice, charge, markets) {
-  return { name, lastPrice, charge, markets };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-];
 
 function slideSection(props) {
   const { classes, theme, width } = props;
   return (
     <Fragment>
       <div className={classes.slideSection}>
-        
+        <AliceCarousel autoPlay autoPlayInterval="2000">
+          <div key={`slider1`} className={classes.slider}>
+            <div key={`slider1-1`} className={classes.sliderDiv}>
+              <img src={image1} className={classes.sliderImage}/>
+            </div>
+            <div key={`slider1-2`} className={classes.sliderDiv}>
+              <img src={image2} className={classes.sliderImage}/>
+            </div>
+            <div key={`slider1-3`} className={classes.sliderDiv}>
+              <img src={image3} className={classes.sliderImage}/>
+            </div>
+          </div>
+          <div key={`slider2`} className={classes.slider}>
+            <div key={`slider2-1`} className={classes.sliderDiv}>
+              <img src={image1} className={classes.sliderImage}/>
+            </div>
+            <div key={`slider2-2`} className={classes.sliderDiv}>
+              <img src={image2} className={classes.sliderImage}/>
+            </div>
+            <div key={`slider2-3`} className={classes.sliderDiv}>
+              <img src={image3} className={classes.sliderImage}/>
+            </div>
+          </div>
+          <div key={`slider3`} className={classes.slider}>
+            <div key={`slider3-1`} className={classes.sliderDiv}>
+              <img src={image1} className={classes.sliderImage}/>
+            </div>
+            <div key={`slider3-2`} className={classes.sliderDiv}>
+              <img src={image2} className={classes.sliderImage}/>
+            </div>
+            <div key={`slider3-3`} className={classes.sliderDiv}>
+              <img src={image3} className={classes.sliderImage}/>
+            </div>
+          </div>
+        </AliceCarousel>
       </div>
     </Fragment>
   );

@@ -11,52 +11,36 @@ const styles = theme => ({
     justifyContent: "center",
     marginBottom: theme.spacing(3),
     padding: theme.spacing(1) * 1.5
+  },
+  overflowContent: {
+    letterSpacing: `-0.03em`,
+    lineHeight: `20px`
   }
 });
 
-function shadeColor(hex, percent) {
-  const f = parseInt(hex.slice(1), 16);
-
-  const t = percent < 0 ? 0 : 255;
-
-  const p = percent < 0 ? percent * -1 : percent;
-
-  const R = f >> 16;
-
-  const G = (f >> 8) & 0x00ff;
-
-  const B = f & 0x0000ff;
-  return `#${(
-    0x1000000 +
-    (Math.round((t - R) * p) + R) * 0x10000 +
-    (Math.round((t - G) * p) + G) * 0x100 +
-    (Math.round((t - B) * p) + B)
-  )
-    .toString(16)
-    .slice(1)}`;
-}
-
 function FeatureCard(props) {
-  const { classes, Icon, color, headline, text } = props;
+  const { classes, Icon, content, hasOverflow, theme } = props;
   return (
     <Fragment>
       <div
         // We will set color and fill here, due to some prios complications
         className={classes.iconWrapper}
         style={{
-          color: color,
-          backgroundColor: shadeColor(color, 0.5),
-          fill: color
+          boxShadow: theme.shadows[6],
+          width: `100%`,
+          height: `100%`,
+          textOverflow: `ellipsis`,
+          justifyContent: `left`
         }}
       >
-        {Icon}
-      </div>
-      <Typography variant="h5" paragraph>
-        {headline}
+        <img
+          src={Icon}
+          style={{marginRight:20}}
+        />
+        <Typography variant="body1" className={hasOverflow?classes.overflowContent:""}>
+        {content}
       </Typography>
-      <Typography variant="body1" color="textSecondary">
-        {text}
-      </Typography>
+      </div>      
     </Fragment>
   );
 }
@@ -64,9 +48,9 @@ function FeatureCard(props) {
 FeatureCard.propTypes = {
   classes: PropTypes.object.isRequired,
   Icon: PropTypes.element.isRequired,
-  color: PropTypes.string.isRequired,
-  headline: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  content: PropTypes.string.isRequired,
+  hasOverflow: PropTypes.bool.isRequired,
+  theme: PropTypes.object
 };
 
 export default withStyles(styles, { withTheme: true })(FeatureCard);
