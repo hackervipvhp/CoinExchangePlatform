@@ -30,10 +30,13 @@ const styles = theme => ({
     backgroundRepeat: `no-repeat, no-repeat`,
     height: '100%',
     paddingTop: `100px`,
-    paddingLeft: theme.spacing(25),
-    paddingRight: theme.spacing(25),
+    paddingLeft: `10%`,
+    paddingRight: `10%`,
     paddingBottom: `80px`
   },
+  FeatureSectionText: {
+    marginBottom: 80
+  }
 });
 
 const features = [
@@ -172,8 +175,8 @@ function FeatureSection(props) {
   const { classes, theme, width } = props;
   return (
     <div className={classes.FeatureSection}>
-      <div className={"container-fluid lg-p-top"}>
-        <Typography variant="h3" align="center" className="lg-mg-bottom">
+      <div className={"container-fluid"}>
+        <Typography variant="h3" align="center" className={classes.FeatureSectionText}>
           FEATURES
         </Typography>
         <div className="container-fluid">

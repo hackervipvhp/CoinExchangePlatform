@@ -30,13 +30,24 @@ const styles = theme => ({
     backgroundRepeat: `no-repeat, no-repeat`,
     height: '100%',
     paddingTop: `100px`,
-    paddingLeft: theme.spacing(25),
-    paddingRight: theme.spacing(25),
+    paddingLeft: `10%`,
+    paddingRight: `10%`,
+    paddingBottom: theme.spacing(10),
   },
   partnersText: {
     color: theme.palette.common.black,
     textAlign:`center`,
     fontWeight: 900,
+    paddingBottom: theme.spacing(10)
+  },
+  partnerImage: {
+    margin: `auto`,
+    display: `block`,
+    maxHeight: `100%`,
+    maxWidth: `100%`,    
+  },
+  partnerDiv: {
+    marginBottom: 30
   }
 });
 
@@ -49,73 +60,100 @@ function PartnersSection(props) {
           PARTNERS
         </Typography>
         <Grid container>
-          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage1}
-            />
+          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage1}
+                className={classes.partnerImage}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage2}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage2}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage3}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage3}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage4}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage4}
+              />
+            </div>
           </Grid>
-          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage5}
-            />
+          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage5}
+              />
+            </div>
           </Grid>
-          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage6}
-            />
+          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage6}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage7}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage7}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage8}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage8}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage9}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage9}
+              />
+            </div>
           </Grid>
-          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage10}
-            />
+          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage10}
+              />
+            </div>
           </Grid>
-          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`}}></Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage11}
-            />
+          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}></Grid>
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage11}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage12}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage12}
+              />
+            </div>
           </Grid>
-          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`}}>
-            <img
-              src={PartnerImage13}
-            />
+          <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
+            <div className={classes.partnerDiv}>
+              <img
+                src={PartnerImage13}
+              />
+            </div>
           </Grid>
-          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`}}></Grid>
+          <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}></Grid>
         </Grid>
       </div>
     </Fragment>

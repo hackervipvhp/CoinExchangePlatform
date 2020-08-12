@@ -69,7 +69,7 @@ const styles = theme => ({
   },
   wrapper: {
     position: "relative",
-    height: `866px`,
+    height: `100%`,
     // backgroundColor: theme.palette.secondary.main,
     // paddingBottom: theme.spacing(2)
   },
@@ -108,6 +108,7 @@ const styles = theme => ({
     marginRight: `auto`,
     marginTop: `200px`,
     borderLeft: `5px solid red`,
+    borderRadius: 10
   },
   coinInput: {
     padding: `30px 10px 50px 60px`
@@ -192,40 +193,42 @@ function HeadSection(props) {
           <p style={{color: `#fff`, fontSize: `16px`, lineHeight: `24px`, lineSpacing: `0.03em`, textAlign: `center`}}>
             We offer newbies and professional traders the possibility to trade a variety of digital<br></br> assets on a highly secure, insurance backed Exchange platform.
           </p>
-          <form className={classes.root} noValidate autoComplete="off">
-            <Grid className={classes.contactUS}>
-              <Grid item xl={8} lg={8} md={8}  sm={12} xs={12}>
-                <div className={classes.coinInput}>
-                  <h3>I WANT TO SPLURGE</h3>
-                  <div className={classes.coinInputTextField}>
-                    <TextField color="primary" variant="outlined" style={{width: `70%`}}></TextField>
-                    <TextField color="primary" select variant="outlined" value={"USD"} style={{width: `30%`}}>
-                      {currencies.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.value}
-                        </MenuItem>
-                      ))}
-                    </TextField>
+          <div style={{height: 150}}>
+            <form className={classes.root} noValidate autoComplete="off">
+              <Grid className={classes.contactUS}>
+                <Grid item xl={8} lg={8} md={8}  sm={12} xs={12}>
+                  <div className={classes.coinInput}>
+                    <h3>I WANT TO SPLURGE</h3>
+                    <div className={classes.coinInputTextField}>
+                      <TextField color="primary" variant="outlined" style={{width: `70%`}}></TextField>
+                      <TextField color="primary" select variant="outlined" value={"USD"} style={{width: `30%`}}>
+                        {currencies.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.value}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                <div className={classes.coinInput1}>
-                  <h3>I WANT TO BUY</h3>
-                  <div className={classes.coinInputTextField}>
-                    <TextField color="primary" select variant="outlined" value={"BTC"} style={{width: `50%`}}>
-                      {coins.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.value}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                    <Button key={`buy-btc`} classes={{ text: classes.buyBTCButton }} style={{width: `50%`}}>BUY BTC</Button>
+                </Grid>
+                <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
+                  <div className={classes.coinInput1}>
+                    <h3>I WANT TO BUY</h3>
+                    <div className={classes.coinInputTextField}>
+                      <TextField color="primary" select variant="outlined" value={"BTC"} style={{width: `50%`}}>
+                        {coins.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.value}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                      <Button key={`buy-btc`} classes={{ text: classes.buyBTCButton }} style={{width: `50%`}}>BUY BTC</Button>
+                    </div>
                   </div>
-                </div>
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </Fragment>

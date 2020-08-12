@@ -28,7 +28,26 @@ const styles = theme => ({
       paddingBottom: theme.spacing(2)
     }
   },
-  
+  footerInner1:{
+    backgroundColor: theme.palette.background.default,
+    paddingTop: theme.spacing(2),
+    paddingLeft: theme.spacing(5),
+    paddingRight: theme.spacing(5),
+    paddingBottom: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      paddingTop: theme.spacing(2),
+      paddingLeft: theme.spacing(5),
+      paddingRight: theme.spacing(5),
+      paddingBottom: theme.spacing(2)
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingTop: theme.spacing(2),
+      paddingLeft: theme.spacing(5),
+      paddingRight: theme.spacing(5),
+      paddingBottom: theme.spacing(2)
+    },
+    textAlign: `center`
+  }
 });
 
 function Footer(props) {
@@ -137,6 +156,9 @@ function Footer(props) {
             </Link>
           </Grid>
         </Grid>
+      </div>
+      <div className={classes.footerInner1}>
+        © 2018 - 2019 EXCOINCIAL. All rights reserved
       </div>
     </footer>
   );
