@@ -120,7 +120,7 @@ function RegisterDialog(props) {
               align="center"
               className={classes.checkURL}
             >
-              Please check that you are visiting the correct URL
+              Welcome to Excoincial
             </Typography>
           <TextField
             variant="outlined"

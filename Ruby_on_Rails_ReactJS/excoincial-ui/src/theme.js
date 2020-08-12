@@ -2,7 +2,7 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core";
 
 // colors
 const primary = "#de0d2c";
-const secondary = "#4829B2";
+const secondary = "#070331";
 const black = "#343a40";
 const darkBlack = "rgb(36, 40, 44)";
 const background = "#f5f5f5";
@@ -104,6 +104,9 @@ const theme = createMuiTheme({
         marginLeft: spacing,
         marginRight: spacing
       },
+      container:{
+        background: `rgba(7,3,49,0.8)`
+      }
     },
     MuiDialogContent: {
       root: {

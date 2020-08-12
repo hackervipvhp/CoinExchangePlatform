@@ -15,7 +15,6 @@ const styles = theme => ({
     backgroundSize: `cover`,
     height: '100%',
     padding: `100px 10% 30px 10%`,
-    marginTop:`80px`
   },
   howItWorks: {
     color: theme.palette.background.default,

@@ -129,7 +129,7 @@ function LoginDialog(props) {
               align="center"
               className={classes.checkURL}
             >
-              Welcome to Excoincial
+              Please check that you are visiting the correct URL
             </Typography>
             <Typography
               align="center"

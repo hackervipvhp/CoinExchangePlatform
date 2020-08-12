@@ -7,7 +7,11 @@ import {
 	Button,
 	Hidden,
 	IconButton,
-	withStyles
+	withStyles,
+	Slide,
+	Zoom,
+	makeStyles,
+	Fab
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
@@ -20,6 +24,69 @@ import landingImage from "../../../assets/images/Main-Home-page-banner.png";
 import languageImage from "../../../assets/images/MenuIcons/language.png";
 import darkThemeIcon from "../../../assets/images/MenuIcons/dark-theme-icon.png";
 import menuIcon from "../../../assets/images/MenuIcons/menu.png";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import smoothScrollTop from "../../../shared/functions/smoothScrollTop";
+
+function ShowOnScroll(props){
+	const { children, window } = props;
+	const trigger = useScrollTrigger({ 
+		target: window ? window() : undefined,
+		disableHysteresis: true,
+		threshold: 100, 
+	});
+	// console.log(trigger);
+
+	return (
+		<Slide appear={false} drection="down" in={trigger}>
+			{ children }
+		</Slide>
+	)
+}
+
+ShowOnScroll.propTypes = {
+	children: PropTypes.element.isRequired,
+	window: PropTypes.func,
+};
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  position: 'fixed',
+	  bottom: theme.spacing(2),
+	  right: theme.spacing(2),
+	},
+  }));
+  
+
+function ScrollTop(props) {
+	const { children, window } = props;
+	const classes = useStyles();
+	// Note that you normally won't need to set the window ref as useScrollTrigger
+	// will default to window.
+	// This is only being set here because the demo is in an iframe.
+	const trigger = useScrollTrigger({
+	  target: window ? window() : undefined,
+	  disableHysteresis: true,
+	  threshold: 100,
+	});
+  
+	const handleClick = (event) => {
+	  const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+  
+	  if (anchor) {
+		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	  }
+	};
+  
+	return (
+	  <Zoom in={trigger}>
+		<div onClick={smoothScrollTop} role="presentation" className={classes.root}>
+		  {children}
+		</div>
+	  </Zoom>
+	);
+}
 
 const styles = theme => ({
 	appBar: {
@@ -96,7 +163,7 @@ function NavBar(props) {
 			icon: languageImage
 		},
 		{
-			link: "/blog",
+			link: "/",
 			name: "Blog",
 			icon: darkThemeIcon
 		},
@@ -104,7 +171,163 @@ function NavBar(props) {
 	];
 	return (
 		<div className={classes.root}>
-			<AppBar position="fixed" color='transparent' className={classes.AppBar}>
+			<CssBaseline />
+			<ShowOnScroll {...props}>
+				<AppBar position="fixed" color='secondary' className={classes.AppBar}>
+					<Toolbar className={classes.toolbar}>
+						<div>
+							<Link 
+								to = {""}
+								className={classes.brandText}
+								display="inline"
+							>
+								<img
+									src={LogoImage}
+									className={classes.logo}
+									alt="Main Logo"
+								/>
+							</Link>
+						</div>
+						<div style={{display: `flex`, float: `left`}}>
+							<Hidden smDown>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.noDecoration}
+									onClick={handleMobileDrawerClose}
+								>
+									<img
+										src={menuIcon}
+										className={classes.imageLink1}
+										alt="Main Logo"
+									/>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Markets</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Features</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Supports</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Wallets</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Exchange</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Trading</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>P2P DEX</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Products</h4>
+								</Link>
+								<Link
+									key={"menu-1"}
+									to={""}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Services</h4>
+								</Link>
+							</Hidden>
+						</div>
+						<div>
+							<Hidden mdUp>
+								<Button
+									size="large"
+									onClick={openRegisterDialog}
+									classes={{ text: classes.menuButtonText }}
+									key={"sign-up-1"}
+								>
+									Sign up
+								</Button>
+								<IconButton
+									className={classes.menuButton}
+									onClick={handleMobileDrawerOpen}
+									aria-label="Open Navigation"
+								>
+									<MenuIcon color="primary" />
+								</IconButton>
+							</Hidden>
+							<Hidden smDown>
+								{menuItems.map(element => {
+									if (element.link) {
+										return (
+											<Link
+												key={element.name}
+												to={element.link}
+												className={classes.noDecoration}
+												onClick={handleMobileDrawerClose}
+											>
+												<img
+													src={element.icon}
+													className={classes.imageLink}
+													alt="Main Logo"
+												/>
+											</Link>
+										);
+									}
+									return (
+										<Button
+											onClick={element.onClick}
+											classes={{ text: classes.menuButtonText }}
+											key={element.name}
+										>
+											{element.name}
+										</Button>
+									);
+								})}
+							</Hidden>
+						</div>
+					</Toolbar>
+				</AppBar>
+			</ShowOnScroll>
+			<AppBar position="absolute" color='transparent' className={classes.AppBar}>
 				<Toolbar className={classes.toolbar}>
 					<div>
 						<Link 
@@ -264,6 +487,11 @@ function NavBar(props) {
 				selectedItem={selectedTab}
 				onClose={handleMobileDrawerClose}
 			/>
+			<ScrollTop {...props}>
+				<Fab color="secondary" size="small" aria-label="scroll back to top">
+				<KeyboardArrowUpIcon />
+				</Fab>
+			</ScrollTop>
 		</div>
 	);
 }

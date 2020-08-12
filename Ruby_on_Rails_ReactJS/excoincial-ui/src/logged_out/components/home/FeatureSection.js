@@ -1,17 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography, isWidthUp, withWidth } from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
-import BuildIcon from "@material-ui/icons/Build";
-import ComputerIcon from "@material-ui/icons/Computer";
-import BarChartIcon from "@material-ui/icons/BarChart";
-import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
-import CloudIcon from "@material-ui/icons/Cloud";
-import MeassageIcon from "@material-ui/icons/Message";
-import CancelIcon from "@material-ui/icons/Cancel";
+import { Grid, Typography, isWidthUp, withWidth, withStyles } from "@material-ui/core";
 import calculateSpacing from "./calculateSpacing";
 import FeatureCard from "./FeatureCard";
+import classNames from "classnames";
+import FeatureSectionImage from "../../../assets/images/features.png";
+import FeatureSectionImage1 from "../../../assets/images/features~1.png";
 import HighlySecuredImage from "../../../assets/images/Features Icons/Highly-secured.png";
 import TwoFactorImage from "../../../assets/images/Features Icons/Two-Factor-Authentication-(2FA)-for-further-wallet-protection..png";
 import ElasticImage from "../../../assets/images/Features Icons/Elastic-Multi.png";
@@ -29,7 +23,18 @@ import SystemForImage from "../../../assets/images/Features Icons/System-For.png
 import IntegratedImage from "../../../assets/images/Features Icons/Integrated.png";
 import SecurityImage from "../../../assets/images/Features Icons/Security-with.png";
 
-const iconSize = 30;
+const styles = theme => ({
+  FeatureSection: {
+    backgroundImage: `url(${FeatureSectionImage}), url(${FeatureSectionImage1})`,
+    backgroundPosition: `right top, left bottom`,
+    backgroundRepeat: `no-repeat, no-repeat`,
+    height: '100%',
+    paddingTop: `100px`,
+    paddingLeft: theme.spacing(25),
+    paddingRight: theme.spacing(25),
+    paddingBottom: `80px`
+  },
+});
 
 const features = [
   {
@@ -164,10 +169,10 @@ const features = [
 ];
 
 function FeatureSection(props) {
-  const { width } = props;
+  const { classes, theme, width } = props;
   return (
-    <div style={{ backgroundColor: "#FFFFFF" }}>
-      <div className="container-fluid lg-p-top">
+    <div className={classes.FeatureSection}>
+      <div className={"container-fluid lg-p-top"}>
         <Typography variant="h3" align="center" className="lg-mg-bottom">
           FEATURES
         </Typography>
@@ -204,4 +209,4 @@ FeatureSection.propTypes = {
   width: PropTypes.string.isRequired
 };
 
-export default withWidth()(FeatureSection);
+export default withWidth()(withStyles(styles, { withTheme: true })(FeatureSection));
