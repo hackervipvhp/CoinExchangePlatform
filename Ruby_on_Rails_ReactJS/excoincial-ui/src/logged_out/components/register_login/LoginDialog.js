@@ -9,6 +9,8 @@ import {
   Typography,
   FormControlLabel,
   withStyles,
+  Tabs,
+  Tab
 } from "@material-ui/core";
 import FormDialog from "../../../shared/components/FormDialog";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
@@ -82,8 +84,13 @@ function LoginDialog(props) {
   } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [value, setValue] = React.useState(0);
   const loginEmail = useRef();
   const loginPassword = useRef();
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const login = useCallback(() => {
     setIsLoading(true);
@@ -140,29 +147,63 @@ function LoginDialog(props) {
               </div>
               https://excoincial.com/accounts/login
             </Typography>
-
-            <TextField
-              variant="outlined"
-              margin="normal"
-              error={status === "invalidEmail"}
-              required
-              fullWidth
-              label="Email Address"
-              inputRef={loginEmail}
-              autoFocus
-              autoComplete="off"
-              type="email"
-              onChange={() => {
-                if (status === "invalidEmail") {
-                  setStatus(null);
+            <Tabs
+              value={value}
+              indicatorColor="primary"
+              textColor="primary"
+              onChange={handleChange}
+            >
+              <Tab label="Email" />
+              <Tab label="Mobile" />
+            </Tabs>
+            {value == 0 && (
+              <TextField
+                variant="outlined"
+                margin="normal"
+                error={status === "invalidEmail"}
+                required
+                fullWidth
+                label="Email Address"
+                inputRef={loginEmail}
+                autoFocus
+                autoComplete="off"
+                type="email"
+                onChange={() => {
+                  if (status === "invalidEmail") {
+                    setStatus(null);
+                  }
+                }}
+                helperText={
+                  status === "invalidEmail" &&
+                  "This email address isn't associated with an account."
                 }
-              }}
-              helperText={
-                status === "invalidEmail" &&
-                "This email address isn't associated with an account."
-              }
-              FormHelperTextProps={{ error: true }}
-            />
+                FormHelperTextProps={{ error: true }}
+              />
+            )}
+            { value == 1 && (
+              <TextField
+                variant="outlined"
+                margin="normal"
+                error={status === "invalidMobile"}
+                required
+                fullWidth
+                label="Mobile Number"
+                inputRef={loginEmail}
+                autoFocus
+                autoComplete="off"
+                type="phone"
+                onChange={() => {
+                  if (status === "invalidMobile") {
+                    setStatus(null);
+                  }
+                }}
+                helperText={
+                  status === "invalidMobile" &&
+                  "This mobile address isn't associated with an account."
+                }
+                FormHelperTextProps={{ error: true }}
+              />
+            )}
             <VisibilityPasswordTextField
               variant="outlined"
               margin="normal"

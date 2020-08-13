@@ -12,6 +12,9 @@ const styles = theme => ({
     alignItems: "center",
     // paddingBottom: theme.spacing(3),
     maxWidth: 840,
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 420,
+    },
   },
   actions: {
     marginTop: theme.spacing(2)
@@ -29,6 +32,9 @@ const styles = theme => ({
   },
   dialogContent1: {
     width: `50%`,
+    [theme.breakpoints.down("sm")]: {
+      width: `100%`,
+    },
     padding: `15px`,
     marginTop: `30px`
   },

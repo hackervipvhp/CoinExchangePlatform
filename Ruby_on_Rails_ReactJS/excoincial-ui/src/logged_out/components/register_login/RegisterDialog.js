@@ -9,6 +9,8 @@ import {
   Typography,
   FormControlLabel,
   withStyles,
+  Tabs,
+  Tab
 } from "@material-ui/core";
 import FormDialog from "../../../shared/components/FormDialog";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
@@ -67,9 +69,15 @@ function RegisterDialog(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasTermsOfServiceError, setHasTermsOfServiceError] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [value, setValue] = React.useState(0);
   const registerTermsCheckbox = useRef();
   const registerPassword = useRef();
   const registerPasswordRepeat = useRef();
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
 
   const register = useCallback(() => {
     if (!registerTermsCheckbox.current.checked) {
@@ -111,34 +119,64 @@ function RegisterDialog(props) {
       content={
         <Fragment>
           <Typography
-              align="center"
-              className={classes.title}
-            >
-              CREATE A FREE ACCOUNT
-            </Typography>
-            <Typography
-              align="center"
-              className={classes.checkURL}
-            >
-              Welcome to Excoincial
-            </Typography>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            error={status === "invalidEmail"}
-            label="Email Address"
-            autoFocus
-            autoComplete="off"
-            type="email"
-            onChange={() => {
-              if (status === "invalidEmail") {
-                setStatus(null);
-              }
-            }}
-            FormHelperTextProps={{ error: true }}
-          />
+            align="center"
+            className={classes.title}
+          >
+            CREATE A FREE ACCOUNT
+          </Typography>
+          <Typography
+            align="center"
+            className={classes.checkURL}
+          >
+            Welcome to Excoincial
+          </Typography>
+          <Tabs
+            value={value}
+            indicatorColor="primary"
+            textColor="primary"
+            onChange={handleChange}
+          >
+            <Tab label="Email" />
+            <Tab label="Mobile" />
+          </Tabs>
+          {value == 0 && (
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              error={status === "invalidEmail"}
+              label="Email Address"
+              autoFocus
+              autoComplete="off"
+              type="email"
+              onChange={() => {
+                if (status === "invalidEmail") {
+                  setStatus(null);
+                }
+              }}
+              FormHelperTextProps={{ error: true }}
+            />
+          )}
+          { value == 1 && (
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              error={status === "invalidMobile"}
+              label="Mobile Number"
+              autoFocus
+              autoComplete="off"
+              type="phone"
+              onChange={() => {
+                if (status === "invalidMobile") {
+                  setStatus(null);
+                }
+              }}
+              FormHelperTextProps={{ error: true }}
+            />
+          )}
           <VisibilityPasswordTextField
             variant="outlined"
             margin="normal"

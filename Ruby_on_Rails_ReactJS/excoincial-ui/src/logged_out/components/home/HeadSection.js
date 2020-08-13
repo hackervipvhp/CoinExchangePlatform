@@ -104,17 +104,45 @@ const styles = theme => ({
     backgroundColor: `#fff`,
     display: `flex`,
     width: `60vw`,
+    [theme.breakpoints.down("sm")]: {
+      width: `90vw`
+    },
     marginLeft: `auto`,
     marginRight: `auto`,
     marginTop: `200px`,
     borderLeft: `5px solid red`,
-    borderRadius: 10
+    borderRadius: 10,
+    padding: `0 30px`
   },
   coinInput: {
-    padding: `30px 10px 50px 60px`
+    padding: `30px 10px 10px 0px`
   },
   coinInput1: {
-    padding: `30px 30px 50px 10px`
+    padding: `30px 30px 50px 0px`,
+    [theme.breakpoints.down("md")]: {
+      padding: `0px 30px 50px 0px`,
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: `0px 10px 20px 0px`,
+    }
+  },
+  coinInput2: {
+    padding: `90px 30px 50px 0px`,
+    [theme.breakpoints.down("md")]: {
+      padding: `60px 30px 50px 0px`,
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: `0px 10px 50px 0px`,
+    }
+  },
+  forHeight: {
+    height: 150,
+    [theme.breakpoints.down("md")]: {
+      height: 250,
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: 300,
+    }
   },
   coinInputTextField: {
     display: `flex`,
@@ -125,7 +153,6 @@ const styles = theme => ({
 		color: theme.palette.common.white,
     height: `100%`,
     marginTop: `8px`,
-    marginLeft: '30px'
   },
   tableSection: {
     background: `url(${tableSectionImage}) center no-repeat`,
@@ -193,10 +220,10 @@ function HeadSection(props) {
           <p style={{color: `#fff`, fontSize: `16px`, lineHeight: `24px`, lineSpacing: `0.03em`, textAlign: `center`}}>
             We offer newbies and professional traders the possibility to trade a variety of digital<br></br> assets on a highly secure, insurance backed Exchange platform.
           </p>
-          <div style={{height: 150}}>
+          <div className={classes.forHeight}>
             <form className={classes.root} noValidate autoComplete="off">
-              <Grid className={classes.contactUS}>
-                <Grid item xl={8} lg={8} md={8}  sm={12} xs={12}>
+              <Grid className={classes.contactUS} container>
+                <Grid item xl={6} lg={6} md={12}  sm={12} xs={12}>
                   <div className={classes.coinInput}>
                     <h3>I WANT TO SPLURGE</h3>
                     <div className={classes.coinInputTextField}>
@@ -211,19 +238,23 @@ function HeadSection(props) {
                     </div>
                   </div>
                 </Grid>
-                <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
+                <Grid item xl={3} lg={3} md={6} sm={12} xs={12}>
                   <div className={classes.coinInput1}>
                     <h3>I WANT TO BUY</h3>
                     <div className={classes.coinInputTextField}>
-                      <TextField color="primary" select variant="outlined" value={"BTC"} style={{width: `50%`}}>
+                      <TextField color="primary" select variant="outlined" value={"BTC"} style={{width: `100%`}}>
                         {coins.map((option) => (
                           <MenuItem key={option.value} value={option.value}>
                             {option.value}
                           </MenuItem>
                         ))}
                       </TextField>
-                      <Button key={`buy-btc`} classes={{ text: classes.buyBTCButton }} style={{width: `50%`}}>BUY BTC</Button>
                     </div>
+                  </div>
+                </Grid>
+                <Grid item xl={3} lg={3} md={6} sm={12} xs={12}>
+                  <div className={classes.coinInput2}>
+                    <Button key={`buy-btc`} classes={{ text: classes.buyBTCButton }} style={{width: `100%`}}>BUY BTC</Button>
                   </div>
                 </Grid>
               </Grid>

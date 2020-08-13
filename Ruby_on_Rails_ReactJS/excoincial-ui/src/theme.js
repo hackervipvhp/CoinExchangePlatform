@@ -100,7 +100,6 @@ const theme = createMuiTheme({
     MuiDialog: {
       paper: {
         width: "100%",
-        maxWidth: 430,
         marginLeft: spacing,
         marginRight: spacing
       },
@@ -137,7 +136,7 @@ const theme = createMuiTheme({
       label:{
         backgroundColor: primary,
         borderRadius: `30px`,
-        padding: `3px 20px`
+        padding: `2px 10px`
       }
     }
   },

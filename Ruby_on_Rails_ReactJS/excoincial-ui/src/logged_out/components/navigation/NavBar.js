@@ -95,44 +95,90 @@ const styles = theme => ({
 	toolbar: {
 		display: "flex",
 		justifyContent: "space-between",
-		marginLeft: `30px`,
-		marginRight: `30px`
+		marginLeft: 25,
+		marginRight: 25,
+		padding: `0 !important`
 	},
 	menuButtonText: {
-		fontSize: theme.typography.body1.fontSize,
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
-		marginTop: `-25px`
+		marginTop: `-20px`,
+		fontSize: 16,
+		[theme.breakpoints.down("lg")]: {
+			fontSize: 13,
+		},
+		[theme.breakpoints.down("md")]: {
+			fontSize: 10
+		}		
 	},
 	brandText: {
 		fontFamily: "'Baloo Bhaijaan', cursive",
 		fontWeight: 400
 	},
 	noDecoration: {
-		textDecoration: "none !important"
+		textDecoration: "none !important",
+		fontSize: 16,
+		[theme.breakpoints.down("lg")]: {
+			fontSize: 13
+		},
+		[theme.breakpoints.down("md")]: {
+			fontSize: 10
+		}
 	},
 	logo: {
-		width: "100%",
+		width: 200,
+		[theme.breakpoints.down("md")]: {
+			width:120,
+		},
 		marginTop: "10px",
 	},
 	imageLink: {
 		paddingTop: `10px`,
-		marginLeft: `10px`
+		marginLeft: `10px`,
+		width: 24
 	},
 	imageLink1: {
-		marginTop: `20px`,
-		marginLeft: `20px`
+		marginTop: 25,
+		marginLeft: `20px`,
+		[theme.breakpoints.down("lg")]: {
+			// marginTop: 15,
+			fontSize: 10
+		},
+		[theme.breakpoints.down("md")]: {
+			marginTop: 20
+		},
+		width:24
 	},
 	mainMenu: {
 		textDecoration: "none !important",
-		fontSize: theme.typography.body1.fontSize,
+		fontSize: 16,
+		[theme.breakpoints.down("md")]: {
+			marginLeft: 10,
+			fontSize: 13
+		},
+		[theme.breakpoints.down("sm")]: {
+			marginLeft: 5,
+			fontSize: 10,
+		},
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
-		marginLeft: `20px`,
-		marginTop: `3px`
+		marginLeft: 15,
+		marginTop: `8px`,
 	},
 	menuItem: {
 		margin: `0px !important`,
+	},
+	menuButtonTextSignUp: {
+		fontSize: theme.typography.body1.fontSize,
+		fontWeight: theme.typography.h6.fontWeight,
+		color: theme.palette.common.white,
+		fontSize: 16,
+		[theme.breakpoints.down("lg")]: {
+			fontSize: 13
+		},
+		[theme.breakpoints.down("md")]: {
+			fontSize: 10,
+		},
 	}
 });
 
@@ -281,7 +327,7 @@ function NavBar(props) {
 								<Button
 									size="large"
 									onClick={openRegisterDialog}
-									classes={{ text: classes.menuButtonText }}
+									classes={{ text: classes.menuButtonTextSignUp }}
 									key={"sign-up-1"}
 								>
 									Sign up
@@ -435,7 +481,7 @@ function NavBar(props) {
 							<Button
 								size="large"
 								onClick={openRegisterDialog}
-								classes={{ text: classes.menuButtonText }}
+								classes={{ text: classes.menuButtonTextSignUp }}
 								key={"sign-up-1"}
 							>
 								Sign up
