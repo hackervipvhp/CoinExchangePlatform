@@ -47,11 +47,15 @@ const styles = theme => ({
       paddingBottom: theme.spacing(2)
     },
     textAlign: `center`
+  },
+  footerMenu: {
+    color:theme.palette.background.default,
+    fontSize: 16
   }
 });
 
 function Footer(props) {
-  const { classes, theme, width } = props;
+  const { classes } = props;
   return (
     <footer>
       <div className={classes.footerInner}>
@@ -60,7 +64,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 SUPPORT
               </Typography>
             </Link>
@@ -69,7 +73,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 FAQ
               </Typography>
             </Link>
@@ -78,7 +82,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 BLOG
               </Typography>
             </Link>
@@ -87,7 +91,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 TERMS AND CONDITIONS
               </Typography>
             </Link>
@@ -96,7 +100,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 PRIVACY POLICY
               </Typography>
             </Link>
@@ -105,7 +109,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 SYSTEM STATUS
               </Typography>
             </Link>
@@ -114,7 +118,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 MARKETS
               </Typography>
             </Link>
@@ -123,7 +127,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 FEES
               </Typography>
             </Link>
@@ -132,7 +136,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 API
               </Typography>
             </Link>
@@ -141,7 +145,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 COINS INFO
               </Typography>
             </Link>
@@ -150,7 +154,7 @@ function Footer(props) {
             <Link
               to={`/`}
             >
-              <Typography variant="p" style={{color:theme.palette.background.default}}>
+              <Typography variant="h6" className={classes.footerMenu}>
                 WHITEPAPER
               </Typography>
             </Link>

@@ -1,16 +1,10 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import {
   Grid,
-  Typography,
-  Card,
   Button,
-  Hidden,
-  Box,
   withStyles,
   withWidth,
-  isWidthUp,
   TextField,
   MenuItem
 } from "@material-ui/core";
@@ -204,7 +198,7 @@ const coins = [
 
 
 function HeadSection(props) {
-  const { classes, theme, width } = props;
+  const { classes } = props;
   return (
     <Fragment>
       <div className={classes.wrapper}>
@@ -212,6 +206,7 @@ function HeadSection(props) {
           <div className={classes.reviewImage}>
             <img
               src={reviewImage}
+              alt=""
             />
           </div>
           <h1 className={classes.landingText}>

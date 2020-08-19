@@ -16,7 +16,7 @@ const styles = theme => ({
     background: `url(${slideSectionImage}) center no-repeat`,
     // backgroundSize: `100% 100%`,
     height: '500px',
-    paddingTop: `200px`,
+    paddingTop: theme.spacing(20),
   },
   slider:{
     display: `flex`,
@@ -32,42 +32,42 @@ const styles = theme => ({
 
 
 function slideSection(props) {
-  const { classes, theme, width } = props;
+  const { classes } = props;
   return (
     <Fragment>
       <div className={classes.slideSection}>
-        <AliceCarousel autoPlay autoPlayInterval="2000">
+        <AliceCarousel autoPlay autoPlayInterval={2000}>
           <div key={`slider1`} className={classes.slider}>
             <div key={`slider1-1`} className={classes.sliderDiv}>
-              <img src={image1} className={classes.sliderImage}/>
+              <img src={image1} className={classes.sliderImage} alt=""/>
             </div>
             <div key={`slider1-2`} className={classes.sliderDiv}>
-              <img src={image2} className={classes.sliderImage}/>
+              <img src={image2} className={classes.sliderImage} alt=""/>
             </div>
             <div key={`slider1-3`} className={classes.sliderDiv}>
-              <img src={image3} className={classes.sliderImage}/>
+              <img src={image3} className={classes.sliderImage} alt=""/>
             </div>
           </div>
           <div key={`slider2`} className={classes.slider}>
             <div key={`slider2-1`} className={classes.sliderDiv}>
-              <img src={image1} className={classes.sliderImage}/>
+              <img src={image1} className={classes.sliderImage} alt=""/>
             </div>
             <div key={`slider2-2`} className={classes.sliderDiv}>
-              <img src={image2} className={classes.sliderImage}/>
+              <img src={image2} className={classes.sliderImage} alt=""/>
             </div>
             <div key={`slider2-3`} className={classes.sliderDiv}>
-              <img src={image3} className={classes.sliderImage}/>
+              <img src={image3} className={classes.sliderImage} alt=""/>
             </div>
           </div>
           <div key={`slider3`} className={classes.slider}>
             <div key={`slider3-1`} className={classes.sliderDiv}>
-              <img src={image1} className={classes.sliderImage}/>
+              <img src={image1} className={classes.sliderImage} alt=""/>
             </div>
             <div key={`slider3-2`} className={classes.sliderDiv}>
-              <img src={image2} className={classes.sliderImage}/>
+              <img src={image2} className={classes.sliderImage} alt=""/>
             </div>
             <div key={`slider3-3`} className={classes.sliderDiv}>
-              <img src={image3} className={classes.sliderImage}/>
+              <img src={image3} className={classes.sliderImage} alt=""/>
             </div>
           </div>
         </AliceCarousel>

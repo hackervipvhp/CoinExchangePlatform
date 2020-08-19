@@ -53,7 +53,7 @@ const styles = theme => ({
 });
 
 function latestNewsSection(props) {
-  const { classes, theme, width } = props;
+  const { classes } = props;
   return (
     <Fragment>
       <div key={`latest-news-background-div`} className={classes.latestNewsSection}>

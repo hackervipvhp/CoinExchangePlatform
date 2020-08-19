@@ -89,10 +89,12 @@ function FormDialog(props) {
             <img
               src={DialogImage}
               className={classes.dialogImage1}
+              alt=""
             />
             <img
               src={LogoImage}
               className={classes.dialogImage2}
+              alt=""
             />  
           </div>          
         </Hidden>

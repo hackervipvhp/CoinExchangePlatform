@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Grid, Typography, isWidthUp, withWidth, withStyles } from "@material-ui/core";
 import calculateSpacing from "./calculateSpacing";
 import FeatureCard from "./FeatureCard";
-import classNames from "classnames";
 import FeatureSectionImage from "../../../assets/images/features.png";
 import FeatureSectionImage1 from "../../../assets/images/features~1.png";
 import HighlySecuredImage from "../../../assets/images/Features Icons/Highly-secured.png";
@@ -172,7 +171,7 @@ const features = [
 ];
 
 function FeatureSection(props) {
-  const { classes, theme, width } = props;
+  const { classes, width } = props;
   return (
     <div className={classes.FeatureSection}>
       <div className={"container-fluid"}>
@@ -192,7 +191,7 @@ function FeatureSection(props) {
                 data-aos-delay={
                   isWidthUp("md", width) ? (isWidthUp("lg", width)?element.lgDelay:element.mdDelay) : element.smDelay
                 }
-                key={element.headline}
+                key={element.name}
               >
                 <FeatureCard
                   Icon={element.icon}

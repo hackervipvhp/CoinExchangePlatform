@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import {
   withStyles,
   withWidth,
@@ -39,11 +38,11 @@ const rows = [
   createData('Eclair', 262, 16.0, 24, 6.0),
   createData('Cupcake', 305, 3.7, 67, 4.3),
   createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Frozen yoghurt-1', 159, 6.0, 24, 4.0),
 ];
 
 function TableSection(props) {
-  const { classes, theme, width } = props;
+  const { classes } = props;
   return (
     <Fragment>
       <div className={classes.tableSection}>

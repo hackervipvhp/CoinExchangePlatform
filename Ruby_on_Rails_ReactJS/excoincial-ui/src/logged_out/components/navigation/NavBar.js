@@ -14,13 +14,10 @@ import {
 	Fab
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import BookIcon from "@material-ui/icons/Book";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
 import LogoImage from "../../../assets/images/Logo.png";
-import landingImage from "../../../assets/images/Main-Home-page-banner.png";
 import languageImage from "../../../assets/images/MenuIcons/language.png";
 import darkThemeIcon from "../../../assets/images/MenuIcons/dark-theme-icon.png";
 import menuIcon from "../../../assets/images/MenuIcons/menu.png";
@@ -36,7 +33,6 @@ function ShowOnScroll(props){
 		disableHysteresis: true,
 		threshold: 100, 
 	});
-	// console.log(trigger);
 
 	return (
 		<Slide appear={false} drection="down" in={trigger}>
@@ -62,22 +58,11 @@ const useStyles = makeStyles((theme) => ({
 function ScrollTop(props) {
 	const { children, window } = props;
 	const classes = useStyles();
-	// Note that you normally won't need to set the window ref as useScrollTrigger
-	// will default to window.
-	// This is only being set here because the demo is in an iframe.
 	const trigger = useScrollTrigger({
 	  target: window ? window() : undefined,
 	  disableHysteresis: true,
 	  threshold: 100,
 	});
-  
-	const handleClick = (event) => {
-	  const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
-  
-	  if (anchor) {
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	  }
-	};
   
 	return (
 	  <Zoom in={trigger}>
@@ -169,7 +154,6 @@ const styles = theme => ({
 		margin: `0px !important`,
 	},
 	menuButtonTextSignUp: {
-		fontSize: theme.typography.body1.fontSize,
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
 		fontSize: 16,
@@ -249,72 +233,72 @@ function NavBar(props) {
 									/>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-markets"}
+									to={"/markets"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Markets</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-features"}
+									to={"/features"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Features</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-supports"}
+									to={"/supports"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Supports</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-wallets"}
+									to={"/wallets"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Wallets</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-exchange"}
+									to={"/exchange"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Exchange</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-trading"}
+									to={"/trading"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Trading</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-p2p"}
+									to={"/p2p-dex"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>P2P DEX</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-products"}
+									to={"/products"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Products</h4>
 								</Link>
 								<Link
-									key={"menu-1"}
-									to={""}
+									key={"menu-services"}
+									to={"/services"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
@@ -391,7 +375,7 @@ function NavBar(props) {
 					<div style={{display: `flex`, float: `left`}}>
 						<Hidden smDown>
 							<Link
-								key={"menu-1"}
+								key={"menu-main-logo"}
 								to={""}
 								className={classes.noDecoration}
 								onClick={handleMobileDrawerClose}
@@ -403,72 +387,72 @@ function NavBar(props) {
 								/>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-markets"}
+								to={"/markets"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Markets</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-features"}
+								to={"/features"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Features</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-supports"}
+								to={"/supports"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Supports</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-wallets"}
+								to={"/wallets"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Wallets</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-exchange"}
+								to={"/exchange"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Exchange</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-trading"}
+								to={"/trading"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Trading</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-p2p"}
+								to={"/p2p-dex"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>P2P DEX</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-products"}
+								to={"/products"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Products</h4>
 							</Link>
 							<Link
-								key={"menu-1"}
-								to={""}
+								key={"menu-services"}
+								to={"/services"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>

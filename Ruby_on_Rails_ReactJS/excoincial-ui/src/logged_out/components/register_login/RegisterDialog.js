@@ -422,7 +422,7 @@ function RegisterDialog(props) {
             <Tab label="Email" />
             <Tab label="Mobile" />
           </Tabs>
-          {value == 0 && (
+          {value === 0 && (
             <TextField
               variant="outlined"
               margin="normal"
@@ -441,7 +441,7 @@ function RegisterDialog(props) {
               FormHelperTextProps={{ error: true }}
             />
           )}
-          { value == 1 && (
+          { value === 1 && (
             <div key={"mobile-div-1"} className={classes.mobileDiv}>
               <Autocomplete
                 className={classes.countryCode}

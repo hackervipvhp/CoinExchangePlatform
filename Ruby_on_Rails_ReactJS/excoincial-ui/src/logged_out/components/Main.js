@@ -32,8 +32,15 @@ function Main(props) {
   const selectHome = useCallback(() => {
     smoothScrollTop();
     document.title =
-      "Excoincial - Free template for building an SaaS or admin application";
+      "Excoincial - Home";
     setSelectedTab("Home");
+  }, [setSelectedTab]);
+
+  const selectMarkets = useCallback(() => {
+    smoothScrollTop();
+    document.title =
+      "Excoincial - Markets";
+    setSelectedTab("Markets");
   }, [setSelectedTab]);
 
   const selectBlog = useCallback(() => {
@@ -130,6 +137,7 @@ function Main(props) {
       <Routing
         blogPosts={blogPosts}
         selectHome={selectHome}
+        selectMarkets={selectMarkets}
         selectBlog={selectBlog}
       />
       <Footer />

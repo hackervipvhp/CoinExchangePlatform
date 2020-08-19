@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import {
   withStyles,
   withWidth,
@@ -52,7 +51,7 @@ const styles = theme => ({
 });
 
 function PartnersSection(props) {
-  const { classes, theme, width } = props;
+  const { classes } = props;
   return (
     <Fragment>
       <div className={classes.PartnersSection}>
@@ -63,6 +62,7 @@ function PartnersSection(props) {
           <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage1}
                 className={classes.partnerImage}
               />
@@ -71,6 +71,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage2}
               />
             </div>
@@ -78,6 +79,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage3}
               />
             </div>
@@ -85,6 +87,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage4}
               />
             </div>
@@ -92,6 +95,7 @@ function PartnersSection(props) {
           <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage5}
               />
             </div>
@@ -99,6 +103,7 @@ function PartnersSection(props) {
           <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage6}
               />
             </div>
@@ -106,6 +111,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage7}
               />
             </div>
@@ -113,6 +119,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage8}
               />
             </div>
@@ -120,6 +127,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage9}
               />
             </div>
@@ -127,6 +135,7 @@ function PartnersSection(props) {
           <Grid item lg={3} md={3} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage10}
               />
             </div>
@@ -135,6 +144,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage11}
               />
             </div>
@@ -142,6 +152,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage12}
               />
             </div>
@@ -149,6 +160,7 @@ function PartnersSection(props) {
           <Grid item lg={2} md={2} sm={4} xs={6} style={{textAlign:`center`, margin:`auto`}}>
             <div className={classes.partnerDiv}>
               <img
+                alt=""
                 src={PartnerImage13}
               />
             </div>

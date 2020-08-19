@@ -5,16 +5,13 @@ import { withRouter } from "react-router-dom";
 import {
   TextField,
   Button,
-  Checkbox,
   Typography,
-  FormControlLabel,
   withStyles,
   Tabs,
   Tab
 } from "@material-ui/core";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import FormDialog from "../../../shared/components/FormDialog";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
 import LockIcon from "@material-ui/icons/Lock";
@@ -430,7 +427,7 @@ function LoginDialog(props) {
               <Tab label="Email" />
               <Tab label="Mobile" />
             </Tabs>
-            {value == 0 && (
+            {value === 0 && (
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -454,7 +451,7 @@ function LoginDialog(props) {
                 FormHelperTextProps={{ error: true }}
               />
             )}
-            { value == 1 && (
+            { value === 1 && (
               <div key={"mobile-div-2"} className={classes.mobileDiv}>
                 <Autocomplete
                   className={classes.countryCode}

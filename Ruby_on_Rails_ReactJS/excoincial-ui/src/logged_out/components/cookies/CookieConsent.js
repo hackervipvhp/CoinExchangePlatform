@@ -17,6 +17,12 @@ const styles = (theme) => ({
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),
   },
+  moreDetails: {
+    color: theme.palette.background.default,
+  },
+  gotIt: {
+    color: theme.palette.background.default,
+  }
 });
 
 const europeanCountryCodes = [
@@ -100,11 +106,11 @@ function CookieConsent(props) {
       action={
         <Fragment>
           <Box mr={1}>
-            <Button color="primary" onClick={handleCookieRulesDialogOpen}>
+            <Button className={classes.moreDetails} onClick={handleCookieRulesDialogOpen}>
               More details
             </Button>
           </Box>
-          <Button color="primary" onClick={onAccept}>
+          <Button className={classes.gotIt} onClick={onAccept}>
             Got it!
           </Button>
         </Fragment>

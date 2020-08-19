@@ -53,7 +53,7 @@ const styles = theme => ({
 });
 
 function HowItWorksSection(props) {
-  const { classes, theme, width } = props;
+  const { classes, theme } = props;
   return (
     <Fragment>
       <div className={classes.HowItWorksSection}>

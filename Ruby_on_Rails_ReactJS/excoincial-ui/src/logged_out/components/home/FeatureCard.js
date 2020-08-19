@@ -23,7 +23,6 @@ function FeatureCard(props) {
   return (
     <Fragment>
       <div
-        // We will set color and fill here, due to some prios complications
         className={classes.iconWrapper}
         style={{
           boxShadow: theme.shadows[6],
@@ -36,6 +35,7 @@ function FeatureCard(props) {
         <img
           src={Icon}
           style={{marginRight:20}}
+          alt={"Feature-Card"}
         />
         <Typography variant="body1" className={hasOverflow?classes.overflowContent:""}>
         {content}
@@ -47,7 +47,7 @@ function FeatureCard(props) {
 
 FeatureCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  Icon: PropTypes.element.isRequired,
+  Icon: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   hasOverflow: PropTypes.bool.isRequired,
   theme: PropTypes.object

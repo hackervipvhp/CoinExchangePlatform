@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import { Switch } from "react-router-dom";
 import PropsRoute from "../../shared/components/PropsRoute";
 import Home from "./home/Home";
+import Markets from "./markets/Markets";
 import Blog from "./blog/Blog";
 import BlogPost from "./blog/BlogPost";
 
 function Routing(props) {
-  const { blogPosts, selectBlog, selectHome } = props;
+  const { blogPosts, selectBlog, selectHome, selectMarkets } = props;
   return (
     <Switch>
       {blogPosts.map(post => (
@@ -30,8 +31,8 @@ function Routing(props) {
         selectBlog={selectBlog}
         blogPosts={blogPosts}
       />
-      )
-      <PropsRoute path="/" component={Home} selectHome={selectHome} />)
+      <PropsRoute path="/" component={Home} selectHome={selectHome} />
+      <PropsRoute path="/markets" component={Markets} selectHome={selectMarkets} />
     </Switch>
   );
 }
@@ -39,6 +40,7 @@ function Routing(props) {
 Routing.propTypes = {
   blogposts: PropTypes.arrayOf(PropTypes.object),
   selectHome: PropTypes.func.isRequired,
+  selectMarkets: PropTypes.func.isRequired,
   selectBlog: PropTypes.func.isRequired
 };
 
