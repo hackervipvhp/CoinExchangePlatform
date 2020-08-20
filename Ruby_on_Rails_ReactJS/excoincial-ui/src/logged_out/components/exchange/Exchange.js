@@ -2,11 +2,11 @@ import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import LandingSection from "./Landing";
 
-function Markets(props) {
-  const { selectMarkets } = props;
+function Exchange(props) {
+  const { selectExchange } = props;
   useEffect(() => {
-    selectMarkets();
-  }, [selectMarkets]);
+    selectExchange();
+  }, [selectExchange]);
   return (
     <Fragment>
       <LandingSection />
@@ -14,8 +14,8 @@ function Markets(props) {
   );
 }
 
-Markets.propTypes = {
-  selectMarkets: PropTypes.func.isRequired
+Exchange.propTypes = {
+  selectExchange: PropTypes.func.isRequired
 };
 
-export default Markets;
+export default Exchange;

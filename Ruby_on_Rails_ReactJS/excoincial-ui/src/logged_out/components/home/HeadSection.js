@@ -153,9 +153,6 @@ const styles = theme => ({
     backgroundSize: `100% 100%`,
     height: '800px'
   },
-  markets: {
-
-  }
 });
 
 const currencies = [

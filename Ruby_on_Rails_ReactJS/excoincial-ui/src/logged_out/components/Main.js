@@ -43,6 +43,13 @@ function Main(props) {
     setSelectedTab("Markets");
   }, [setSelectedTab]);
 
+  const selectExchange = useCallback(() => {
+    smoothScrollTop();
+    document.title =
+      "Excoincial - Exchange";
+    setSelectedTab("Exchange");
+  }, [setSelectedTab]);
+
   const selectBlog = useCallback(() => {
     smoothScrollTop();
     document.title = "Excoincial - Blog";
@@ -138,6 +145,7 @@ function Main(props) {
         blogPosts={blogPosts}
         selectHome={selectHome}
         selectMarkets={selectMarkets}
+        selectExchange={selectExchange}
         selectBlog={selectBlog}
       />
       <Footer />

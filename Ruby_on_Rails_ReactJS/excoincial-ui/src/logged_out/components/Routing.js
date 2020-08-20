@@ -4,11 +4,18 @@ import { Switch } from "react-router-dom";
 import PropsRoute from "../../shared/components/PropsRoute";
 import Home from "./home/Home";
 import Markets from "./markets/Markets";
+import Exchange from "./exchange/Exchange";
 import Blog from "./blog/Blog";
 import BlogPost from "./blog/BlogPost";
 
 function Routing(props) {
-  const { blogPosts, selectBlog, selectHome, selectMarkets } = props;
+  const {
+    blogPosts,
+    selectBlog,
+    selectHome,
+    selectMarkets,
+    selectExchange,
+  } = props;
   return (
     <Switch>
       {blogPosts.map(post => (
@@ -31,8 +38,24 @@ function Routing(props) {
         selectBlog={selectBlog}
         blogPosts={blogPosts}
       />
-      <PropsRoute path="/" component={Home} selectHome={selectHome} />
-      <PropsRoute path="/markets" component={Markets} selectHome={selectMarkets} />
+      <PropsRoute
+        exact
+        path="/"
+        component={Home}
+        selectHome={selectHome}
+      />
+      <PropsRoute
+        exact
+        path="/markets"
+        component={Markets}
+        selectMarkets={selectMarkets}
+      />
+      <PropsRoute
+        exact
+        path="/exchange"
+        component={Exchange}
+        selectExchange={selectExchange}
+      />
     </Switch>
   );
 }
@@ -41,6 +64,7 @@ Routing.propTypes = {
   blogposts: PropTypes.arrayOf(PropTypes.object),
   selectHome: PropTypes.func.isRequired,
   selectMarkets: PropTypes.func.isRequired,
+  selectExchange: PropTypes.func.isRequired,
   selectBlog: PropTypes.func.isRequired
 };
 

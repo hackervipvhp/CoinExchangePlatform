@@ -193,7 +193,7 @@ function NavBar(props) {
 			icon: languageImage
 		},
 		{
-			link: "/",
+			link: "/blog",
 			name: "Blog",
 			icon: darkThemeIcon
 		},
