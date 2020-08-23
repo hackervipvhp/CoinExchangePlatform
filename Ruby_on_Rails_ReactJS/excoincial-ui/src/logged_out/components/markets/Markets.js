@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import LandingSection from "./Landing";
+import TableSection from "./TableSection";
 
 function Markets(props) {
   const { selectMarkets } = props;
@@ -10,6 +11,7 @@ function Markets(props) {
   return (
     <Fragment>
       <LandingSection />
+      <TableSection />
     </Fragment>
   );
 }

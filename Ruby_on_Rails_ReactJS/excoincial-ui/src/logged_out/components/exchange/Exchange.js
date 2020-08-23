@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import LandingSection from "./Landing";
+import TradingViewWidget from "react-tradingview-widget";
+
 
 function Exchange(props) {
   const { selectExchange } = props;
@@ -10,6 +12,9 @@ function Exchange(props) {
   return (
     <Fragment>
       <LandingSection />
+      <TradingViewWidget
+        symbol="BTC/USD"
+      />
     </Fragment>
   );
 }

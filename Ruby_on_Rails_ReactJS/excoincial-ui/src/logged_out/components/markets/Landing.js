@@ -1,17 +1,15 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   withStyles,
   withWidth,
   Grid,
   Typography,
-  Tabs,
-  Tab
 } from "@material-ui/core";
 import landingImage from "../../../assets/images/Main-Home-page-banner.png";
-import marketImage1 from "../../../assets/images/first-add.png";
-import marketImage2 from "../../../assets/images/sec-add.png";
-import marketImage3 from "../../../assets/images/thired-add.png";
+import marketImage1 from "../../../assets/images/blue.png";
+import marketImage2 from "../../../assets/images/red.png";
+
 
 const styles = theme => ({
   landingBackgroundImage: {
@@ -21,11 +19,8 @@ const styles = theme => ({
     paddingTop: 200,
     paddingBottom: 100,
   },
-  marketImage: {
-    padding: theme.spacing(2),
-  },
   bestSeller: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundImage: `linear-gradient(to right, rgb(14,13,81) 25%, rgb(74,59,144) 50%, rgb(14,13,81) 75%)`,
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3)
   },
@@ -36,23 +31,90 @@ const styles = theme => ({
   },
   transactions: {
     backgroundColor: theme.palette.background.default,
+  },
+  marketImageBlue:{
+    background: `url("${marketImage1}") center center no-repeat`,
+    backgroundSize: `100% 100%`,
+    height: 250,
+    paddingLeft: 20,
+  },
+  marketImageRed:{
+    background: `url("${marketImage2}") center center no-repeat`,
+    backgroundSize: `100% 100%`,
+    height: 250,
+    paddingLeft: 20,
+  },
+  pOrMBlue:{
+    marginTop: 20,
+    backgroundColor: `rgb(6,168,155)`,
+    height: 45,
+    padding: 8,
+    marginRight:5,
+    borderRadius: `25px 0 0 25px`,
+  },
+  pOrMRed:{
+    marginTop: 20,
+    backgroundColor: `rgb(222,13,44)`,
+    height: 45,
+    padding: 8,
+    marginRight:5,
+    borderRadius: `25px 0 0 25px`,
   }
 });
 
-function HeadSection(props) {
-  const { classes } = props;
-  const [ tabIndex, setTabIndex] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setTabIndex(newValue);
-  };
+function Landing(props) {
+  const { classes, theme } = props;
 
   return (
     <Fragment>
       <div key={"market-landing-1"} className={classes.landingBackgroundImage} >
-        <img src={marketImage1} className={classes.marketImage} alt=""/>
-        <img src={marketImage2} className={classes.marketImage} alt=""/>
-        <img src={marketImage3} className={classes.marketImage} alt=""/>
+        <Grid container style={{justifyContent:'center'}}>
+          <Grid item md={3} sm={12} className={classes.marketImageBlue}>
+            <div style={{display:`flex`, justifyContent:`space-between`}}>
+              <div key="market-landing-left-1">
+                <Typography variant="h6" style={{color: theme.palette.background.default, paddingTop: 20}}>BNB/USDT</Typography>
+                <div style={{display: `flex`, justifyContent: `left`}}>
+                  <Typography variant="h6" style={{color: `rgb(0,230,212)`}}>16.2208</Typography>
+                  <Typography variant="overline" style={{color: theme.palette.background.default}}>&nbsp;&nbsp;$ 16.21</Typography>
+                </div>
+                <Typography variant="overline" style={{color: theme.palette.background.default, paddingBottom: 200}}>Volume: 20,602,681.72 USDT</Typography>
+              </div>
+              <div className={classes.pOrMBlue}>
+                <Typography variant="h6" style={{color: theme.palette.background.default}}>+ 0.45%</Typography>
+              </div>
+            </div>
+          </Grid>
+          <Grid item md={3} sm={12} className={classes.marketImageRed}>
+            <div style={{display:`flex`, justifyContent:`space-between`}}>
+              <div key="market-landing-left-1">
+                <Typography variant="h6" style={{color: theme.palette.background.default, paddingTop: 20}}>BNB/USDT</Typography>
+                <div style={{display: `flex`, justifyContent: `left`}}>
+                  <Typography variant="h6" style={{color: `rgb(222,15,45)`}}>16.2208</Typography>
+                  <Typography variant="overline" style={{color: theme.palette.background.default}}>&nbsp;&nbsp;$ 16.21</Typography>
+                </div>
+                <Typography variant="overline" style={{color: theme.palette.background.default, paddingBottom: 200}}>Volume: 20,602,681.72 USDT</Typography>
+              </div>
+              <div className={classes.pOrMRed}>
+                <Typography variant="h6" style={{color: theme.palette.background.default}}>+ 0.45%</Typography>
+              </div>
+            </div>
+          </Grid>
+          <Grid item md={3} sm={12} className={classes.marketImageBlue}>
+            <div style={{display:`flex`, justifyContent:`space-between`}}>
+              <div key="market-landing-left-1">
+                <Typography variant="h6" style={{color: theme.palette.background.default, paddingTop: 20}}>BNB/USDT</Typography>
+                <div style={{display: `flex`, justifyContent: `left`}}>
+                  <Typography variant="h6" style={{color: `rgb(0,230,212)`}}>16.2208</Typography>
+                  <Typography variant="overline" style={{color: theme.palette.background.default}}>&nbsp;&nbsp;$ 16.21</Typography>
+                </div>
+                <Typography variant="overline" style={{color: theme.palette.background.default, paddingBottom: 200}}>Volume: 20,602,681.72 USDT</Typography>
+              </div>
+              <div className={classes.pOrMBlue}>
+                <Typography variant="h6" style={{color: theme.palette.background.default}}>+ 0.45%</Typography>
+              </div>
+            </div>
+          </Grid>
+        </Grid>
       </div>
       <div key={"market-best-seller-1"} className={classes.bestSeller}>
         <Grid container>
@@ -102,31 +164,16 @@ function HeadSection(props) {
           </Grid>
         </Grid>
       </div>
-      <div key={"market-transactions-1"} className={classes.transactions}>
-        <Tabs
-          value={tabIndex}
-          indicatorColor="primary"
-          textColor="primary"
-          onChange={handleChange}
-        >
-          <Tab label="Favorites" />
-          <Tab label="EXL" />
-          <Tab label="AFCASH" />
-          <Tab label="BTC" />
-          <Tab label="ALTS" />
-          <Tab label="FIAT" />
-        </Tabs>
-      </div>
     </Fragment>
   );
 }
 
-HeadSection.propTypes = {
+Landing.propTypes = {
   classes: PropTypes.object,
   width: PropTypes.string,
   theme: PropTypes.object
 };
 
 export default withWidth()(
-  withStyles(styles, { withTheme: true })(HeadSection)
+  withStyles(styles, { withTheme: true })(Landing)
 );

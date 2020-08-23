@@ -1,12 +1,10 @@
-import React, { useState, Fragment } from "react";
+import React, {Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   withStyles,
   withWidth,
   Grid,
   Typography,
-  Tabs,
-  Tab
 } from "@material-ui/core";
 import landingImage from "../../../assets/images/Main-Home-page-banner.png";
 const styles = theme => ({
@@ -37,11 +35,6 @@ const styles = theme => ({
 
 function HeadSection(props) {
   const { classes } = props;
-  const [ tabIndex, setTabIndex] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setTabIndex(newValue);
-  };
 
   return (
     <Fragment>

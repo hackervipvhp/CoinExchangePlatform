@@ -18,20 +18,21 @@ import HowToRegIcon from "@material-ui/icons/HowToReg";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
 import LogoImage from "../../../assets/images/Logo.png";
-import languageImage from "../../../assets/images/MenuIcons/language.png";
-import darkThemeIcon from "../../../assets/images/MenuIcons/dark-theme-icon.png";
-import menuIcon from "../../../assets/images/MenuIcons/menu.png";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import smoothScrollTop from "../../../shared/functions/smoothScrollTop";
+import AppIcon from "@material-ui/icons/Apps";
+import LanguageIcon from "@material-ui/icons/Language";
+import CurrencyIcon from "@material-ui/icons/Brightness3";
+import SocialIconsImage from "../../../assets/images/social-icons.png";
 
 function ShowOnScroll(props){
 	const { children, window } = props;
 	const trigger = useScrollTrigger({ 
 		target: window ? window() : undefined,
 		disableHysteresis: true,
-		threshold: 100, 
+		threshold: 50, 
 	});
 
 	return (
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
 	  position: 'fixed',
 	  bottom: theme.spacing(2),
 	  right: theme.spacing(2),
+	  zIndex: 102,
 	},
   }));
   
@@ -61,7 +63,7 @@ function ScrollTop(props) {
 	const trigger = useScrollTrigger({
 	  target: window ? window() : undefined,
 	  disableHysteresis: true,
-	  threshold: 100,
+	  threshold: 50,
 	});
   
 	return (
@@ -108,7 +110,8 @@ const styles = theme => ({
 		},
 		[theme.breakpoints.down("md")]: {
 			fontSize: 10
-		}
+		},
+		marginLeft: 10,
 	},
 	logo: {
 		width: 200,
@@ -163,6 +166,12 @@ const styles = theme => ({
 		[theme.breakpoints.down("md")]: {
 			fontSize: 10,
 		},
+	},
+	socialIcons: {
+		position: 'absolute',
+		right: 0,
+		top: 250,
+		zIndex:101,
 	}
 });
 
@@ -178,6 +187,46 @@ function NavBar(props) {
 	} = props;
 	const menuItems = [
 		{
+			name: "Markets",
+			link: "/markets",
+		},
+		{
+			name: "Support",
+			link: "/support",
+		},
+		{
+			name: "Exchange",
+			link: "/exchange",
+		},
+		{
+			name: "Trading",
+			link: "/trading",
+		},
+		{
+			name: "P2P DEX",
+			link: "/p2p-dex",
+		},
+		{
+			name: "Products",
+			link: "/products",
+		},
+		{
+			name: "Services",
+			link: "/services",
+		},
+		{
+			name: "Vote",
+			link: "/vote",
+		},
+		{
+			name: "ICO",
+			link: "/ico",
+		},
+		{
+			name: "Buy/Sell",
+			link: "/buy-sell",
+		},
+		{
 			name: "Sign in",
 			onClick: openLoginDialog,
 			icon: <LockOpenIcon className="text-white" />
@@ -190,12 +239,12 @@ function NavBar(props) {
 		{
 			link: "/",
 			name: "Language",
-			icon: languageImage
+			icon: <LanguageIcon color="primary" style={{fontSize:30}}/>
 		},
 		{
 			link: "/blog",
 			name: "Blog",
-			icon: darkThemeIcon
+			icon: <CurrencyIcon color="primary" style={{transform: `rotate(135deg)`, fontSize:30}}/>
 		},
 		
 	];
@@ -226,11 +275,7 @@ function NavBar(props) {
 									className={classes.noDecoration}
 									onClick={handleMobileDrawerClose}
 								>
-									<img
-										src={menuIcon}
-										className={classes.imageLink1}
-										alt="Main Logo"
-									/>
+									<AppIcon color="primary" style={{marginTop:27}}/>
 								</Link>
 								<Link
 									key={"menu-markets"}
@@ -241,28 +286,12 @@ function NavBar(props) {
 									<h4 classes={classes.menuItem}>Markets</h4>
 								</Link>
 								<Link
-									key={"menu-features"}
-									to={"/features"}
+									key={"menu-support"}
+									to={"/support"}
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Features</h4>
-								</Link>
-								<Link
-									key={"menu-supports"}
-									to={"/supports"}
-									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
-								>
-									<h4 classes={classes.menuItem}>Supports</h4>
-								</Link>
-								<Link
-									key={"menu-wallets"}
-									to={"/wallets"}
-									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
-								>
-									<h4 classes={classes.menuItem}>Wallets</h4>
+									<h4 classes={classes.menuItem}>Support</h4>
 								</Link>
 								<Link
 									key={"menu-exchange"}
@@ -271,7 +300,7 @@ function NavBar(props) {
 									onClick={handleMobileDrawerClose}
 								>
 									<h4 classes={classes.menuItem}>Exchange</h4>
-								</Link>
+								</Link>								
 								<Link
 									key={"menu-trading"}
 									to={"/trading"}
@@ -304,6 +333,30 @@ function NavBar(props) {
 								>
 									<h4 classes={classes.menuItem}>Services</h4>
 								</Link>
+								<Link
+									key={"menu-vote"}
+									to={"/vote"}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Vote</h4>
+								</Link>
+								<Link
+									key={"menu-ico"}
+									to={"/ico"}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>ICO</h4>
+								</Link>
+								<Link
+									key={"menu-buySell"}
+									to={"/buy-sell"}
+									className={classes.mainMenu}
+									onClick={handleMobileDrawerClose}
+								>
+									<h4 classes={classes.menuItem}>Buy/Sell</h4>
+								</Link>
 							</Hidden>
 						</div>
 						<div>
@@ -334,11 +387,7 @@ function NavBar(props) {
 												className={classes.noDecoration}
 												onClick={handleMobileDrawerClose}
 											>
-												<img
-													src={element.icon}
-													className={classes.imageLink}
-													alt="Main Logo"
-												/>
+												{element.icon}
 											</Link>
 										);
 									}
@@ -380,11 +429,7 @@ function NavBar(props) {
 								className={classes.noDecoration}
 								onClick={handleMobileDrawerClose}
 							>
-								<img
-									src={menuIcon}
-									className={classes.imageLink1}
-									alt="Main Logo"
-								/>
+								<AppIcon color="primary" style={{marginTop:27}}/>
 							</Link>
 							<Link
 								key={"menu-markets"}
@@ -395,28 +440,12 @@ function NavBar(props) {
 								<h4 classes={classes.menuItem}>Markets</h4>
 							</Link>
 							<Link
-								key={"menu-features"}
-								to={"/features"}
+								key={"menu-support"}
+								to={"/support"}
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Features</h4>
-							</Link>
-							<Link
-								key={"menu-supports"}
-								to={"/supports"}
-								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
-							>
-								<h4 classes={classes.menuItem}>Supports</h4>
-							</Link>
-							<Link
-								key={"menu-wallets"}
-								to={"/wallets"}
-								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
-							>
-								<h4 classes={classes.menuItem}>Wallets</h4>
+								<h4 classes={classes.menuItem}>Support</h4>
 							</Link>
 							<Link
 								key={"menu-exchange"}
@@ -425,7 +454,7 @@ function NavBar(props) {
 								onClick={handleMobileDrawerClose}
 							>
 								<h4 classes={classes.menuItem}>Exchange</h4>
-							</Link>
+							</Link>					
 							<Link
 								key={"menu-trading"}
 								to={"/trading"}
@@ -458,6 +487,30 @@ function NavBar(props) {
 							>
 								<h4 classes={classes.menuItem}>Services</h4>
 							</Link>
+							<Link
+								key={"menu-vote"}
+								to={"/vote"}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Vote</h4>
+							</Link>
+							<Link
+								key={"menu-ico"}
+								to={"/ico"}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>ICO</h4>
+							</Link>
+							<Link
+								key={"menu-buySell"}
+								to={"/buy-sell"}
+								className={classes.mainMenu}
+								onClick={handleMobileDrawerClose}
+							>
+								<h4 classes={classes.menuItem}>Buy/Sell</h4>
+							</Link>
 						</Hidden>
 					</div>
 					<div>
@@ -488,11 +541,7 @@ function NavBar(props) {
 											className={classes.noDecoration}
 											onClick={handleMobileDrawerClose}
 										>
-											<img
-												src={element.icon}
-												className={classes.imageLink}
-												alt="Main Logo"
-											/>
+											{element.icon}
 										</Link>
 									);
 								}
@@ -522,6 +571,11 @@ function NavBar(props) {
 				<KeyboardArrowUpIcon />
 				</Fab>
 			</ScrollTop>
+			<img
+				src = {SocialIconsImage}
+				alt="Social Icons"
+				className={classes.socialIcons}
+			/>
 		</div>
 	);
 }

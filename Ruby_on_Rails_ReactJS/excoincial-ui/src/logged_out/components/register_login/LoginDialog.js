@@ -378,7 +378,7 @@ function LoginDialog(props) {
       }, 1500);
     } else {
       setTimeout(() => {
-        history.push("/c/dashboard");
+        history.push("/excoincial/dashboard");
       }, 150);
     }
   }, [setIsLoading, loginEmail, loginPassword, history, setStatus]);
@@ -413,9 +413,7 @@ function LoginDialog(props) {
               align="center"
               className={classes.suggestURL}
             >
-              <div style={{height:20}}>
                 <LockIcon className={classes.LockIcon} />
-              </div>
               https://excoincial.com/accounts/login
             </Typography>
             <Tabs

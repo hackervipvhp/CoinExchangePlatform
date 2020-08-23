@@ -1,37 +1,42 @@
 import React, { Fragment, useRef, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import {
   AppBar,
   Toolbar,
-  Typography,
-  Avatar,
   Drawer,
+  Typography,
   List,
   IconButton,
   ListItem,
   ListItemIcon,
-  ListItemText,
   Hidden,
   Tooltip,
   Box,
   withStyles,
-  isWidthUp,
-  withWidth
+  withWidth,
+  rgbToHex
 } from "@material-ui/core";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ImageIcon from "@material-ui/icons/Image";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import MenuIcon from "@material-ui/icons/Menu";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import MessagePopperButton from "./MessagePopperButton";
-import SideDrawer from "./SideDrawer";
-import Balance from "./Balance";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
-import profilePicture from "../../dummy_data/images/profilePicture.jpg";
 import LogoImage from "../../../assets/images/Logo.png";
+import AppIcon from "@material-ui/icons/Apps";
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import LanguageIcon from "@material-ui/icons/Language";
+import CurrencyIcon from "@material-ui/icons/Brightness3";
+import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined';
+import ShopTwoOutlinedIcon from '@material-ui/icons/ShopTwoOutlined';
+import SecurityOutlinedIcon from '@material-ui/icons/SecurityOutlined';
+import EmojiEventsOutlinedIcon from '@material-ui/icons/EmojiEventsOutlined';
+import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+import TuneOutlinedIcon from '@material-ui/icons/TuneOutlined';
+import SportsKabaddiOutlinedIcon from '@material-ui/icons/SportsKabaddiOutlined';
+
 
 const styles = theme => ({
   appBar: {
@@ -62,7 +67,8 @@ const styles = theme => ({
     [theme.breakpoints.up("lg")]: {
       paddingLeft: theme.spacing(4),
       paddingRight: theme.spacing(4)
-    }
+    },
+    backgroundColor: theme.palette.secondary.main
   },
   accountAvatar: {
     backgroundColor: theme.palette.secondary.main,
@@ -75,6 +81,17 @@ const styles = theme => ({
       marginRight: theme.spacing(1.5)
     }
   },
+  noDecoration: {
+		textDecoration: "none !important",
+		fontSize: 16,
+		[theme.breakpoints.down("lg")]: {
+			fontSize: 13
+		},
+		[theme.breakpoints.down("md")]: {
+			fontSize: 10
+		},
+		marginLeft: 10,
+	},
   drawerPaper: {
     height: "100%vh",
     whiteSpace: "nowrap",
@@ -83,9 +100,12 @@ const styles = theme => ({
     overflowX: "hidden",
     marginTop: theme.spacing(8),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9)
+      width: `fit-content`
     },
-    backgroundColor: theme.palette.common.black
+    backgroundColor: theme.palette.background.default,
+    boxShadow: theme.shadows[6],
+    paddingRight: 20,
+    paddingLeft: 20
   },
   smBordered: {
     [theme.breakpoints.down("xs")]: {
@@ -119,21 +139,42 @@ const styles = theme => ({
     paddingRight: theme.spacing(2)
   },
   justifyCenter: {
-    justifyContent: "center"
+    justifyContent: "left",
+    minWidth: `fit-content !important`,
+    padding: 10,
+    borderRadius: 30,
+    backgroundColor: `rgb(200,200,200)`
   },
   permanentDrawerListItem: {
-    justifyContent: "center",
+    justifyContent: "left",
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2)
+  },
+  mainMenu: {
+		textDecoration: "none !important",
+		fontSize: 16,
+		[theme.breakpoints.down("md")]: {
+			marginLeft: 10,
+			fontSize: 13
+		},
+		[theme.breakpoints.down("sm")]: {
+			marginLeft: 5,
+			fontSize: 10,
+		},
+		fontWeight: theme.typography.h6.fontWeight,
+		color: theme.palette.common.white,
+		marginLeft: 15,
+  },
+  justifyLeft:{
+    paddingLeft: 20
   }
 });
 
 function NavBar(props) {
-  const { selectedTab, messages, classes, width, openAddBalanceDialog } = props;
+  const { selectedTab, messages, classes} = props;
   // Will be use to make website more accessible by screen readers
   const links = useRef([]);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
 
   const openMobileDrawer = useCallback(() => {
     setIsMobileOpen(true);
@@ -143,63 +184,133 @@ function NavBar(props) {
     setIsMobileOpen(false);
   }, [setIsMobileOpen]);
 
-  const openDrawer = useCallback(() => {
-    setIsSideDrawerOpen(true);
-  }, [setIsSideDrawerOpen]);
-
-  const closeDrawer = useCallback(() => {
-    setIsSideDrawerOpen(false);
-  }, [setIsSideDrawerOpen]);
-
   const menuItems = [
     {
-      link: "/c/dashboard",
+      link: "/excoincial/dashboard",
       name: "Dashboard",
       onClick: closeMobileDrawer,
       icon: {
         desktop: (
           <DashboardIcon
             className={
-              selectedTab === "Dashboard" ? classes.textPrimary : "text-white"
+              selectedTab === "Dashboard" ? classes.textPrimary : "text-black"
             }
             fontSize="small"
           />
         ),
-        mobile: <DashboardIcon className="text-white" />
+        mobile: <DashboardIcon className="text-black" />
       }
     },
     {
-      link: "/c/posts",
-      name: "Posts",
+      link: "/excoincial/payment",
+      name: "Payment",
       onClick: closeMobileDrawer,
       icon: {
         desktop: (
-          <ImageIcon
+          <MonetizationOnOutlinedIcon
             className={
-              selectedTab === "Posts" ? classes.textPrimary : "text-white"
+              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
             }
             fontSize="small"
           />
         ),
-        mobile: <ImageIcon className="text-white" />
+        mobile: <MonetizationOnOutlinedIcon className="text-yellow" />
       }
     },
     {
-      link: "/c/subscription",
-      name: "Subscription",
+      link: "/excoincial/buy-sell",
+      name: "Buy/Sell",
       onClick: closeMobileDrawer,
       icon: {
         desktop: (
-          <AccountBalanceIcon
+          <ShopTwoOutlinedIcon
             className={
-              selectedTab === "Subscription"
-                ? classes.textPrimary
-                : "text-white"
+              selectedTab === "Buy/Sell" ? classes.textPrimary : "text-black"
             }
             fontSize="small"
           />
         ),
-        mobile: <AccountBalanceIcon className="text-white" />
+        mobile: <ShopTwoOutlinedIcon className="text-black" />
+      }
+    },
+    {
+      link: "/excoincial/security",
+      name: "Security",
+      onClick: closeMobileDrawer,
+      icon: {
+        desktop: (
+          <SecurityOutlinedIcon
+            className={
+              selectedTab === "Security" ? classes.textPrimary : "text-pink"
+            }
+            fontSize="small"
+          />
+        ),
+        mobile: <SecurityOutlinedIcon className="text-pink" />
+      }
+    },
+    {
+      link: "/excoincial/reward-center",
+      name: "Reward Center",
+      onClick: closeMobileDrawer,
+      icon: {
+        desktop: (
+          <EmojiEventsOutlinedIcon
+            className={
+              selectedTab === "Reward Center" ? classes.textPrimary : "text-red"
+            }
+            fontSize="small"
+          />
+        ),
+        mobile: <EmojiEventsOutlinedIcon className="text-red" />
+      }
+    },
+    {
+      link: "/excoincial/task-center",
+      name: "Task Center",
+      onClick: closeMobileDrawer,
+      icon: {
+        desktop: (
+          <AssignmentOutlinedIcon
+            className={
+              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+            }
+            fontSize="small"
+          />
+        ),
+        mobile: <AssignmentOutlinedIcon className="text-yellow" />
+      }
+    },
+    {
+      link: "/excoincial/settings",
+      name: "Settings",
+      onClick: closeMobileDrawer,
+      icon: {
+        desktop: (
+          <TuneOutlinedIcon
+            className={
+              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+            }
+            fontSize="small"
+          />
+        ),
+        mobile: <TuneOutlinedIcon className="text-yellow" />
+      }
+    },
+    {
+      link: "/excoincial/referral",
+      name: "Referral",
+      onClick: closeMobileDrawer,
+      icon: {
+        desktop: (
+          <SportsKabaddiOutlinedIcon
+            className={
+              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+            }
+            fontSize="small"
+          />
+        ),
+        mobile: <SportsKabaddiOutlinedIcon className="text-yellow" />
       }
     },
     {
@@ -231,6 +342,7 @@ function NavBar(props) {
             </Hidden>
             <Hidden xsDown>
               <Link
+                to="/"
                 className={classes.brandText}
                 display="inline"
               >
@@ -242,48 +354,131 @@ function NavBar(props) {
               </Link>
             </Hidden>
           </Box>
+          <div style={{display: `flex`, float: `left`}}>
+            <Hidden smDown>
+              <Link
+                key={"menu-1"}
+                to={""}
+                className={classes.noDecoration}
+                onClick={closeMobileDrawer}
+              >
+                <AppIcon color="primary" style={{marginTop:19, marginLeft: 30}}/>
+              </Link>
+              <Link
+                key={"menu-markets"}
+                to={"/markets"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Markets</h4>
+              </Link>
+              <Link
+                key={"menu-support"}
+                to={"/support"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Support</h4>
+              </Link>
+              <Link
+                key={"menu-exchange"}
+                to={"/exchange"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Exchange</h4>
+              </Link>								
+              <Link
+                key={"menu-trading"}
+                to={"/trading"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Trading</h4>
+              </Link>
+              <Link
+                key={"menu-p2p"}
+                to={"/p2p-dex"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>P2PDEX</h4>
+              </Link>
+              <Link
+                key={"menu-products"}
+                to={"/products"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Products</h4>
+              </Link>
+              <Link
+                key={"menu-services"}
+                to={"/services"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Services</h4>
+              </Link>
+              <Link
+                key={"menu-vote"}
+                to={"/vote"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>Vote</h4>
+              </Link>
+              <Link
+                key={"menu-ico"}
+                to={"/ico"}
+                className={classes.mainMenu}
+                onClick={closeMobileDrawer}
+              >
+                <h4 classes={classes.menuItem}>ICO</h4>
+              </Link>
+						</Hidden>
+					</div>
           <Box
             display="flex"
             justifyContent="flex-end"
             alignItems="center"
             width="100%"
           >
-            {isWidthUp("sm", width) && (
-              <Box mr={3}>
-                <Balance
-                  balance={2573}
-                  openAddBalanceDialog={openAddBalanceDialog}
-                />
-              </Box>
-            )}
-            <MessagePopperButton messages={messages} />
-            <ListItem
-              disableGutters
-              className={classNames(classes.iconListItem, classes.smBordered)}
+            <Link
+              key={"menu-wallets"}
+              to={"/wallets"}
+              className={classes.mainMenu}
+              onClick={closeMobileDrawer}
             >
-              <Avatar
-                alt="profile picture"
-                src={profilePicture}
-                className={classNames(classes.accountAvatar)}
-              />
-              {isWidthUp("sm", width) && (
-                <ListItemText
-                  className={classes.username}
-                  primary={
-                    <Typography color="textPrimary">Username</Typography>
-                  }
-                />
-              )}
-            </ListItem>
+              <h4 classes={classes.menuItem}>Wallets</h4>
+            </Link>
+            <Link
+              key={"menu-orders"}
+              to={"/orders"}
+              className={classes.mainMenu}
+              onClick={closeMobileDrawer}
+            >
+              <h4 classes={classes.menuItem}>Orders</h4>
+            </Link>
+            <IconButton style={{padding: 0, marginLeft:10}}>
+              <AccountCircleOutlinedIcon style={{color: `white`, fontSize:36}}/>
+            </IconButton>
+            <MessagePopperButton messages={messages} />
+            <Link
+              to="/"
+              className={classes.noDecoration}
+              onClick={closeMobileDrawer}
+            >
+              <LanguageIcon color="primary" style={{marginTop: 5}}/>
+            </Link>
+            <Link
+              to="./blog"
+              className={classes.noDecoration}
+              onClick={closeMobileDrawer}
+            >
+              <CurrencyIcon color="primary" style={{transform: `rotate(135deg)`, marginTop:5}}/>
+            </Link>
           </Box>
-          <IconButton
-            onClick={openDrawer}
-            color="primary"
-            aria-label="Open Sidedrawer"
-          >
-            <SupervisorAccountIcon />
-          </IconButton>
-          <SideDrawer open={isSideDrawerOpen} onClose={closeDrawer} />
         </Toolbar>
       </AppBar>
       <Hidden xsDown>
@@ -305,11 +500,11 @@ function NavBar(props) {
                   links.current[index] = node;
                 }}
               >
-                <Tooltip
+                {/* <Tooltip
                   title={element.name}
                   placement="right"
                   key={element.name}
-                >
+                > */}
                   <ListItem
                     selected={selectedTab === element.name}
                     button
@@ -327,8 +522,9 @@ function NavBar(props) {
                     <ListItemIcon className={classes.justifyCenter}>
                       {element.icon.desktop}
                     </ListItemIcon>
+                    <Typography className={classes.justifyLeft}>{element.name}</Typography>
                   </ListItem>
-                </Tooltip>
+                {/* </Tooltip> */}
               </Link>
             ))}
           </List>

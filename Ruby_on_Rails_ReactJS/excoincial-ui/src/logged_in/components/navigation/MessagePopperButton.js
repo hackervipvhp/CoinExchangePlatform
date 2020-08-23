@@ -12,7 +12,7 @@ import {
   Box,
   withStyles,
 } from "@material-ui/core";
-import MessageIcon from "@material-ui/icons/Message";
+import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import MessageListItem from "./MessageListItem";
 
 const styles = (theme) => ({
@@ -58,9 +58,9 @@ function MessagePopperButton(props) {
         buttonRef={anchorEl}
         aria-label="Open Messages"
         aria-describedby={id}
-        color="primary"
+        style={{padding: 0, marginLeft:10}}
       >
-        <MessageIcon />
+        <NotificationsOutlinedIcon style={{color:`white`, fontSize: 36}}/>
       </IconButton>
       <Popover
         disableScrollLock
@@ -80,7 +80,7 @@ function MessagePopperButton(props) {
       >
         <AppBar position="static" color="inherit" className={classes.noShadow}>
           <Box pt={1} pl={2} pb={1} pr={1}>
-            <Typography variant="subtitle1">Messages</Typography>
+            <Typography variant="subtitle1">Notifications</Typography>
           </Box>
           <Divider className={classes.divider} />
         </AppBar>

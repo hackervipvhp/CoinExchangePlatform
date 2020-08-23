@@ -94,8 +94,24 @@ const theme = createMuiTheme({
     },
     MuiListItem: {
       divider: {
-        borderBottom: `${borderWidth}px solid ${borderColor}`
-      }
+        // borderBottom: `${borderWidth}px solid ${borderColor}`
+        borderBottom: `0px solid ${borderColor}`
+      },
+      root:{
+        '&$selected, &$selected:hover':{
+          borderRadius: 5,
+          borderLeft: `5px solid ${primary}`,
+          backgroundColor: secondary,
+          color: background
+        }
+      },
+      button:{
+        '&:hover':{
+          // borderRadius: 5,
+          // borderLeft: `5px solid ${primary}`,
+          // backgroundColor: secondary
+        }
+      }     
     },
     MuiDialog: {
       paper: {
@@ -137,6 +153,11 @@ const theme = createMuiTheme({
         backgroundColor: primary,
         borderRadius: `30px`,
         padding: `2px 10px`
+      }
+    },
+    MuiTab: {
+      root: {
+        minWidth: `fit-content !important`,
       }
     }
   },
