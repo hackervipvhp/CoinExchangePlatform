@@ -6,6 +6,8 @@ import Dashboard from "./dashboard/Dashboard";
 import Posts from "./posts/Posts";
 import Subscription from "./subscription/Subscription";
 import PropsRoute from "../../shared/components/PropsRoute";
+import Rewardcenter from "./rewardcenter/Rewardcenter";
+import Payment from "./payment/Payment";
 
 const styles = (theme) => ({
   wrapper: {
@@ -60,6 +62,8 @@ function Routing(props) {
     setPosts,
     isAccountActivated,
     selectDashboard,
+    selectRewardcenter,
+    selectPayment,
     selectPosts,
     selectSubscription,
     openAddBalanceDialog,
@@ -88,6 +92,16 @@ function Routing(props) {
           openAddBalanceDialog={openAddBalanceDialog}
         />
         <PropsRoute
+          path="/excoincial/rewardcenter"
+          component={Rewardcenter}
+          selectRewardcenter={selectRewardcenter}
+        />
+        <PropsRoute
+          path="/excoincial/payment"
+          component={Payment}
+          selectPayment={selectPayment}
+        />
+        <PropsRoute
           path=""
           component={Dashboard}
           toggleAccountActivation={toggleAccountActivation}
@@ -98,7 +112,7 @@ function Routing(props) {
           setTargets={setTargets}
           isAccountActivated={isAccountActivated}
           selectDashboard={selectDashboard}
-        />
+        />        
       </Switch>
     </div>
   );
@@ -121,6 +135,8 @@ Routing.propTypes = {
   targets: PropTypes.arrayOf(PropTypes.object).isRequired,
   isAccountActivated: PropTypes.bool.isRequired,
   selectDashboard: PropTypes.func.isRequired,
+  selectRewardcenter: PropTypes.func.isRequired,
+  selectPayment: PropTypes.func.isRequired,
   selectPosts: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,

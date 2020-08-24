@@ -2,8 +2,10 @@ import React, { memo, useCallback, useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core";
+import Footer from "./footer/Footer";
 import Routing from "./Routing";
 import NavBar from "./navigation/NavBar";
+import "aos/dist/aos.css";
 import ConsecutiveSnackbarMessages from "../../shared/components/ConsecutiveSnackbarMessages";
 import smoothScrollTop from "../../shared/functions/smoothScrollTop";
 import persons from "../dummy_data/persons";
@@ -19,6 +21,10 @@ const styles = (theme) => ({
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0,
     },
+  },
+  wrapper: {
+    backgroundColor: theme.palette.common.white,
+    overflowX: "hidden",
   },
 });
 
@@ -246,6 +252,40 @@ function Main(props) {
     setHasFetchedCardChart,
   ]);
 
+  const selectRewardcenter = useCallback(() => {
+    smoothScrollTop();
+    document.title = "Excoincial - Reward Center";
+    setSelectedTab("Reward Center");
+    if (!hasFetchedCardChart) {
+      setHasFetchedCardChart(true);
+      import("../../shared/components/CardChart").then((Component) => {
+        setCardChart(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setCardChart,
+    hasFetchedCardChart,
+    setHasFetchedCardChart,
+  ]);
+
+  const selectPayment = useCallback(() => {
+    smoothScrollTop();
+    document.title = "Excoincial - Payment";
+    setSelectedTab("Payment");
+    if (!hasFetchedCardChart) {
+      setHasFetchedCardChart(true);
+      import("../../shared/components/CardChart").then((Component) => {
+        setCardChart(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setCardChart,
+    hasFetchedCardChart,
+    setHasFetchedCardChart,
+  ]);
+
   const selectPosts = useCallback(() => {
     smoothScrollTop();
     document.title = "Excoincial - Posts";
@@ -318,7 +358,7 @@ function Main(props) {
   ]);
 
   return (
-    <Fragment>
+    <div className={classes.wrapper}>
       <LazyLoadAddBalanceDialog
         open={isAddBalanceDialogOpen}
         onClose={closeAddBalanceDialog}
@@ -347,6 +387,8 @@ function Main(props) {
           posts={posts}
           targets={targets}
           selectDashboard={selectDashboard}
+          selectRewardcenter={selectRewardcenter}
+          selectPayment={selectPayment}
           selectPosts={selectPosts}
           selectSubscription={selectSubscription}
           openAddBalanceDialog={openAddBalanceDialog}
@@ -354,7 +396,8 @@ function Main(props) {
           setPosts={setPosts}
         />
       </main>
-    </Fragment>
+      <Footer />
+    </div>    
   );
 }
 

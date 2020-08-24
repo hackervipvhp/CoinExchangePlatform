@@ -23,7 +23,7 @@ function Dashboard(props) {
   return (
     <Fragment>
       <StatisticsArea CardChart={CardChart} data={statistics} />
-      <Box mt={4}>
+      <Box mt={4} style={{marginTop:50}}>
         <Typography variant="subtitle1" gutterBottom>
           Your Account
         </Typography>
@@ -32,7 +32,7 @@ function Dashboard(props) {
         isAccountActivated={isAccountActivated}
         toggleAccountActivation={toggleAccountActivation}
       />
-      <Box mt={4}>
+      <Box mt={4} style={{marginTop:50}}>
         <Typography variant="subtitle1" gutterBottom>
           Settings
         </Typography>
@@ -43,6 +43,7 @@ function Dashboard(props) {
         targets={targets}
         setTargets={setTargets}
       />
+      <div style={{paddingBottom:100}}></div>
     </Fragment>
   );
 }

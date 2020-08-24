@@ -45,7 +45,7 @@ const styles = theme => ({
     [theme.breakpoints.down("xs")]: {
       width: "100%",
       marginLeft: 0
-    }
+    },
   },
   appBarToolbar: {
     display: "flex",
@@ -90,6 +90,7 @@ const styles = theme => ({
 	},
   drawerPaper: {
     height: "100%vh",
+    zIndex: 101,
     whiteSpace: "nowrap",
     border: 0,
     width: theme.spacing(7),
@@ -264,7 +265,7 @@ function NavBar(props) {
       }
     },
     {
-      link: "/excoincial/reward-center",
+      link: "/excoincial/rewardcenter",
       name: "Reward Center",
       onClick: closeMobileDrawer,
       icon: {
@@ -327,16 +328,16 @@ function NavBar(props) {
         mobile: <SportsKabaddiOutlinedIcon className={classes.textBlue} />
       }
     },
-    {
-      link: "/",
-      name: "Logout",
-      icon: {
-        desktop: (
-          <PowerSettingsNewIcon className="text-white" fontSize="small" />
-        ),
-        mobile: <PowerSettingsNewIcon className="text-white" />
-      }
-    }
+    // {
+    //   link: "/",
+    //   name: "Logout",
+    //   icon: {
+    //     desktop: (
+    //       <PowerSettingsNewIcon className="text-white" fontSize="small" />
+    //     ),
+    //     mobile: <PowerSettingsNewIcon className="text-white" />
+    //   }
+    // }
   ];
   return (
     <Fragment>
