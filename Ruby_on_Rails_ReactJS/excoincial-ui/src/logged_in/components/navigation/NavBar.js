@@ -11,15 +11,11 @@ import {
   ListItem,
   ListItemIcon,
   Hidden,
-  Tooltip,
   Box,
   withStyles,
   withWidth,
-  rgbToHex
 } from "@material-ui/core";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import ImageIcon from "@material-ui/icons/Image";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import MenuIcon from "@material-ui/icons/Menu";
 import MessagePopperButton from "./MessagePopperButton";
@@ -167,6 +163,24 @@ const styles = theme => ({
   },
   justifyLeft:{
     paddingLeft: 20
+  },
+  textYellow:{
+    color: `#ff0`
+  },
+  textPink:{
+    color: `#FF4081`
+  },
+  textRed: {
+    color: theme.palette.primary.main
+  },
+  textGreen: {
+    color: `#2a7d2a`
+  },
+  textPurple: {
+    color: `#410992`
+  },
+  textBlue: {
+    color: `#2ebbe0`
   }
 });
 
@@ -209,12 +223,12 @@ function NavBar(props) {
         desktop: (
           <MonetizationOnOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+              selectedTab === "Payment" ? classes.textPrimary : classes.textYellow
             }
             fontSize="small"
           />
         ),
-        mobile: <MonetizationOnOutlinedIcon className="text-yellow" />
+        mobile: <MonetizationOnOutlinedIcon className={classes.textYellow} />
       }
     },
     {
@@ -241,12 +255,12 @@ function NavBar(props) {
         desktop: (
           <SecurityOutlinedIcon
             className={
-              selectedTab === "Security" ? classes.textPrimary : "text-pink"
+              selectedTab === "Security" ? classes.textPrimary : classes.textPink
             }
             fontSize="small"
           />
         ),
-        mobile: <SecurityOutlinedIcon className="text-pink" />
+        mobile: <SecurityOutlinedIcon className={classes.textPink} />
       }
     },
     {
@@ -257,12 +271,12 @@ function NavBar(props) {
         desktop: (
           <EmojiEventsOutlinedIcon
             className={
-              selectedTab === "Reward Center" ? classes.textPrimary : "text-red"
+              selectedTab === "Reward Center" ? classes.textPrimary : classes.textRed
             }
             fontSize="small"
           />
         ),
-        mobile: <EmojiEventsOutlinedIcon className="text-red" />
+        mobile: <EmojiEventsOutlinedIcon className={classes.textRed} />
       }
     },
     {
@@ -273,12 +287,12 @@ function NavBar(props) {
         desktop: (
           <AssignmentOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+              selectedTab === "Payment" ? classes.textPrimary : classes.textGreen
             }
             fontSize="small"
           />
         ),
-        mobile: <AssignmentOutlinedIcon className="text-yellow" />
+        mobile: <AssignmentOutlinedIcon className={classes.textGreen} />
       }
     },
     {
@@ -289,12 +303,12 @@ function NavBar(props) {
         desktop: (
           <TuneOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+              selectedTab === "Payment" ? classes.textPrimary : classes.textPurple
             }
             fontSize="small"
           />
         ),
-        mobile: <TuneOutlinedIcon className="text-yellow" />
+        mobile: <TuneOutlinedIcon className={classes.textPurple} />
       }
     },
     {
@@ -305,12 +319,12 @@ function NavBar(props) {
         desktop: (
           <SportsKabaddiOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : "text-yellow"
+              selectedTab === "Payment" ? classes.textPrimary : classes.textBlue
             }
             fontSize="small"
           />
         ),
-        mobile: <SportsKabaddiOutlinedIcon className="text-yellow" />
+        mobile: <SportsKabaddiOutlinedIcon className={classes.textBlue} />
       }
     },
     {

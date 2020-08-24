@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import {
-  ExpansionPanel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Typography,
   Button,
   List,
@@ -263,11 +263,11 @@ function Settings2(props) {
   ];
 
   return (
-    <ExpansionPanel>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>Settings 2</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.dBlock}>
+      </AccordionSummary>
+      <AccordionDetails className={classes.dBlock}>
         <List disablePadding>
           <Bordered disableVerticalPadding disableBorderRadius>
             {inputs.map((element, index) => (
@@ -291,8 +291,8 @@ function Settings2(props) {
             ))}
           </Bordered>
         </List>
-      </ExpansionPanelDetails>
-      <ExpansionPanelDetails className={classes.expansionPanelDetails}>
+      </AccordionDetails>
+      <AccordionDetails className={classes.expansionPanelDetails}>
         <Box mr={1}>
           <Button
             onClick={onSetDefault}
@@ -309,8 +309,8 @@ function Settings2(props) {
         >
           Save {isSaveLoading && <ButtonCircularProgress />}
         </Button>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 }
 

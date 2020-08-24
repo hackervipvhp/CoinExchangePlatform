@@ -65,7 +65,7 @@ const theme = createMuiTheme({
     borderWidth: borderWidth
   },
   overrides: {
-    MuiExpansionPanel: {
+    MuiAccordion: {
       root: {
         position: "static"
       }
@@ -133,7 +133,7 @@ const theme = createMuiTheme({
         backgroundColor: darkBlack
       }
     },
-    MuiExpansionPanelDetails: {
+    MuiAccordionDetails: {
       root: {
         [`@media (max-width:  ${sm}px)`]: {
           paddingLeft: spacing,
