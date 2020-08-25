@@ -13,9 +13,10 @@ const styles = theme => ({
       backgroundColor: `#fff`,
       display: `flex`,
       justifyContent: `left`,
+      marginLeft:40
     }
 });
-
+ 
 function Tabsection(props) {
     const { classes } = props;
     const [ tabIndex, setTabIndex] = useState(0);

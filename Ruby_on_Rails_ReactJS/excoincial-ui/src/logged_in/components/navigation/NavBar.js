@@ -97,7 +97,7 @@ const styles = theme => ({
     overflowX: "hidden",
     marginTop: theme.spacing(8),
     [theme.breakpoints.up("sm")]: {
-      width: `fit-content`
+      width: `350px`
     },
     backgroundColor: theme.palette.background.default,
     boxShadow: theme.shadows[6],

@@ -13,10 +13,11 @@ const styles = theme => ({
       backgroundColor: `#fff`,
       display: `flex`,
       justifyContent: `left`,
+      paddingLeft: 40,
     },
     tab:{
         width:120,
-    }
+    },
 });
 
 function Tabsection(props) {

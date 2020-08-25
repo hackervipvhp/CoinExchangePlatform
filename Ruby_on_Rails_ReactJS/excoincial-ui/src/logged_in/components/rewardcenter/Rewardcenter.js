@@ -12,7 +12,7 @@ function Rewardcenter(props) {
       }, [selectRewardcenter]);
     return (
         <Fragment>
-            <Box mt={4}>
+            <Box mt={4} style={{paddingLeft:50}}>
                 <Typography variant="h3" gutterBottom>
                 Reward Center
                 </Typography>

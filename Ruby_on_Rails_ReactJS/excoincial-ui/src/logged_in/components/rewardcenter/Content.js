@@ -13,7 +13,7 @@ const styles = theme => ({
       justifyContent: `center`,
       background: `url("${landingImage}") center center no-repeat`,
       paddingTop: 320,
-      marginLeft:150,
+      marginLeft:200,
       paddingBottom: 200,
     },   
 });

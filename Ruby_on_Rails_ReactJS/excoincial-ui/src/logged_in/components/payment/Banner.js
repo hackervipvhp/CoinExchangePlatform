@@ -9,13 +9,14 @@ const styles = theme => ({
     ContentBlank: {
       display: `flex`,
       justifyContent: `left`,
-      marginTop: 20,
+      marginTop: 30,
       marginLeft:10,
       paddingBottom:500,
+      paddingLeft: 50,
     },   
 });
 
-function Content(props) {
+function Banner(props) {
     const { classes } = props;
   
     return (
@@ -30,13 +31,13 @@ function Content(props) {
 }
 
 
-Content.propTypes = {
+Banner.propTypes = {
     classes: PropTypes.object,
     width: PropTypes.string,
     theme: PropTypes.object
   };
   
   export default withWidth()(
-    withStyles(styles, { withTheme: true })(Content)
+    withStyles(styles, { withTheme: true })(Banner)
   );
   
