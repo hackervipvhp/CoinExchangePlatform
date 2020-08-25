@@ -4,11 +4,11 @@ import { Typography, Box } from "@material-ui/core";
 import Content from './Content';
 
 
-function Taskcenter(props) {
-    const { selectTaskcenter } = props;
+function Security(props) {
+    const { selectSecurity } = props;
     useEffect(() => {
-        selectTaskcenter();
-      }, [selectTaskcenter]);
+        selectSecurity();
+      }, [selectSecurity]);
     return (
         <Fragment>
             <Content />
@@ -16,8 +16,8 @@ function Taskcenter(props) {
     );
 }
 
-Taskcenter.propTypes = {
-  selectTaskcenter: PropTypes.func.isRequired
+Security.propTypes = {
+  selectSecurity: PropTypes.func.isRequired
   };
 
-export default Taskcenter;
+export default Security;

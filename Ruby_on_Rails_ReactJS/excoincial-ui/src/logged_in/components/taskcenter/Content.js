@@ -53,6 +53,49 @@ const styles = theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
   },
+  top: {
+    fontSize:`1.1rem`,
+    fontWeight:`bold`,
+    paddingTop:40,
+    paddingLeft:250,
+    color:`white`
+  },
+  top_button:{
+    color:`white`,
+    width:`200px`, 
+    marginLeft:0, 
+    marginRight:`20px`, 
+    border:`none`
+  },
+  progress:{
+    marginBottom:20, 
+    width:`100%`, 
+    height:`10px`, 
+    borderRadius:`18px`
+  },
+  progress_button:{
+    color:`white`, 
+    border:`none`, 
+    height:`20px`, 
+    width:`100%`, 
+    marginTop:`23%`
+  },
+  box_icon:{
+    marginTop:`25px`, 
+    borderRadius:`50px`, 
+    backgroundColor:`blue`, 
+    height:`40px`, 
+    width:`40px`, 
+    color:`white`, 
+    paddingLeft:`8px`, 
+    paddingTop:`7px`
+  },
+  box_button:{
+    color:`white`, 
+    border:`none`, 
+    height:`20px`, 
+    width:`100%`
+  }, 
 });
 
 function Content(props) {
@@ -60,10 +103,10 @@ function Content(props) {
     return (      
       <Fragment>
         <div key={"taskcenter-content"} className={classes.landingBackgroundImage} >
-          <div style={{fontSize:`1.1rem`,fontWeight:`bold`,paddingTop:40,paddingLeft:250,color:`white`}}>            
+          <div className={classes.top}>            
             Task Center<br/><br/>
-            <Button color="secondary" style={{color:`white`,width:`200px`, marginLeft:0, border:`none`}}>Beginner tasks</Button>
-            <Button style={{color:`white`,width:`200px`,border:`none`,marginLeft:`20px`}}disabled>Regular tasks</Button>
+            <Button color="secondary" className={classes.top_button}>Beginner tasks</Button>
+            <Button className={classes.top_button} disabled>Regular tasks</Button>
           </div>           
         </div>
         
@@ -74,11 +117,11 @@ function Content(props) {
                 <Grid container spacing={2}>
                   <Grid item xs={10}>
                     <h3 style={{color:`black`}}>Completed Tasks (1/6)</h3>
-                    <LinearProgress variant="determinate" value={20} style={{marginBottom:20, width:`100%`, height:`10px`, borderRadius:`18px`}}/>
+                    <LinearProgress variant="determinate" value={20} className={classes.progress}/>
                     <div style={{color:`black`}}>Complete beginner tasks to get a beginner gift pack</div>                    
                   </Grid>
                   <Grid item xs={12} sm container>
-                    <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`, marginTop:`23%`}}>Beginner Gift Pack</Button>  
+                    <Button variant="contained" color="primary" className={classes.progress_button}>Beginner Gift Pack</Button>  
                   </Grid>
                 </Grid>       
               </Paper>
@@ -89,7 +132,7 @@ function Content(props) {
               <Paper className={classes.paper}>
                 <Grid container spacing={2}>
                   <Grid item xs={1} style={{marginLeft:`20px`}}>
-                    <div style={{marginTop:`25px`, borderRadius:`50px`, backgroundColor:`blue`, height:`40px`, width:`40px`, color:`white`, paddingLeft:`8px`, paddingTop:`7px`}}>
+                    <div className={classes.box_icon}>
                       <TurnedInNotSharpIcon/>
                     </div>                      
                   </Grid>
@@ -97,9 +140,9 @@ function Content(props) {
                     <h3 style={{color:`black`}}>Beginner Gift Pack</h3>
                     <div style={{color:`black`, marginBottom:`20px`}}>Complete personal identity verification</div>                    
                   </Grid>
-                  <Grid item xs={2} sm container style={{background: `url("${giftImage}") right no-repeat`,}}>
+                  <Grid item xs={2} sm container style={{background: `url("${giftImage}") right no-repeat`}}>
                     <div style={{width:`100%`, marginTop:`4vh`}}>
-                      <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`}}>Complete</Button> 
+                      <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
                 </Grid>    
@@ -109,7 +152,7 @@ function Content(props) {
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
                   <Grid item xs={1} style={{marginLeft:`20px`}}>
-                    <div style={{marginTop:`25px`, borderRadius:`50px`, backgroundColor:`yellow`, height:`40px`, width:`40px`, color:`white`, paddingLeft:`8px`, paddingTop:`7px`}}>
+                    <div className={classes.box_icon} style={{backgroundColor:`yellow`}}>
                       <ImportContactsSharpIcon/>
                     </div>                      
                   </Grid>
@@ -119,7 +162,7 @@ function Content(props) {
                   </Grid>
                   <Grid item xs={2} sm container>
                     <div style={{width:`100%`, marginTop:`4vh`}}>
-                      <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`}}>Complete</Button> 
+                      <Button variant="contained" color="primary"  className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
                 </Grid>    
@@ -131,7 +174,7 @@ function Content(props) {
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
                   <Grid item xs={1} style={{marginLeft:`20px`}}>
-                    <div style={{marginTop:`25px`, borderRadius:`50px`, backgroundColor:`yellow`, height:`40px`, width:`40px`, color:`white`, paddingLeft:`8px`, paddingTop:`7px`}}>
+                    <div className={classes.box_icon} style={{backgroundColor:`yellow`}}>
                       <ImportContactsSharpIcon/>
                     </div>                      
                   </Grid>
@@ -139,9 +182,9 @@ function Content(props) {
                     <h3 style={{color:`black`}}>Read any piece of news</h3>
                     <div style={{color:`black`, marginBottom:`20px`}}>Learn more about industry trends</div>                    
                   </Grid>
-                  <Grid item xs={2} sm container style={{background: `url("${newsImage}") right no-repeat`,}}>
+                  <Grid item xs={2} sm container style={{background: `url("${newsImage}") right no-repeat`}}>
                     <div style={{width:`100%`, marginTop:`4vh`}}>
-                      <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`}}>Complete</Button> 
+                      <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
                 </Grid>    
@@ -151,7 +194,7 @@ function Content(props) {
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
                   <Grid item xs={1} style={{marginLeft:`20px`}}>
-                    <div style={{marginTop:`25px`, borderRadius:`50px`, backgroundColor:`brown`, height:`40px`, width:`40px`, color:`white`, paddingLeft:`8px`, paddingTop:`7px`}}>
+                    <div className={classes.box_icon} style={{backgroundColor:`brown`}}>
                       <AttachMoneyIcon/>
                     </div>                      
                   </Grid>
@@ -159,9 +202,9 @@ function Content(props) {
                     <h3 style={{color:`black`}}>Complete any deposit</h3>
                     <div style={{color:`black`, marginBottom:`20px`}}>Deposit flat or digital currency into your personal account</div>                    
                   </Grid>   
-                  <Grid item xs={2} sm container style={{background: `url("${depositImage}") right no-repeat`,}}>
+                  <Grid item xs={2} sm container style={{background: `url("${depositImage}") right no-repeat`}}>
                     <div style={{width:`100%`, marginTop:`4vh`}}>
-                      <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`}}>Complete</Button> 
+                      <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
                 </Grid>    
@@ -173,7 +216,7 @@ function Content(props) {
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
                   <Grid item xs={1} style={{marginLeft:`20px`}}>
-                    <div style={{marginTop:`25px`, borderRadius:`50px`, backgroundColor:`green`, height:`40px`, width:`40px`, color:`white`, paddingLeft:`8px`, paddingTop:`7px`}}>
+                    <div className={classes.box_icon} style={{backgroundColor:`green`}}>
                       <ShutterSpeedIcon/>
                     </div>                      
                   </Grid>
@@ -181,9 +224,9 @@ function Content(props) {
                     <h3 style={{color:`black`}}>Complete any spot trade</h3>
                     <div style={{color:`black`, marginBottom:`20px`}}>Make a trade using any currency pair</div>                    
                   </Grid>             
-                  <Grid item xs={2} sm container style={{background: `url("${spotImage}") right no-repeat`,}}>
+                  <Grid item xs={2} sm container style={{background: `url("${spotImage}") right no-repeat`}}>
                     <div style={{width:`100%`, marginTop:`4vh`}}>
-                      <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`}}>Complete</Button> 
+                      <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
                 </Grid>    
@@ -193,7 +236,7 @@ function Content(props) {
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
                   <Grid item xs={1} style={{marginLeft:`20px`}}>
-                    <div style={{marginTop:`25px`, borderRadius:`50px`, backgroundColor:`blue`, height:`40px`, width:`40px`, color:`white`, paddingLeft:`8px`, paddingTop:`7px`}}>
+                    <div className={classes.box_icon}>
                       <TurnedInNotSharpIcon/>
                     </div>                      
                   </Grid>
@@ -201,9 +244,9 @@ function Content(props) {
                     <h3 style={{color:`black`}}>Complete 2FA</h3>
                     <div style={{color:`black`, marginBottom:`20px`}}>Enable 2FA on your account</div>                    
                   </Grid>
-                  <Grid item xs={2} sm container style={{background: `url("${giftImage}") right no-repeat`,}}>
+                  <Grid item xs={2} sm container style={{background: `url("${giftImage}") right no-repeat`}}>
                     <div style={{width:`100%`, marginTop:`4vh`}}>
-                      <Button variant="contained" color="primary" style={{color:`white`, border:`none`, height:`20px`, width:`100%`}}>Complete</Button> 
+                      <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
                 </Grid>    

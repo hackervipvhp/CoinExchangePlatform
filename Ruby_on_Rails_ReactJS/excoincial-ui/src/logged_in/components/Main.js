@@ -286,6 +286,23 @@ function Main(props) {
     setHasFetchedCardChart,
   ]);
 
+  const selectSecurity = useCallback(() => {
+    smoothScrollTop();
+    document.title = "Excoincial - Security";
+    setSelectedTab("Security");
+    if (!hasFetchedCardChart) {
+      setHasFetchedCardChart(true);
+      import("../../shared/components/CardChart").then((Component) => {
+        setCardChart(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setCardChart,
+    hasFetchedCardChart,
+    setHasFetchedCardChart,
+  ]);
+
   const selectTaskcenter = useCallback(() => {
     smoothScrollTop();
     document.title = "Excoincial - Task Center";
@@ -406,6 +423,7 @@ function Main(props) {
           selectDashboard={selectDashboard}
           selectRewardcenter={selectRewardcenter}
           selectPayment={selectPayment}
+          selectSecurity={selectSecurity}
           selectTaskcenter={selectTaskcenter}
           selectPosts={selectPosts}
           selectSubscription={selectSubscription}

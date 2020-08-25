@@ -9,6 +9,7 @@ import PropsRoute from "../../shared/components/PropsRoute";
 import Rewardcenter from "./rewardcenter/Rewardcenter";
 import Payment from "./payment/Payment";
 import Taskcenter from "./taskcenter/Taskcenter";
+import Security from "./security/Security";
 
 const styles = (theme) => ({
   wrapper: {
@@ -66,6 +67,7 @@ function Routing(props) {
     selectRewardcenter,
     selectPayment,
     selectTaskcenter,
+    selectSecurity,
     selectPosts,
     selectSubscription,
     openAddBalanceDialog,
@@ -109,6 +111,11 @@ function Routing(props) {
           selectTaskcenter={selectTaskcenter}
         />
         <PropsRoute
+          path="/excoincial/security"
+          component={Security}
+          selectSecurity={selectSecurity}
+        />
+        <PropsRoute
           path=""
           component={Dashboard}
           toggleAccountActivation={toggleAccountActivation}
@@ -145,6 +152,7 @@ Routing.propTypes = {
   selectRewardcenter: PropTypes.func.isRequired,
   selectPayment: PropTypes.func.isRequired,
   selectTaskcenter : PropTypes.func.isRequired,
+  selectSecurity : PropTypes.func.isRequired,
   selectPosts: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,
