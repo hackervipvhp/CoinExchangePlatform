@@ -253,6 +253,9 @@ function Content(props) {
               </Paper>
             </Grid>
           </Grid>
+          <div style={{paddingTop:'2vh'}}>
+            <a href="#" style={{fontWeight:'normal', color:'gray'}}>Any issues?</a>
+          </div>
         </div>
       </Fragment>  
     );

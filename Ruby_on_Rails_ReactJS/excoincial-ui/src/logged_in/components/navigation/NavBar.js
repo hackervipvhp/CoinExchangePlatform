@@ -32,6 +32,7 @@ import EmojiEventsOutlinedIcon from '@material-ui/icons/EmojiEventsOutlined';
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import TuneOutlinedIcon from '@material-ui/icons/TuneOutlined';
 import SportsKabaddiOutlinedIcon from '@material-ui/icons/SportsKabaddiOutlined';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 
 const styles = theme => ({
@@ -288,7 +289,7 @@ function NavBar(props) {
         desktop: (
           <AssignmentOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : classes.textGreen
+              selectedTab === "Task Center" ? classes.textPrimary : classes.textGreen
             }
             fontSize="small"
           />
@@ -304,10 +305,12 @@ function NavBar(props) {
         desktop: (
           <TuneOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : classes.textPurple
+              selectedTab === "Settings" ? classes.textPrimary : classes.textPurple
             }
             fontSize="small"
-          />
+          >
+            <ChevronRightIcon/>
+          </TuneOutlinedIcon>
         ),
         mobile: <TuneOutlinedIcon className={classes.textPurple} />
       }
@@ -320,7 +323,7 @@ function NavBar(props) {
         desktop: (
           <SportsKabaddiOutlinedIcon
             className={
-              selectedTab === "Payment" ? classes.textPrimary : classes.textBlue
+              selectedTab === "Referral" ? classes.textPrimary : classes.textBlue
             }
             fontSize="small"
           />
