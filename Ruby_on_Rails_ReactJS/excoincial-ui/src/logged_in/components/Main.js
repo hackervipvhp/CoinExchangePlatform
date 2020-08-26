@@ -302,6 +302,57 @@ function Main(props) {
     hasFetchedCardChart,
     setHasFetchedCardChart,
   ]);
+  
+  const selectBasicinfo = useCallback(() => {
+    smoothScrollTop();
+    document.title = "Excoincial - Basic Info";
+    setSelectedTab("Basicinfo");
+    if (!hasFetchedCardChart) {
+      setHasFetchedCardChart(true);
+      import("../../shared/components/CardChart").then((Component) => {
+        setCardChart(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setCardChart,
+    hasFetchedCardChart,
+    setHasFetchedCardChart,
+  ]);
+  
+  const selectAPI = useCallback(() => {
+    smoothScrollTop();
+    document.title = "Excoincial - API";
+    setSelectedTab("API");
+    if (!hasFetchedCardChart) {
+      setHasFetchedCardChart(true);
+      import("../../shared/components/CardChart").then((Component) => {
+        setCardChart(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setCardChart,
+    hasFetchedCardChart,
+    setHasFetchedCardChart,
+  ]);
+
+  const selectPreferences = useCallback(() => {
+    smoothScrollTop();
+    document.title = "Excoincial - Preferences";
+    setSelectedTab("Preferences");
+    if (!hasFetchedCardChart) {
+      setHasFetchedCardChart(true);
+      import("../../shared/components/CardChart").then((Component) => {
+        setCardChart(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setCardChart,
+    hasFetchedCardChart,
+    setHasFetchedCardChart,
+  ]);
 
   const selectTaskcenter = useCallback(() => {
     smoothScrollTop();
@@ -424,6 +475,9 @@ function Main(props) {
           selectRewardcenter={selectRewardcenter}
           selectPayment={selectPayment}
           selectSecurity={selectSecurity}
+          selectPreferences={selectPreferences}
+          selectBasicinfo={selectBasicinfo}
+          selectAPI={selectAPI}
           selectTaskcenter={selectTaskcenter}
           selectPosts={selectPosts}
           selectSubscription={selectSubscription}

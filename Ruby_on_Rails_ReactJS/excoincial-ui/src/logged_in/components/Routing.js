@@ -10,6 +10,9 @@ import Rewardcenter from "./rewardcenter/Rewardcenter";
 import Payment from "./payment/Payment";
 import Taskcenter from "./taskcenter/Taskcenter";
 import Security from "./security/Security";
+import BasicInfo from "./Settings/BasicInfo/Basicinfo";
+import API from "./Settings/API/API";
+import Preferences from "./Settings/Preferences/Preferences";
 
 const styles = (theme) => ({
   wrapper: {
@@ -68,6 +71,9 @@ function Routing(props) {
     selectPayment,
     selectTaskcenter,
     selectSecurity,
+    selectBasicinfo,
+    selectAPI,
+    selectPreferences,
     selectPosts,
     selectSubscription,
     openAddBalanceDialog,
@@ -116,6 +122,26 @@ function Routing(props) {
           selectSecurity={selectSecurity}
         />
         <PropsRoute
+          path="/excoincial/settings"
+          component={BasicInfo}
+          selectBasicinfo={selectBasicinfo}
+        />
+        <PropsRoute
+          path="/excoincial/basicinfo"
+          component={BasicInfo}
+          selectBasicinfo={selectBasicinfo}
+        />
+        <PropsRoute
+          path="/excoincial/api"
+          component={API}
+          selectAPI={selectAPI}
+        />
+        <PropsRoute
+          path="/excoincial/preferences"
+          component={Preferences}
+          selectPreferences={selectPreferences}
+        />
+        <PropsRoute
           path=""
           component={Dashboard}
           toggleAccountActivation={toggleAccountActivation}
@@ -153,6 +179,9 @@ Routing.propTypes = {
   selectPayment: PropTypes.func.isRequired,
   selectTaskcenter : PropTypes.func.isRequired,
   selectSecurity : PropTypes.func.isRequired,
+  selectBasicinfo : PropTypes.func.isRequired,
+  selectAPI : PropTypes.func.isRequired,
+  selectPreferences : PropTypes.func.isRequired,
   selectPosts: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,

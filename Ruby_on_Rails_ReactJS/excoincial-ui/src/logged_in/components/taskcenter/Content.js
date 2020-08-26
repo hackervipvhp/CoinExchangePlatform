@@ -96,6 +96,36 @@ const styles = theme => ({
     height:`20px`, 
     width:`100%`
   }, 
+  content_blacktext:{
+    color:`black`
+  },
+  content_blacksubtext:{
+    color:`black`, 
+    marginBottom:`20px`
+  },
+  content_button:{
+    width:`100%`, 
+    marginTop:`4vh`
+  },
+  content_grid:{
+    marginLeft:`20px`
+  },
+  content_issue:{
+    fontWeight:'normal', 
+    color:'gray'
+  },
+  content_giftImage:{
+    background: `url("${giftImage}") right no-repeat`
+  },
+  content_newsImage:{
+    background: `url("${newsImage}") right no-repeat`
+  },
+  content_spotImage:{
+    background: `url("${spotImage}") right no-repeat`
+  },
+  content_depositImage:{
+    background: `url("${depositImage}") right no-repeat`
+  },
 });
 
 function Content(props) {
@@ -116,9 +146,9 @@ function Content(props) {
               <Paper className={classes.paper}>
                 <Grid container spacing={2}>
                   <Grid item xs={10}>
-                    <h3 style={{color:`black`}}>Completed Tasks (1/6)</h3>
+                    <h3 className={classes.content_blacktext}>Completed Tasks (1/6)</h3>
                     <LinearProgress variant="determinate" value={20} className={classes.progress}/>
-                    <div style={{color:`black`}}>Complete beginner tasks to get a beginner gift pack</div>                    
+                    <div className={classes.content_blacktext}>Complete beginner tasks to get a beginner gift pack</div>                    
                   </Grid>
                   <Grid item xs={12} sm container>
                     <Button variant="contained" color="primary" className={classes.progress_button}>Beginner Gift Pack</Button>  
@@ -131,17 +161,17 @@ function Content(props) {
             <Grid item xs={6}>
               <Paper className={classes.paper}>
                 <Grid container spacing={2}>
-                  <Grid item xs={1} style={{marginLeft:`20px`}}>
+                  <Grid item xs={1} className={classes.content_grid}>
                     <div className={classes.box_icon}>
                       <TurnedInNotSharpIcon/>
                     </div>                      
                   </Grid>
-                  <Grid item xs={8} style={{marginLeft:`20px`}}>
-                    <h3 style={{color:`black`}}>Beginner Gift Pack</h3>
-                    <div style={{color:`black`, marginBottom:`20px`}}>Complete personal identity verification</div>                    
+                  <Grid item xs={8} className={classes.content_grid}>
+                    <h3 className={classes.content_blacktext}>Beginner Gift Pack</h3>
+                    <div className={classes.content_blacksubtext}>Complete personal identity verification</div>                    
                   </Grid>
-                  <Grid item xs={2} sm container style={{background: `url("${giftImage}") right no-repeat`}}>
-                    <div style={{width:`100%`, marginTop:`4vh`}}>
+                  <Grid item xs={2} sm container className={classes.content_giftImage}>
+                    <div className={classes.content_button}>
                       <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
@@ -151,17 +181,17 @@ function Content(props) {
             <Grid item xs={6}>
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
-                  <Grid item xs={1} style={{marginLeft:`20px`}}>
+                  <Grid item xs={1} className={classes.content_grid}>
                     <div className={classes.box_icon} style={{backgroundColor:`yellow`}}>
                       <ImportContactsSharpIcon/>
                     </div>                      
                   </Grid>
-                  <Grid item xs={8} style={{marginLeft:`20px`}}>
-                    <h3 style={{color:`black`}}>Watch a beginner tutorial</h3>
-                    <div style={{color:`black`, marginBottom:`20px`}}>Learn how to buy digital currency</div>                    
+                  <Grid item xs={8} className={classes.content_grid}>
+                    <h3 className={classes.content_blacktext}>Watch a beginner tutorial</h3>
+                    <div className={classes.content_blacksubtext}>Learn how to buy digital currency</div>                    
                   </Grid>
                   <Grid item xs={2} sm container>
-                    <div style={{width:`100%`, marginTop:`4vh`}}>
+                    <div className={classes.content_button}>
                       <Button variant="contained" color="primary"  className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
@@ -173,17 +203,17 @@ function Content(props) {
             <Grid item xs={6}>
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
-                  <Grid item xs={1} style={{marginLeft:`20px`}}>
+                  <Grid item xs={1} className={classes.content_grid}>
                     <div className={classes.box_icon} style={{backgroundColor:`yellow`}}>
                       <ImportContactsSharpIcon/>
                     </div>                      
                   </Grid>
-                  <Grid item xs={8} style={{marginLeft:`20px`}}>
-                    <h3 style={{color:`black`}}>Read any piece of news</h3>
-                    <div style={{color:`black`, marginBottom:`20px`}}>Learn more about industry trends</div>                    
+                  <Grid item xs={8} className={classes.content_grid}>
+                    <h3 className={classes.content_blacktext}>Read any piece of news</h3>
+                    <div className={classes.content_blacksubtext}>Learn more about industry trends</div>                    
                   </Grid>
-                  <Grid item xs={2} sm container style={{background: `url("${newsImage}") right no-repeat`}}>
-                    <div style={{width:`100%`, marginTop:`4vh`}}>
+                  <Grid item xs={2} sm container className={classes.content_newsImage}>
+                    <div className={classes.content_button}>
                       <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
@@ -193,17 +223,17 @@ function Content(props) {
             <Grid item xs={6}>
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
-                  <Grid item xs={1} style={{marginLeft:`20px`}}>
+                  <Grid item xs={1} className={classes.content_grid}>
                     <div className={classes.box_icon} style={{backgroundColor:`brown`}}>
                       <AttachMoneyIcon/>
                     </div>                      
                   </Grid>
-                  <Grid item xs={8} style={{marginLeft:`20px`}}>
-                    <h3 style={{color:`black`}}>Complete any deposit</h3>
-                    <div style={{color:`black`, marginBottom:`20px`}}>Deposit flat or digital currency into your personal account</div>                    
+                  <Grid item xs={8} className={classes.content_grid}>
+                    <h3 className={classes.content_blacktext}>Complete any deposit</h3>
+                    <div className={classes.content_blacksubtext}>Deposit flat or digital currency into your personal account</div>                    
                   </Grid>   
-                  <Grid item xs={2} sm container style={{background: `url("${depositImage}") right no-repeat`}}>
-                    <div style={{width:`100%`, marginTop:`4vh`}}>
+                  <Grid item xs={2} sm container className={classes.content_depositImage}>
+                    <div className={classes.content_button}>
                       <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
@@ -215,17 +245,17 @@ function Content(props) {
             <Grid item xs={6}>
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
-                  <Grid item xs={1} style={{marginLeft:`20px`}}>
+                  <Grid item xs={1} className={classes.content_grid}>
                     <div className={classes.box_icon} style={{backgroundColor:`green`}}>
                       <ShutterSpeedIcon/>
                     </div>                      
                   </Grid>
-                  <Grid item xs={8} style={{marginLeft:`20px`}}>
-                    <h3 style={{color:`black`}}>Complete any spot trade</h3>
-                    <div style={{color:`black`, marginBottom:`20px`}}>Make a trade using any currency pair</div>                    
+                  <Grid item xs={8} className={classes.content_grid}>
+                    <h3 className={classes.content_blacktext}>Complete any spot trade</h3>
+                    <div className={classes.content_blacksubtext}>Make a trade using any currency pair</div>                    
                   </Grid>             
-                  <Grid item xs={2} sm container style={{background: `url("${spotImage}") right no-repeat`}}>
-                    <div style={{width:`100%`, marginTop:`4vh`}}>
+                  <Grid item xs={2} sm container className={classes.content_spotImage}>
+                    <div className={classes.content_button}>
                       <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
@@ -235,17 +265,17 @@ function Content(props) {
             <Grid item xs={6}>
               <Paper className={classes.paper}>
               <Grid container spacing={2}>
-                  <Grid item xs={1} style={{marginLeft:`20px`}}>
+                  <Grid item xs={1} className={classes.content_grid}>
                     <div className={classes.box_icon}>
                       <TurnedInNotSharpIcon/>
                     </div>                      
                   </Grid>
-                  <Grid item xs={8} style={{marginLeft:`20px`}}>
-                    <h3 style={{color:`black`}}>Complete 2FA</h3>
-                    <div style={{color:`black`, marginBottom:`20px`}}>Enable 2FA on your account</div>                    
+                  <Grid item xs={8} className={classes.content_grid}>
+                    <h3 className={classes.content_blacktext}>Complete 2FA</h3>
+                    <div className={classes.content_blacksubtext}>Enable 2FA on your account</div>                    
                   </Grid>
-                  <Grid item xs={2} sm container style={{background: `url("${giftImage}") right no-repeat`}}>
-                    <div style={{width:`100%`, marginTop:`4vh`}}>
+                  <Grid item xs={2} sm container  className={classes.content_giftImage}>
+                    <div className={classes.content_button}>
                       <Button variant="contained" color="primary" className={classes.box_button}>Complete</Button> 
                     </div>                     
                   </Grid>
@@ -254,7 +284,7 @@ function Content(props) {
             </Grid>
           </Grid>
           <div style={{paddingTop:'2vh'}}>
-            <a href="#" style={{fontWeight:'normal', color:'gray'}}>Any issues?</a>
+            <a href="#" className={classes.content_issue}>Any issues?</a>
           </div>
         </div>
       </Fragment>  

@@ -191,14 +191,20 @@ function NavBar(props) {
   // Will be use to make website more accessible by screen readers
   const links = useRef([]);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const openMobileDrawer = useCallback(() => {
     setIsMobileOpen(true);
   }, [setIsMobileOpen]);
 
-  const closeMobileDrawer = useCallback(() => {
+  const closeMobileDrawerfunc = useCallback(() => {
     setIsMobileOpen(false);
   }, [setIsMobileOpen]);
+
+  function closeMobileDrawer(){
+    closeMobileDrawerfunc();
+    isSettingsOpen === true?setIsSettingsOpen(!isSettingsOpen):setIsSettingsOpen(isSettingsOpen);
+  }
 
   const menuItems = [
     {
@@ -300,7 +306,7 @@ function NavBar(props) {
     {
       link: "/excoincial/settings",
       name: "Settings",
-      onClick: closeMobileDrawer,
+      onClick: () => setIsSettingsOpen(!isSettingsOpen),
       icon: {
         desktop: (
           <TuneOutlinedIcon
@@ -313,7 +319,48 @@ function NavBar(props) {
           </TuneOutlinedIcon>
         ),
         mobile: <TuneOutlinedIcon className={classes.textPurple} />
-      }
+      },
+      childrens: [
+        {
+          link: "/excoincial/basicinfo",
+          name: "Basicinfo",
+          onClick: closeMobileDrawerfunc,
+          icon: {
+            desktop: (
+              <span>{
+                selectedTab === "Settings" ? classes.textPrimary : classes.textPurple
+              }</span>              
+            ),
+            mobile: <TuneOutlinedIcon className={classes.textPurple} />
+          },
+        },
+        {
+          link: "/excoincial/api",
+          name: "API",
+          onClick: closeMobileDrawerfunc,
+          icon: {
+            desktop: (
+              <span>{
+                selectedTab === "Settings" ? classes.textPrimary : classes.textPurple
+              }</span>              
+            ),
+            mobile: <TuneOutlinedIcon className={classes.textPurple} />
+          },
+        },
+        {
+          link: "/excoincial/preferences",
+          name: "Preferences",
+          onClick: closeMobileDrawerfunc,
+          icon: {
+            desktop: (
+              <span>{
+                selectedTab === "Settings" ? classes.textPrimary : classes.textPurple
+              }</span>              
+            ),
+            mobile: <TuneOutlinedIcon className={classes.textPurple} />
+          },
+        },
+      ],
     },
     {
       link: "/excoincial/referral",
@@ -509,6 +556,7 @@ function NavBar(props) {
         >
           <List>
             {menuItems.map((element, index) => (
+              <>
               <Link
                 to={element.link}
                 className={classes.menuLink}
@@ -544,6 +592,47 @@ function NavBar(props) {
                   </ListItem>
                 {/* </Tooltip> */}
               </Link>
+              {element.name === 'Settings' && isSettingsOpen && (
+                      <>
+                        {
+                          element.childrens.map((child) => (
+                            <Link
+                              to={child.link}
+                              className={classes.menuLink}
+                              onClick={child.onClick}
+                              key={index}
+                              ref={node => {
+                                links.current[index] = node;
+                              }}
+                            >
+                              {/* <Tooltip
+                                title={element.name}
+                                placement="right"
+                                key={element.name}
+                              > */}
+                                <ListItem
+                                  selected={selectedTab === child.name}
+                                  button
+                                  divider={index !== menuItems.length - 1}
+                                  className={classes.permanentDrawerListItem}
+                                  onClick={() => {
+                                    links.current[index].click();
+                                  }}
+                                  aria-label={
+                                    child.name === "Logout"
+                                      ? "Logout"
+                                      : `Go to ${child.name}`
+                                  }
+                                >
+                                  <Typography className={classes.justifyLeft}>{child.name}</Typography>
+                                </ListItem>
+                              {/* </Tooltip> */}
+                            </Link>
+                          ))
+                        }
+                      </>
+                    )}
+              </>
             ))}
           </List>
         </Drawer>
