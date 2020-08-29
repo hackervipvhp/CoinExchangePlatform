@@ -13,6 +13,7 @@ import {
   Paper
 } from "@material-ui/core";
 import tableSectionImage from "../../../assets/images/table-bg.png";
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const styles = theme => ({
   tableSection: {
@@ -33,12 +34,12 @@ function createData(name, lastPrice, charge, markets) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Frozen yoghurt-1', 159, 6.0, 24, 4.0),
+  createData('BTC (Bitcoin)', '$ 9,566.23', '+ 1.88%', 24, 4.0),
+  createData('ETH (Ethereum)', '$ 233.50', '+ 8.56%', 37, 4.3),
+  createData('XRP (Ripple)', '$ 0.205670', '+ 4.23%', 24, 6.0),
+  createData('BNB (BNB)', '$ 17.32', '+ 3.85%', 67, 4.3),
+  createData('BNB (BNB)', '$ 17.32', '+ 3.85%', 49, 3.9),
+  createData('BNB (BNB)', '$ 17.32', '+ 3.85%', 24, 4.0),
 ];
 
 function TableSection(props) {
@@ -50,26 +51,27 @@ function TableSection(props) {
           <Table aria-label="markets">
             <TableHead>
               <TableRow>
-                <TableCell>NAME</TableCell>
-                <TableCell align="right">LAST PRICE</TableCell>
-                <TableCell align="right">24H CHARGE</TableCell>
+                <TableCell align="left">NAME</TableCell>
+                <TableCell align="left">LAST PRICE</TableCell>
+                <TableCell align="left">24H CHANGE</TableCell>
                 <TableCell align="right">MARKETS</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
                 <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">{row.name}</TableCell>
-                  <TableCell align="right">{row.lastPrice}</TableCell>
-                  <TableCell align="right">{row.charge}</TableCell>
-                  <TableCell align="right">{row.markets}</TableCell>
+                  <TableCell component="th" scope="row" align="left">{row.name}</TableCell>
+                  <TableCell align="left">{row.lastPrice}</TableCell>
+                  <TableCell align="left" style={{color:`red`}}>{row.charge}</TableCell>
+                  <TableCell align="right"></TableCell>
                 </TableRow>
               ))}
             </TableBody>
             <TableFooter>
               <TableRow key={`tablefooter`}>
-                <TableCell colSpan={`4`}>
+                <TableCell colSpan={`4`} align={`center`} style={{color:`red`}}>
                   View more markets
+                  <ChevronRightIcon style={{paddingTop:`1vh`}}/>
                 </TableCell>
               </TableRow>
             </TableFooter>

@@ -34,7 +34,8 @@ const styles = theme => ({
     paddingBottom: `80px`
   },
   FeatureSectionText: {
-    marginBottom: 80
+    marginBottom: 80,
+    fontWeight:`bold`,
   }
 });
 

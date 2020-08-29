@@ -145,8 +145,17 @@ const styles = theme => ({
 		fontSize: theme.typography.body1.fontSize,
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
-    height: `100%`,
+    height: `80%`,
     marginTop: `8px`,
+  },
+  headerButton: {
+		fontSize: theme.typography.body1.fontSize,
+		fontWeight: theme.typography.h6.fontWeight,
+		color: theme.palette.common.white,
+    height: `100%`,
+    width: `10%`,
+    marginLeft:`45%`,
+    marginTop: `2vh`,
   },
   tableSection: {
     background: `url(${tableSectionImage}) center no-repeat`,
@@ -212,12 +221,13 @@ function HeadSection(props) {
           <p style={{color: `#fff`, fontSize: `16px`, lineHeight: `24px`, lineSpacing: `0.03em`, textAlign: `center`}}>
             We offer newbies and professional traders the possibility to trade a variety of digital<br></br> assets on a highly secure, insurance backed Exchange platform.
           </p>
+          <Button key={`buy-sell`} classes={{ text: classes.headerButton }}>BUY/SELL</Button>
           <div className={classes.forHeight}>
             <form className={classes.root} noValidate autoComplete="off">
               <Grid className={classes.contactUS} container>
                 <Grid item xl={6} lg={6} md={12}  sm={12} xs={12}>
                   <div className={classes.coinInput}>
-                    <h3>I WANT TO SPLURGE</h3>
+                    <h3>I WANT TO SPEND</h3>
                     <div className={classes.coinInputTextField}>
                       <TextField color="primary" variant="outlined" style={{width: `70%`}}></TextField>
                       <TextField color="primary" select variant="outlined" value={"USD"} style={{width: `30%`}}>

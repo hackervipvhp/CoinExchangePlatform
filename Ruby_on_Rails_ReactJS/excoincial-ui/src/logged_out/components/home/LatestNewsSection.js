@@ -4,7 +4,8 @@ import {
   withStyles,
   withWidth,
   Typography,
-  Grid
+  Grid,
+  Button
 } from "@material-ui/core";
 import latestNewsSectionImage from "../../../assets/images/news-bg.png";
 
@@ -48,8 +49,17 @@ const styles = theme => ({
   newsItemReadMore: {
     color: theme.palette.primary.main,
     fontSize: 18,
-    fontWeight: 600
-  }
+    fontWeight: `normal`
+  },
+  headerButton: {
+		fontSize: theme.typography.body1.fontSize,
+		fontWeight: theme.typography.h6.fontWeight,
+		color: theme.palette.common.white,
+    height: `100%`,
+    width: `10%`,
+    marginLeft:`45%`,
+    marginTop: `5vh`,
+  },
 });
 
 function latestNewsSection(props) {
@@ -73,7 +83,8 @@ function latestNewsSection(props) {
                 Artificial intelligence based on neural networks, built using the newest algorithms for self learning, analysis comparison of neurons in which will be self-corrected, based on the history.
               </Typography>
               <Typography className={classes.newsItemReadMore}>
-                READ MORE...
+                <br/>
+                <a href="#" style={{color:`red`}}>READ MORE...</a>
               </Typography>
             </div>
           </Grid>
@@ -89,7 +100,8 @@ function latestNewsSection(props) {
                 Artificial intelligence based on neural networks, built using the newest algorithms for self learning, analysis comparison of neurons in which will be self-corrected, based on the history.
               </Typography>
               <Typography className={classes.newsItemReadMore}>
-                READ MORE...
+                <br/>
+                <a href="#" style={{color:`red`}}>READ MORE...</a>
               </Typography>
             </div>
           </Grid>
@@ -105,7 +117,8 @@ function latestNewsSection(props) {
                 Artificial intelligence based on neural networks, built using the newest algorithms for self learning, analysis comparison of neurons in which will be self-corrected, based on the history.
               </Typography>
               <Typography className={classes.newsItemReadMore}>
-                READ MORE...
+                <br/>
+                <a href="#" style={{color:`red`}}>READ MORE...</a>
               </Typography>
             </div>
           </Grid>
@@ -121,10 +134,12 @@ function latestNewsSection(props) {
                 Artificial intelligence based on neural networks, built using the newest algorithms for self learning, analysis comparison of neurons in which will be self-corrected, based on the history.
               </Typography>
               <Typography className={classes.newsItemReadMore}>
-                READ MORE...
+                <br/>
+                <a href="#" style={{color:`red`}}>READ MORE...</a>
               </Typography>
             </div>
           </Grid>
+          <Button key={`buy-sell`} classes={{ text: classes.headerButton }}>BUY EXL</Button>
         </Grid>
       </div>
     </Fragment>
