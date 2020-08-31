@@ -14,7 +14,12 @@ const styles = theme => ({
   },
   overflowContent: {
     letterSpacing: `-0.03em`,
-    lineHeight: `20px`
+    lineHeight: `20px`,
+    textAlign:`center`
+  },
+  Content: {
+    marginLeft:`-8px`,
+    textAlign:`center`
   }
 });
 
@@ -37,7 +42,7 @@ function FeatureCard(props) {
           style={{marginRight:20}}
           alt={"Feature-Card"}
         />
-        <Typography variant="body1" className={hasOverflow?classes.overflowContent:""}>
+        <Typography variant="body1" className={hasOverflow?classes.overflowContent:classes.Content}>
         {content}
       </Typography>
       </div>      

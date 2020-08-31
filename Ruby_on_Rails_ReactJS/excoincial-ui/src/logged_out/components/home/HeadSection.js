@@ -109,24 +109,30 @@ const styles = theme => ({
     padding: `0 30px`
   },
   coinInput: {
-    padding: `30px 10px 10px 0px`
-  },
-  coinInput1: {
-    padding: `30px 30px 50px 0px`,
+    padding: `30px 10px 10px 30px`,
     [theme.breakpoints.down("md")]: {
-      padding: `0px 30px 50px 0px`,
+      padding: `30px 10px 10px 10px`,
     },
     [theme.breakpoints.down("sm")]: {
-      padding: `0px 10px 20px 0px`,
+      padding: `30px 10px 10px 10px`,
+    }
+  },
+  coinInput1: {
+    padding: `30px 30px 50px 30px`,
+    [theme.breakpoints.down("md")]: {
+      padding: `30px 10px 0px 10px`,
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: `30px 10px 0px 10px`,
     }
   },
   coinInput2: {
-    padding: `90px 30px 50px 0px`,
+    padding: `65px 30px 50px 30px`,
     [theme.breakpoints.down("md")]: {
-      padding: `60px 30px 50px 0px`,
+      padding: `65px 30px 50px 10px`,
     },
     [theme.breakpoints.down("sm")]: {
-      padding: `0px 10px 50px 0px`,
+      padding: `65px 10px 50px 10px`,
     }
   },
   forHeight: {
@@ -146,7 +152,13 @@ const styles = theme => ({
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
     height: `80%`,
-    marginTop: `8px`,
+    marginTop: `28px`,
+    [theme.breakpoints.down("md")]: {
+      marginTop: `0px`,
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: `0px`,
+    }
   },
   headerButton: {
 		fontSize: theme.typography.body1.fontSize,
@@ -154,7 +166,15 @@ const styles = theme => ({
 		color: theme.palette.common.white,
     height: `100%`,
     width: `10%`,
-    marginLeft:`45%`,
+    marginLeft:`45%`,    
+    [theme.breakpoints.down("md")]: {
+      width: `30%`,
+      marginLeft:`35%`
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: `30%`,
+      marginLeft:`35%`
+    },
     marginTop: `2vh`,
   },
   tableSection: {
@@ -229,8 +249,8 @@ function HeadSection(props) {
                   <div className={classes.coinInput}>
                     <h3>I WANT TO SPEND</h3>
                     <div className={classes.coinInputTextField}>
-                      <TextField color="primary" variant="outlined" style={{width: `70%`}}></TextField>
-                      <TextField color="primary" select variant="outlined" value={"USD"} style={{width: `30%`}}>
+                      <TextField color="primary" variant="outlined" style={{width: `60%`}}></TextField>
+                      <TextField color="primary" select variant="outlined" value={"USD"} style={{width: `40%`}}>
                         {currencies.map((option) => (
                           <MenuItem key={option.value} value={option.value}>
                             {option.value}

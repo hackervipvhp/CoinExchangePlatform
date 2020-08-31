@@ -16,6 +16,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
 import LogoImage from "../../../assets/images/Logo.png";
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -139,7 +140,7 @@ const styles = theme => ({
 	},
 	mainMenu: {
 		textDecoration: "none !important",
-		fontSize: 16,
+		fontSize: 12,
 		[theme.breakpoints.down("md")]: {
 			marginLeft: 10,
 			fontSize: 13
@@ -150,7 +151,7 @@ const styles = theme => ({
 		},
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
-		marginLeft: 15,
+		marginLeft: 40,
 		marginTop: `8px`,
 	},
 	menuItem: {
@@ -172,7 +173,10 @@ const styles = theme => ({
 		right: 0,
 		top: 250,
 		zIndex:101,
-	}
+	},
+	icon:{
+		position:'absolute'
+	},
 });
 
 function NavBar(props) {
@@ -275,7 +279,7 @@ function NavBar(props) {
 									className={classes.noDecoration}
 									onClick={handleMobileDrawerClose}
 								>
-									<AppIcon color="primary" style={{marginTop:27}}/>
+									<AppIcon color="primary" style={{marginTop:24}}/>
 								</Link>
 								<Link
 									key={"menu-markets"}
@@ -283,7 +287,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Markets</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Markets</h4>
 								</Link>
 								<Link
 									key={"menu-support"}
@@ -291,7 +295,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Support</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Support<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
 								<Link
 									key={"menu-exchange"}
@@ -299,7 +303,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Exchange</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Exchange</h4>
 								</Link>								
 								<Link
 									key={"menu-trading"}
@@ -307,7 +311,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Trading</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Trading<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
 								<Link
 									key={"menu-p2p"}
@@ -315,7 +319,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>P2P DEX</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>P2P DEX</h4>
 								</Link>
 								<Link
 									key={"menu-products"}
@@ -323,7 +327,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Products</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Products<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
 								<Link
 									key={"menu-services"}
@@ -331,7 +335,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Services</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Services<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
 								<Link
 									key={"menu-vote"}
@@ -339,7 +343,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Vote</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Vote</h4>
 								</Link>
 								<Link
 									key={"menu-ico"}
@@ -347,7 +351,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>ICO</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>ICO<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
 								<Link
 									key={"menu-buySell"}
@@ -355,7 +359,7 @@ function NavBar(props) {
 									className={classes.mainMenu}
 									onClick={handleMobileDrawerClose}
 								>
-									<h4 classes={classes.menuItem}>Buy/Sell</h4>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Buy/Sell</h4>
 								</Link>
 							</Hidden>
 						</div>
@@ -429,7 +433,7 @@ function NavBar(props) {
 								className={classes.noDecoration}
 								onClick={handleMobileDrawerClose}
 							>
-								<AppIcon color="primary" style={{marginTop:27}}/>
+								<AppIcon color="primary" style={{marginTop:24}}/>
 							</Link>
 							<Link
 								key={"menu-markets"}
@@ -437,7 +441,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Markets</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Markets</h4>
 							</Link>
 							<Link
 								key={"menu-support"}
@@ -445,7 +449,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Support</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Support<ExpandMoreIcon className={classes.icon}/></h4>																
 							</Link>
 							<Link
 								key={"menu-exchange"}
@@ -453,7 +457,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Exchange</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Exchange</h4>
 							</Link>					
 							<Link
 								key={"menu-trading"}
@@ -461,7 +465,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Trading</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Trading<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
 							<Link
 								key={"menu-p2p"}
@@ -469,7 +473,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>P2P DEX</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>P2P DEX</h4>
 							</Link>
 							<Link
 								key={"menu-products"}
@@ -477,7 +481,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Products</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Products<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
 							<Link
 								key={"menu-services"}
@@ -485,7 +489,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Services</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Services<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
 							<Link
 								key={"menu-vote"}
@@ -493,7 +497,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Vote</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Vote</h4>
 							</Link>
 							<Link
 								key={"menu-ico"}
@@ -501,7 +505,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>ICO</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>ICO<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
 							<Link
 								key={"menu-buySell"}
@@ -509,7 +513,7 @@ function NavBar(props) {
 								className={classes.mainMenu}
 								onClick={handleMobileDrawerClose}
 							>
-								<h4 classes={classes.menuItem}>Buy/Sell</h4>
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Buy/Sell</h4>
 							</Link>
 						</Hidden>
 					</div>

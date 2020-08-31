@@ -7,13 +7,15 @@ import {
   Typography,
 } from "@material-ui/core";
 import landingImage from "../../../assets/images/Main-Home-page-banner.png";
+import buyImage from "../../../assets/images/icons/icon.png";
+
 const styles = theme => ({
   landingBackgroundImage: {
     display: `flex`,
     justifyContent: `center`,
     background: `url("${landingImage}") center center no-repeat`,
-    paddingTop: 200,
-    paddingBottom: 100,
+    paddingTop: 50,
+    paddingBottom: 50,
   },
   marketImage: {
     padding: theme.spacing(2),
@@ -30,6 +32,18 @@ const styles = theme => ({
   },
   transactions: {
     backgroundColor: theme.palette.background.default,
+  },
+  icon:{
+    paddingLeft:'10px', 
+    paddingRight:'10px'
+  },
+  icontext:{
+    [theme.breakpoints.down('md')]:{
+      paddingLeft:'10px'
+    },
+    [theme.breakpoints.down('sm')]:{
+      paddingLeft:'10px'
+    },
   }
 });
 
@@ -43,44 +57,48 @@ function HeadSection(props) {
       <div key={"market-best-seller-1"} className={classes.bestSeller}>
         <Grid container>
           <Grid item lg={3} md={3} sm={6} xs={12} className={classes.bestSellerItem}>
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
             <Typography variant="overline">
               &nbsp;33517.1 BUSD
+              <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
             <Typography variant="overline">
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
           <Grid item lg={3} md={3} sm={6} xs={12} className={classes.bestSellerItem}>
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
             <Typography variant="overline">
               &nbsp;33517.1 BUSD
+              <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
             <Typography variant="overline">
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
           <Grid item lg={3} md={3} sm={6} xs={12} className={classes.bestSellerItem}>
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
             <Typography variant="overline">
               &nbsp;33517.1 BUSD
+              <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
             <Typography variant="overline">
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
           <Grid item lg={3} md={3} sm={6} xs={12} className={classes.bestSellerItem}>
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
             <Typography variant="overline">
               &nbsp;33517.1 BUSD
+              <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
             <Typography variant="overline">
               &nbsp;Large Buy 22:41:56

@@ -37,7 +37,7 @@ const tableIcons = {
   NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
   PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
   ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-  Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+  Search: forwardRef((props, ref) => <Search {...props} ref={ref}/>),
   SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
@@ -50,10 +50,19 @@ const styles = theme => ({
     display: `flex`,
     justifyContent: `center`,
     padding: `25px 10%`,
+    [theme.breakpoints.down("md")]:{
+      width:'95vw',
+    },
+    [theme.breakpoints.down("sm")]:{
+      width:'95vw',
+    },
   },
   materialTable: {
-    width: '70vw'
-  }
+    width: '70vw',
+  },
+  icon:{
+    position:'absolute'
+  },
 });
 
 function HeadSection(props) {
