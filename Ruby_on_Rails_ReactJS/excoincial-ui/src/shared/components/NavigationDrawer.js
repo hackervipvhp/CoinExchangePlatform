@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 import {
   List,
   ListItem,
@@ -32,6 +33,12 @@ const styles = theme => ({
   }
 });
 
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    backgroundColor: `rgb(52 58 64)`,
+    marginTop:56,
+  },
+}));
 function NavigationDrawer(props) {
   const {
     width,
@@ -51,26 +58,9 @@ function NavigationDrawer(props) {
       }
     };
   }, [width, open, onClose]);
-
+  const myClasses = useStyles();
   return (
-    <Drawer variant="temporary" open={open} onClose={onClose} anchor={anchor}>
-      <Toolbar className={classes.headSection}>
-        <ListItem
-          style={{
-            paddingTop: theme.spacing(0),
-            paddingBottom: theme.spacing(0),
-            height: "100%",
-            justifyContent: anchor === "left" ? "flex-start" : "flex-end"
-          }}
-          disableGutters
-        >
-          <ListItemIcon className={classes.closeIcon}>
-            <IconButton onClick={onClose} aria-label="Close Navigation">
-              <CloseIcon color="primary" />
-            </IconButton>
-          </ListItemIcon>
-        </ListItem>
-      </Toolbar>
+    <Drawer variant="temporary" open={open} onClose={onClose} anchor={anchor} classes={{ paper: myClasses.paper }}>
       <List className={classes.blackList}>
         {menuItems.map(element => {
           if (element.link) {

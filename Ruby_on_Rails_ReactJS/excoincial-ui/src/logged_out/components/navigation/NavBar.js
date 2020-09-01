@@ -87,6 +87,12 @@ const styles = theme => ({
 		justifyContent: "space-between",
 		marginLeft: 25,
 		marginRight: 25,
+		[theme.breakpoints.down('md')]:{
+			marginRight: 10,
+		},
+		[theme.breakpoints.down('sm')]:{
+			marginRight: 0,
+		},
 		padding: `0 !important`
 	},
 	menuButtonText: {
@@ -142,10 +148,10 @@ const styles = theme => ({
 	},
 	mainMenu: {
 		textDecoration: "none !important",
-		fontSize: 12,
+		fontSize: 10,
 		[theme.breakpoints.down("md")]: {
 			marginLeft: 10,
-			fontSize: 13
+			fontSize: 11
 		},
 		[theme.breakpoints.down("sm")]: {
 			marginLeft: 5,
@@ -159,7 +165,7 @@ const styles = theme => ({
 	menuItem: {
 		margin: `0px !important`,
 	},
-	menuButtonTextSignUp: {
+	menuButtonTextSign: {
 		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
 		fontSize: 16,
@@ -310,8 +316,8 @@ function NavBar(props) {
 			icon: <LanguageIcon color="primary" style={{fontSize:30}}/>
 		},
 		{
-			link: "/blog",
-			name: "Blog",
+			link: "/",
+			name: "Currency",
 			icon: <CurrencyIcon color="primary" style={{transform: `rotate(135deg)`, fontSize:30}}/>
 		},
 		
@@ -480,8 +486,16 @@ function NavBar(props) {
 							<Hidden mdUp>
 								<Button
 									size="large"
+									onClick={openLoginDialog}
+									classes={{ text: classes.menuButtonTextSign }}
+									key={"sign-in-1"}
+								>
+									Sign up
+								</Button>
+								<Button
+									size="large"
 									onClick={openRegisterDialog}
-									classes={{ text: classes.menuButtonTextSignUp }}
+									classes={{ text: classes.menuButtonTextSign }}
 									key={"sign-up-1"}
 								>
 									Sign up
@@ -684,8 +698,16 @@ function NavBar(props) {
 						<Hidden mdUp>
 							<Button
 								size="large"
+								onClick={openLoginDialog}
+								classes={{ text: classes.menuButtonTextSign }}
+								key={"sign-in-1"}
+							>
+								Sign in
+							</Button>
+							<Button
+								size="large"
 								onClick={openRegisterDialog}
-								classes={{ text: classes.menuButtonTextSignUp }}
+								classes={{ text: classes.menuButtonTextSign }}
 								key={"sign-up-1"}
 							>
 								Sign up

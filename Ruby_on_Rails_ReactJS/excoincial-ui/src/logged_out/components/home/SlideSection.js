@@ -22,20 +22,21 @@ const styles = theme => ({
     display: `flex`,
     justifyContent: `center`,
     [theme.breakpoints.down("md")]:{
-      margin:0
+      justifyContent:`left`,
     },
     [theme.breakpoints.down("sm")]:{
-      margin:0
-    },
+      justifyContent:`left`,
+    }
   },
   sliderDiv:{
-    padding: `0px 10px`,
-    [theme.breakpoints.down("md")]:{
-      padding: 0,
-    },
-    [theme.breakpoints.down("sm")]:{
-      padding: 0,
-    },
+    paddingLeft:10,
+    paddingRight:10,
+    // [theme.breakpoints.down("md")]:{
+    //   padding: 0,
+    // },
+    // [theme.breakpoints.down("sm")]:{
+    //   padding: 0,
+    // },
   },
   sliderImage:{
     borderRadius: 25,

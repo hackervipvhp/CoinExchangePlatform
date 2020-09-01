@@ -51,14 +51,18 @@ const styles = theme => ({
     justifyContent: `center`,
     padding: `25px 10%`,
     [theme.breakpoints.down("md")]:{
-      width:'95vw',
+      padding: `5px 5px`,
+      justifyContent: `left`,
+      width:'100%',
     },
     [theme.breakpoints.down("sm")]:{
-      width:'95vw',
+      padding: `5px 5px`,
+      justifyContent: `left`,
+      width:'100%',
     },
   },
   materialTable: {
-    width: '70vw',
+    width: '100%',
   },
   icon:{
     position:'absolute'
