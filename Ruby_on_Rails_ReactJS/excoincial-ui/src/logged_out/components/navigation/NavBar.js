@@ -11,7 +11,9 @@ import {
 	Slide,
 	Zoom,
 	makeStyles,
-	Fab
+	Fab,
+	Menu,
+	MenuItem
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
@@ -173,6 +175,14 @@ const styles = theme => ({
 		right: 0,
 		top: 250,
 		zIndex:101,
+		[theme.breakpoints.down("md")]:{
+			height:33,
+			width:31
+		},
+		[theme.breakpoints.down("sm")]:{
+			height:33,
+			width:31
+		}
 	},
 	icon:{
 		position:'absolute'
@@ -180,6 +190,60 @@ const styles = theme => ({
 });
 
 function NavBar(props) {
+	const [anchorSupport, setAnchorSupport] = React.useState(null);  
+	const [anchorApp, setAnchorApp] = React.useState(null); 
+	const [anchorTrading, setAnchorTrading] = React.useState(null);  
+	const [anchorProducts, setAnchorProducts] = React.useState(null); 
+	const [anchorServices, setAnchorServices] = React.useState(null);  
+	const [anchorICO, setAnchorICO] = React.useState(null); 
+
+	const handleClick_Support = (event) => {
+	  	handleMobileDrawerClose();
+	  	setAnchorSupport(event.currentTarget);
+	};  	
+	const handleClose_Support = () => {
+		setAnchorSupport(null);
+	};	
+
+	const handleClick_App = (event) => {
+		handleMobileDrawerClose();
+		setAnchorApp(event.currentTarget);
+  	};  
+	const handleClose_App = () => {
+		setAnchorApp(null);
+	};	
+
+	const handleClick_Trading = (event) => {
+		handleMobileDrawerClose();
+		setAnchorTrading(event.currentTarget);
+  	};  
+	const handleClose_Trading = () => {
+		setAnchorTrading(null);
+	};	
+	
+	const handleClick_Products = (event) => {
+		handleMobileDrawerClose();
+		setAnchorProducts(event.currentTarget);
+  	};  
+	const handleClose_Products = () => {
+		setAnchorProducts(null);
+	};	
+
+	const handleClick_Services = (event) => {
+		handleMobileDrawerClose();
+		setAnchorServices(event.currentTarget);
+  	};  
+	const handleClose_Services = () => {
+		setAnchorServices(null);
+	};	
+
+	const handleClick_ICO = (event) => {
+		handleMobileDrawerClose();
+		setAnchorICO(event.currentTarget);
+  	};  
+	const handleClose_ICO = () => {
+		setAnchorICO(null);
+	};	
 	const {
 		classes,
 		openRegisterDialog,
@@ -274,13 +338,23 @@ function NavBar(props) {
 						<div style={{display: `flex`, float: `left`}}>
 							<Hidden smDown>
 								<Link
-									key={"menu-1"}
-									to={""}
 									className={classes.noDecoration}
-									onClick={handleMobileDrawerClose}
+									onClick={handleClick_App}
 								>
 									<AppIcon color="primary" style={{marginTop:24}}/>
 								</Link>
+								<Menu
+									id="app-submenu"
+									anchorEl={anchorApp}
+									keepMounted
+									open={Boolean(anchorApp)}
+									onClose={handleClose_App}
+								>
+									<MenuItem onClick={handleClose_App}>About us</MenuItem>
+									<MenuItem onClick={handleClose_App}>News Blogs</MenuItem>
+									<MenuItem onClick={handleClose_App}>How it works</MenuItem>
+									<MenuItem onClick={handleClose_App}>Partners</MenuItem>
+								</Menu>
 								<Link
 									key={"menu-markets"}
 									to={"/markets"}
@@ -290,13 +364,20 @@ function NavBar(props) {
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Markets</h4>
 								</Link>
 								<Link
-									key={"menu-support"}
-									to={"/support"}
 									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
+									onClick={handleClick_Support}
 								>
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Support<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
+								<Menu
+									id="support-submenu"
+									anchorEl={anchorSupport}
+									keepMounted
+									open={Boolean(anchorSupport)}
+									onClose={handleClose_Support}
+								>
+									<MenuItem onClick={handleClose_Support}>Support</MenuItem>
+								</Menu>
 								<Link
 									key={"menu-exchange"}
 									to={"/exchange"}
@@ -306,13 +387,20 @@ function NavBar(props) {
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Exchange</h4>
 								</Link>								
 								<Link
-									key={"menu-trading"}
-									to={"/trading"}
 									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
+									onClick={handleClick_Trading}
 								>
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Trading<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
+								<Menu
+									id="trading-submenu"
+									anchorEl={anchorTrading}
+									keepMounted
+									open={Boolean(anchorTrading)}
+									onClose={handleClose_Trading}
+								>
+									<MenuItem onClick={handleClose_Trading}>Trading</MenuItem>
+								</Menu>
 								<Link
 									key={"menu-p2p"}
 									to={"/p2p-dex"}
@@ -322,21 +410,37 @@ function NavBar(props) {
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>P2P DEX</h4>
 								</Link>
 								<Link
-									key={"menu-products"}
-									to={"/products"}
 									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
+									onClick={handleClick_Products}
 								>
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Products<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
+								<Menu
+									id="products-submenu"
+									anchorEl={anchorProducts}
+									keepMounted
+									open={Boolean(anchorProducts)}
+									onClose={handleClose_Products}
+								>
+									<MenuItem onClick={handleClose_Products}>Products</MenuItem>
+								</Menu>
 								<Link
-									key={"menu-services"}
-									to={"/services"}
+									// key={"menu-services"}
+									// to={"/services"}
 									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
+									onClick={handleClick_Services}
 								>
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Services<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
+								<Menu
+									id="services-submenu"
+									anchorEl={anchorServices}
+									keepMounted
+									open={Boolean(anchorServices)}
+									onClose={handleClose_Services}
+								>
+									<MenuItem onClick={handleClose_Services}>Services</MenuItem>
+								</Menu>
 								<Link
 									key={"menu-vote"}
 									to={"/vote"}
@@ -346,13 +450,22 @@ function NavBar(props) {
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Vote</h4>
 								</Link>
 								<Link
-									key={"menu-ico"}
-									to={"/ico"}
+									// key={"menu-ico"}
+									// to={"/ico"}
 									className={classes.mainMenu}
-									onClick={handleMobileDrawerClose}
+									onClick={handleClick_ICO}
 								>
 									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>ICO<ExpandMoreIcon className={classes.icon}/></h4>
 								</Link>
+								<Menu
+									id="ICO-submenu"
+									anchorEl={anchorICO}
+									keepMounted
+									open={Boolean(anchorICO)}
+									onClose={handleClose_ICO}
+								>
+									<MenuItem onClick={handleClose_ICO}>ICO</MenuItem>
+								</Menu>
 								<Link
 									key={"menu-buySell"}
 									to={"/buy-sell"}
@@ -428,13 +541,23 @@ function NavBar(props) {
 					<div style={{display: `flex`, float: `left`}}>
 						<Hidden smDown>
 							<Link
-								key={"menu-main-logo"}
-								to={""}
 								className={classes.noDecoration}
-								onClick={handleMobileDrawerClose}
+								onClick={handleClick_App}
 							>
 								<AppIcon color="primary" style={{marginTop:24}}/>
 							</Link>
+							<Menu
+								id="app-submenu"
+								anchorEl={anchorApp}
+								keepMounted
+								open={Boolean(anchorApp)}
+								onClose={handleClose_App}
+							>
+								<MenuItem onClick={handleClose_App}>About us</MenuItem>
+								<MenuItem onClick={handleClose_App}>News Blogs</MenuItem>
+								<MenuItem onClick={handleClose_App}>How it works</MenuItem>
+								<MenuItem onClick={handleClose_App}>Partners</MenuItem>
+							</Menu>
 							<Link
 								key={"menu-markets"}
 								to={"/markets"}
@@ -444,13 +567,20 @@ function NavBar(props) {
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Markets</h4>
 							</Link>
 							<Link
-								key={"menu-support"}
-								to={"/support"}
 								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
+								onClick={handleClick_Support}
 							>
-								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Support<ExpandMoreIcon className={classes.icon}/></h4>																
+								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Support<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
+							<Menu
+								id="support-submenu"
+								anchorEl={anchorSupport}
+								keepMounted
+								open={Boolean(anchorSupport)}
+								onClose={handleClose_Support}
+							>
+								<MenuItem onClick={handleClose_Support}>Support</MenuItem>
+							</Menu>
 							<Link
 								key={"menu-exchange"}
 								to={"/exchange"}
@@ -459,14 +589,22 @@ function NavBar(props) {
 							>
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Exchange</h4>
 							</Link>					
+													
 							<Link
-								key={"menu-trading"}
-								to={"/trading"}
-								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
-							>
-								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Trading<ExpandMoreIcon className={classes.icon}/></h4>
-							</Link>
+									className={classes.mainMenu}
+									onClick={handleClick_Trading}
+								>
+									<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Trading<ExpandMoreIcon className={classes.icon}/></h4>
+								</Link>
+								<Menu
+									id="trading-submenu"
+									anchorEl={anchorTrading}
+									keepMounted
+									open={Boolean(anchorTrading)}
+									onClose={handleClose_Trading}
+								>
+									<MenuItem onClick={handleClose_Trading}>Trading</MenuItem>
+								</Menu>
 							<Link
 								key={"menu-p2p"}
 								to={"/p2p-dex"}
@@ -476,21 +614,37 @@ function NavBar(props) {
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>P2P DEX</h4>
 							</Link>
 							<Link
-								key={"menu-products"}
-								to={"/products"}
 								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
+								onClick={handleClick_Products}
 							>
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Products<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
+							<Menu
+								id="products-submenu"
+								anchorEl={anchorProducts}
+								keepMounted
+								open={Boolean(anchorProducts)}
+								onClose={handleClose_Products}
+							>
+								<MenuItem onClick={handleClose_Products}>Products</MenuItem>
+							</Menu>
 							<Link
-								key={"menu-services"}
-								to={"/services"}
+								// key={"menu-services"}
+								// to={"/services"}
 								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
+								onClick={handleClick_Services}
 							>
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Services<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
+							<Menu
+								id="services-submenu"
+								anchorEl={anchorServices}
+								keepMounted
+								open={Boolean(anchorServices)}
+								onClose={handleClose_Services}
+							>
+								<MenuItem onClick={handleClose_Services}>Services</MenuItem>
+							</Menu>
 							<Link
 								key={"menu-vote"}
 								to={"/vote"}
@@ -500,13 +654,22 @@ function NavBar(props) {
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>Vote</h4>
 							</Link>
 							<Link
-								key={"menu-ico"}
-								to={"/ico"}
+								// key={"menu-ico"}
+								// to={"/ico"}
 								className={classes.mainMenu}
-								onClick={handleMobileDrawerClose}
+								onClick={handleClick_ICO}
 							>
 								<h4 classes={classes.menuItem} style={{lineHeight:`24px`}}>ICO<ExpandMoreIcon className={classes.icon}/></h4>
 							</Link>
+							<Menu
+								id="ICO-submenu"
+								anchorEl={anchorICO}
+								keepMounted
+								open={Boolean(anchorICO)}
+								onClose={handleClose_ICO}
+							>
+								<MenuItem onClick={handleClose_ICO}>ICO</MenuItem>
+							</Menu>
 							<Link
 								key={"menu-buySell"}
 								to={"/buy-sell"}

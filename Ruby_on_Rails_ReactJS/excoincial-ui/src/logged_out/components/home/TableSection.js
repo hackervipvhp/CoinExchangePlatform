@@ -19,6 +19,7 @@ import ETHImage from "../../../assets/images/icons/2.png";
 import XRPImage from "../../../assets/images/icons/3.png";
 import BNBImage from "../../../assets/images/icons/4.png";
 import BNBImage1 from "../../../assets/images/icons/5.png";
+import { Chart } from 'react-charts'
 
 const styles = theme => ({
   tableSection: {
@@ -26,6 +27,7 @@ const styles = theme => ({
     backgroundSize: `100% 100%`,
     height: '100%',
     paddingTop: `200px`,
+    paddingBottom: `50px`,
   },
   table: {
     width: `70vw`,
@@ -64,8 +66,29 @@ const styles = theme => ({
       display:'none',
     },
   },
+  tablenamecol:{
+    paddingLeft:`20px`,
+    [theme.breakpoints.down("md")]:{
+      width:`10%`,
+    },
+    [theme.breakpoints.down("sm")]:{
+      width:`10%`,
+    },
+  },
+  tablelastpricecol:{
+    [theme.breakpoints.down("md")]:{
+      width:`35%`,
+    },
+    [theme.breakpoints.down("sm")]:{
+      width:`35%`,
+    },
+  },
   icon:{
     position:'absolute'
+  },
+  tablemore:{
+    color:`red`, 
+    lineHeight:`24px`,
   },
 });
 
@@ -84,6 +107,7 @@ const rows = [
 
 function TableSection(props) {
   const { classes } = props;
+  
   return (
     <Fragment>
       <div className={classes.tableSection}>
@@ -91,8 +115,8 @@ function TableSection(props) {
           <Table aria-label="markets">
             <TableHead>
               <TableRow>
-                <TableCell align="center" style={{width:`10%`}}>NAME</TableCell>
-                <TableCell align="cetner" style={{width:`35%`}}>LAST PRICE</TableCell>
+                <TableCell align="left" className={classes.tablenamecol}>NAME</TableCell>
+                <TableCell align="cetner" className={classes.tablelastpricecol}>LAST PRICE</TableCell>
                 <TableCell align="cetner">24H CHANGE</TableCell>
                 <TableCell align="cetner">MARKETS</TableCell>
               </TableRow>
@@ -113,7 +137,7 @@ function TableSection(props) {
             </TableBody>
             <TableFooter>
               <TableRow key={`tablefooter`}>
-                <TableCell colSpan={`4`} align={`center`} style={{color:`red`, lineHeight:`24px`}}>                  
+                <TableCell colSpan={`4`} align={`center`} className={classes.tablemore}>                  
                     View more markets
                     <ChevronRightIcon className={classes.icon}/>                  
                 </TableCell>
