@@ -15,6 +15,8 @@ function Routing(props) {
     selectHome,
     selectMarkets,
     selectExchange,
+    LiveChart,
+    statistics,
   } = props;
   return (
     <Switch>
@@ -42,6 +44,8 @@ function Routing(props) {
         exact
         path="/"
         component={Home}
+        LiveChart={LiveChart}
+        statistics={statistics}
         selectHome={selectHome}
       />
       <PropsRoute

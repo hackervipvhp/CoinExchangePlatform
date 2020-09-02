@@ -9,14 +9,19 @@ import HowItWorksSection from "./HowItWorksSection";
 import PartnersSection from "./PartnersSection";
 
 function Home(props) {
-  const { selectHome } = props;
+  
+  const {
+    LiveChart,
+    statistics,
+    selectHome,
+  } = props;
   useEffect(() => {
     selectHome();
   }, [selectHome]);
   return (
     <Fragment>
       <HeadSection />
-      <TableSection />
+      <TableSection LiveChart={LiveChart} statisticdata={statistics}/>
       <SlideSection />
       <LatestNewsSection />
       <FeatureSection />
@@ -27,7 +32,9 @@ function Home(props) {
 }
 
 Home.propTypes = {
-  selectHome: PropTypes.func.isRequired
+  LiveChart: PropTypes.elementType,
+  statistics: PropTypes.object.isRequired,
+  selectHome: PropTypes.func.isRequired,
 };
 
 export default Home;

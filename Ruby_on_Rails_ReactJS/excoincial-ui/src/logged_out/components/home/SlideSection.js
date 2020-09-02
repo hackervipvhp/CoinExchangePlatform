@@ -45,7 +45,7 @@ const styles = theme => ({
 
 
 function slideSection(props) {
-  const { classes } = props;
+  const { classes,  } = props;
   return (
     <Fragment>
       <div className={classes.slideSection}>

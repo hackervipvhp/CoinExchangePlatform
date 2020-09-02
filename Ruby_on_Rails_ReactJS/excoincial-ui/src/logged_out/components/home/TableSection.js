@@ -12,6 +12,8 @@ import {
   TableFooter,
   Paper
 } from "@material-ui/core";
+
+import Chart from './Chart';
 import tableSectionImage from "../../../assets/images/table-bg.png";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import BTCImage from "../../../assets/images/icons/1.png";
@@ -19,7 +21,6 @@ import ETHImage from "../../../assets/images/icons/2.png";
 import XRPImage from "../../../assets/images/icons/3.png";
 import BNBImage from "../../../assets/images/icons/4.png";
 import BNBImage1 from "../../../assets/images/icons/5.png";
-import { Chart } from 'react-charts'
 
 const styles = theme => ({
   tableSection: {
@@ -107,6 +108,10 @@ const rows = [
 
 function TableSection(props) {
   const { classes } = props;
+  const {
+    LiveChart,
+    statisticdata,
+  } = props;
   
   return (
     <Fragment>
@@ -118,7 +123,7 @@ function TableSection(props) {
                 <TableCell align="left" className={classes.tablenamecol}>NAME</TableCell>
                 <TableCell align="cetner" className={classes.tablelastpricecol}>LAST PRICE</TableCell>
                 <TableCell align="cetner">24H CHANGE</TableCell>
-                <TableCell align="cetner">MARKETS</TableCell>
+                <TableCell align="right">MARKETS</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -131,7 +136,7 @@ function TableSection(props) {
                     </TableCell>
                   <TableCell align="left">{row.lastPrice}</TableCell>
                   <TableCell align="left" style={{color:`red`}}>{row.charge}</TableCell>
-                  <TableCell align="right"></TableCell>
+                  <TableCell align="right"><Chart LiveChart={LiveChart} data={statisticdata}/></TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -151,6 +156,8 @@ function TableSection(props) {
 }
 
 TableSection.propTypes = {
+  LiveChart: PropTypes.elementType,
+  statisticdata: PropTypes.object.isRequired,
   classes: PropTypes.object,
   width: PropTypes.string,
   theme: PropTypes.object

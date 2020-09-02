@@ -29,12 +29,51 @@ function Main(props) {
   const [dialogOpen, setDialogOpen] = useState(null);
   const [isCookieRulesDialogOpen, setIsCookieRulesDialogOpen] = useState(false);
 
+  const [hasFetchedLiveChart, setHasFetchedLiveChart] = useState(false);
+  const [LiveChart, setLiveChart] = useState(null);  
+  const [statistics, setStatistics] = useState({ views: [], profit: [] });
+
+  const fetchRandomStatistics = useCallback(() => {
+    const statistics = { profit: [], views: [] };
+    const iterations = 300;
+    const oneYearSeconds = 60 * 60 * 24 * 365;
+    let curProfit = Math.round(3000 + Math.random() * 1000);
+    let curViews = Math.round(3000 + Math.random() * 1000);
+    let curUnix = Math.round(new Date().getTime() / 1000) - oneYearSeconds;
+    for (let i = 0; i < iterations; i += 1) {
+      curUnix += Math.round(oneYearSeconds / iterations);
+      curProfit += Math.round((Math.random() * 2 - 1) * 10);
+      curViews += Math.round((Math.random() * 2 - 1) * 10);
+      statistics.profit.push({
+        value: curProfit,
+        timestamp: curUnix,
+      });
+      statistics.views.push({
+        value: curViews,
+        timestamp: curUnix,
+      });
+    }
+    setStatistics(statistics);
+  }, [setStatistics]);
+
+
+
   const selectHome = useCallback(() => {
     smoothScrollTop();
     document.title =
       "Excoincial - Home";
     setSelectedTab("Home");
-  }, [setSelectedTab]);
+    if (!hasFetchedLiveChart) {
+      setHasFetchedLiveChart(true);
+      import("../../shared/components/LiveChart").then((Component) => {
+        setLiveChart(Component.default);
+        console.log(Component);
+      });
+    }
+  }, [setSelectedTab,
+    setLiveChart,
+    hasFetchedLiveChart,
+    setHasFetchedLiveChart,]);
 
   const selectMarkets = useCallback(() => {
     smoothScrollTop();
@@ -111,8 +150,13 @@ function Main(props) {
     setIsCookieRulesDialogOpen(false);
   }, [setIsCookieRulesDialogOpen]);
 
-  useEffect(fetchBlogPosts, []);
-
+  useEffect(() => {
+    fetchBlogPosts();
+    fetchRandomStatistics();
+  }, [
+    fetchRandomStatistics,
+  ]);
+  console.log('1111-', LiveChart)
   return (
     <div className={classes.wrapper}>
       {!isCookieRulesDialogOpen && (
@@ -144,6 +188,8 @@ function Main(props) {
       <Routing
         blogPosts={blogPosts}
         selectHome={selectHome}
+        statistics={statistics}
+        LiveChart={LiveChart}
         selectMarkets={selectMarkets}
         selectExchange={selectExchange}
         selectBlog={selectBlog}
