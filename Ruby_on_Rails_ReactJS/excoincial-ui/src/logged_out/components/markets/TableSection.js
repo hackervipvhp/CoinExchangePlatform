@@ -1,6 +1,9 @@
 import React, { useState, forwardRef } from "react";
 import PropTypes from "prop-types";
 import MaterialTable from 'material-table';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import {
   withStyles,
   withWidth,
@@ -46,13 +49,14 @@ const tableIcons = {
 
 const styles = theme => ({
   transactions: {
+    overflowX: `scroll`,
     backgroundColor: theme.palette.background.default,
     display: `flex`,
     justifyContent: `center`,
     padding: `25px 10%`,
     [theme.breakpoints.down("md")]:{
       padding: `5px 5px`,
-      justifyContent: `left`,
+      justifyContent: `center`,
       width:'100%',
     },
     [theme.breakpoints.down("sm")]:{
@@ -62,7 +66,55 @@ const styles = theme => ({
     },
   },
   materialTable: {
+    overflowX: `scroll`,
     width: '100%',
+  },
+  tabletab:{
+    [theme.breakpoints.down("sm")]:{
+      paddingLeft:3,
+      paddingRight:3,
+      fontSize:`0.8rem`,
+    },
+  },
+  tableheader:{
+    textAlign: `center`,
+    [theme.breakpoints.down("md")]:{
+      paddingLeft:5,
+      paddingRight:5,
+      fontSize:`0.6rem`,
+    },
+    [theme.breakpoints.down("sm")]:{
+      paddingLeft:5,
+      paddingRight:5,
+      fontSize:`0.6rem`,
+    },
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    paddingLeft: 5,
+    border:`solid`,
+    borderWidth:`thin`,
+    borderRadius:10,
+    height:20,
+    width:48,
+    marginTop:12,
+    marginLeft:0,
+  },
+  formselect:{
+    height:20,
+    fontSize:`0.8rem`,
+    '&::before':{
+      borderBottom:0,
+    },
+    '&::after':{
+      borderBottom:0,
+    },
+    [theme.breakpoints.down("md")]:{
+      fontSize:`0.5rem`,
+    },
+    [theme.breakpoints.down("sm")]:{
+      fontSize:`0.5rem`,
+    },
   },
   icon:{
     position:'absolute'
@@ -73,7 +125,24 @@ function HeadSection(props) {
   const { classes } = props;
   const [ tabIndex, setTabIndex] = useState(0);
   const [ marketData, setMarketData] = useState([]);
-
+  const [state, setState] = React.useState({
+    name: 'all',
+    name1: 'all',
+  });
+  const handleChange1 = (event) => {
+    const name = event.target.name;
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
+  };
+  const handleChange2 = (event) => {
+    const name1 = event.target.name1;
+    setState({
+      ...state,
+      [name1]: event.target.value,
+    });
+  };
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
   };
@@ -83,6 +152,11 @@ function HeadSection(props) {
       <MaterialTable
         icons={tableIcons}
         className={classes.materialTable}
+        localization={{
+          toolbar: {
+              searchPlaceholder: "Search coin name"
+          },
+        }}
         title={
         <Tabs
           value={tabIndex}
@@ -90,16 +164,50 @@ function HeadSection(props) {
           textColor="primary"
           onChange={handleChange}
         >
-          <Tab label="Favorites" />
-          <Tab label="EXL" />
-          <Tab label="AFCASH" />
-          <Tab label="BTC" />
-          <Tab label="ALTS" />
-          <Tab label="FIAT" />
+          <Tab label="Favorites" className={classes.tabletab} />
+          <Tab label="EXL" className={classes.tabletab} />
+          <Tab label="AFCASH" className={classes.tabletab} />
+          <Tab label="BTC" className={classes.tabletab} />
+          <Tab label="ALTS" className={classes.tabletab} />
+          <FormControl className={classes.formControl}>
+            <Select
+              native
+              value={state.name}
+              onChange={handleChange1}
+              inputProps={{
+                name: 'all',
+                id: 'alt-all',
+              }}
+              className={classes.formselect}
+            >
+              <option value={'all'}>All</option>
+              <option value={'alts'}>ALTS</option>
+              {/* <option value={20}>Twenty</option>
+              <option value={30}>Thirty</option> */}
+            </Select>
+          </FormControl>
+          <Tab label="FIAT" className={classes.tabletab} />
+          <FormControl className={classes.formControl}>
+            <Select
+              native
+              value={state.name1}
+              onChange={handleChange2}
+              inputProps={{
+                name1: 'all',
+                id: 'alt-all',
+              }}
+              className={classes.formselect}
+            >
+              <option value={'all'}>All</option>
+              <option value={'fiat'}>FIAT</option>
+              {/* <option value={20}>Twenty</option>
+              <option value={30}>Thirty</option> */}
+            </Select>
+          </FormControl>
         </Tabs>}
         options={{
           search: true,
-          tableLayout: `fixed`,
+          tableLayout: `auto`,
           pageSize: 20,
           pageSizeOptions: [20,50,100,200]
         }}

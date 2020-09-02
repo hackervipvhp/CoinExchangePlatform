@@ -78,16 +78,25 @@ const styles = theme => ({
   },
   icon:{
     paddingLeft:'10px', 
-    paddingRight:'10px'
+    paddingRight:'10px',
+    width:`30%`,
   },
   icontext:{
+    fontSize:`1rem`,
     [theme.breakpoints.down('md')]:{
       paddingLeft:'10px'
     },
     [theme.breakpoints.down('sm')]:{
       paddingLeft:'10px'
     },
-  }
+  },
+  iconsubtext:{
+    fontSize:`0.6rem`,
+  },
+  landingbottomtext:{
+    color: theme.palette.background.default, 
+    paddingTop: 20,
+  },
 });
 
 function Landing(props) {
@@ -100,7 +109,7 @@ function Landing(props) {
           <Grid item md={3} sm={12} className={classes.marketImageBlue}>
             <div style={{display:`flex`, justifyContent:`space-between`}}>
               <div key="market-landing-left-1">
-                <Typography variant="h6" style={{color: theme.palette.background.default, paddingTop: 20}}>BNB/USDT</Typography>
+                <Typography variant="h6" className={classes.landingbottomtext}>BNB/USDT</Typography>
                 <div style={{display: `flex`, justifyContent: `left`}}>
                   <Typography variant="h6" style={{color: `rgb(0,230,212)`}}>16.2208</Typography>
                   <Typography variant="overline" style={{color: theme.palette.background.default}}>&nbsp;&nbsp;$ 16.21</Typography>
@@ -115,7 +124,7 @@ function Landing(props) {
           <Grid item md={3} sm={12} className={classes.marketImageRed}>
             <div style={{display:`flex`, justifyContent:`space-between`}}>
               <div key="market-landing-left-1">
-                <Typography variant="h6" style={{color: theme.palette.background.default, paddingTop: 20}}>BNB/USDT</Typography>
+                <Typography variant="h6" className={classes.landingbottomtext}>BNB/USDT</Typography>
                 <div style={{display: `flex`, justifyContent: `left`}}>
                   <Typography variant="h6" style={{color: `rgb(222,15,45)`}}>16.2208</Typography>
                   <Typography variant="overline" style={{color: theme.palette.background.default}}>&nbsp;&nbsp;$ 16.21</Typography>
@@ -130,7 +139,7 @@ function Landing(props) {
           <Grid item md={3} sm={12} className={classes.marketImageBlue}>
             <div style={{display:`flex`, justifyContent:`space-between`}}>
               <div key="market-landing-left-1">
-                <Typography variant="h6" style={{color: theme.palette.background.default, paddingTop: 20}}>BNB/USDT</Typography>
+                <Typography variant="h6" className={classes.landingbottomtext}>BNB/USDT</Typography>
                 <div style={{display: `flex`, justifyContent: `left`}}>
                   <Typography variant="h6" style={{color: `rgb(0,230,212)`}}>16.2208</Typography>
                   <Typography variant="overline" style={{color: theme.palette.background.default}}>&nbsp;&nbsp;$ 16.21</Typography>
@@ -150,11 +159,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -162,11 +171,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -174,11 +183,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -186,11 +195,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
