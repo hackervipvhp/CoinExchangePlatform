@@ -1,26 +1,15 @@
-import React, { Fragment, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from "react";
 import LandingSection from "./Landing";
-import TradingViewWidget from "react-tradingview-widget";
+import Trading from "./Trading";
 
 
 function Exchange(props) {
-  const { selectExchange } = props;
-  useEffect(() => {
-    selectExchange();
-  }, [selectExchange]);
   return (
     <Fragment>
       <LandingSection />
-      <TradingViewWidget
-        symbol="BTC/USD"
-      />
+      <Trading symbol="BTC/USD"/>
     </Fragment>
   );
 }
-
-Exchange.propTypes = {
-  selectExchange: PropTypes.func.isRequired
-};
 
 export default Exchange;

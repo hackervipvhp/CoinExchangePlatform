@@ -50,7 +50,13 @@ const styles = theme => ({
   },
   footerMenu: {
     color:theme.palette.background.default,
-    fontSize: 16
+    fontSize: 12,
+    [theme.breakpoints.down("md")]:{
+      fontSize:10,
+    },
+    [theme.breakpoints.down("md")]:{
+      fontSize:10,
+    },
   }
 });
 

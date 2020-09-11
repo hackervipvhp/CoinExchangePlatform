@@ -31,10 +31,12 @@ const styles = theme => ({
     marginBottom: 30,
     paddingLeft: 30,
     [theme.breakpoints.down("md")]:{
-      paddingLeft:40,
+      paddingLeft:0,
+      textAlign:`center`
     },
     [theme.breakpoints.down("sm")]:{
-      paddingLeft:40,
+      paddingLeft:0,
+      textAlign:`center`
     },
   },
   newsItem:{
@@ -73,6 +75,7 @@ const styles = theme => ({
     color: theme.palette.primary.main,
     fontSize: 18,
     fontWeight: `normal`
+
   },
   headerButton: {
 		fontSize: theme.typography.body1.fontSize,
@@ -95,7 +98,10 @@ const styles = theme => ({
     width:'100%',
   },
   news:{
-    marginBottom:'10px'
+    marginBottom:'10px',
+    [theme.breakpoints.down("md")]:{
+      paddingLeft:`10px`
+    }
   }
 });
 
@@ -108,7 +114,7 @@ function latestNewsSection(props) {
           Latest News
         </Typography>
         <Grid container>
-          <Grid item xl={3} lg={3} md={6} sm={6} xs={12} className={classes.news}>
+          <Grid item xl={3} lg={3} md={6} sm={12} xs={12} className={classes.news}>
             <div key={`news-item-1`} className={classes.newsItem}>
               <Typography className={classes.newsItemTitle}>
                 Crypto can I use to purchase
@@ -125,7 +131,7 @@ function latestNewsSection(props) {
               </Typography>
             </div>
           </Grid>
-          <Grid item xl={3} lg={3} md={6} sm={6} xs={12} className={classes.news}>
+          <Grid item xl={3} lg={3} md={6} sm={12} xs={12} className={classes.news}>
             <div key={`news-item-1`} className={classes.newsItem}>
               <Typography className={classes.newsItemTitle}>
                 Crypto can I use to purchase
@@ -142,7 +148,7 @@ function latestNewsSection(props) {
               </Typography>
             </div>
           </Grid>
-          <Grid item xl={3} lg={3} md={6} sm={6} xs={12} className={classes.news}>
+          <Grid item xl={3} lg={3} md={6} sm={12} xs={12} className={classes.news}>
             <div key={`news-item-1`} className={classes.newsItem}>
               <Typography className={classes.newsItemTitle}>
                 Crypto can I use to purchase
@@ -159,7 +165,7 @@ function latestNewsSection(props) {
               </Typography>
             </div>
           </Grid>
-          <Grid item xl={3} lg={3} md={6} sm={6} xs={12} className={classes.news}>
+          <Grid item xl={3} lg={3} md={6} sm={12} xs={12} className={classes.news}>
             <div key={`news-item-1`} className={classes.newsItem}>
               <Typography className={classes.newsItemTitle}>
                 Crypto can I use to purchase

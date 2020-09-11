@@ -24,7 +24,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 const styles = (theme) => ({
   cardContentInner: {
     marginTop: 0,
-    width:150,
+    width:`70%`,
     float:`right`,
   },
 });
@@ -43,12 +43,9 @@ function calculateMin(data, yKey, factor) {
   return Math.round(max - max * factor);
 }
 
-const itemHeight = 216;
-const options = ["1 Week", "1 Month", "6 Months"];
 
 function LiveChart(props) {
   const { color, data, title, classes, theme, height } = props;
-  const [anchorEl, setAnchorEl] = useState(null);
   const [selectedOption, setSelectedOption] = useState("1 Month");
 
   const formatter = useCallback(
@@ -105,13 +102,13 @@ function LiveChart(props) {
             stroke={color}
             fill={color}
           />
-          <Tooltip
+          {/* <Tooltip
             labelFormatter={labelFormatter}
             formatter={formatter}
             cursor={false}
             contentStyle={{
               border: "none",
-              padding: theme.spacing(1),
+              padding: 0,
               borderRadius: theme.shape.borderRadius,
               boxShadow: theme.shadows[1],
             }}
@@ -123,7 +120,7 @@ function LiveChart(props) {
               lineHeight: theme.typography.body1.lineHeight,
               fontWeight: theme.typography.body1.fontWeight,
             }}
-          />
+          /> */}
         </AreaChart>
       </ResponsiveContainer>
     </Box>

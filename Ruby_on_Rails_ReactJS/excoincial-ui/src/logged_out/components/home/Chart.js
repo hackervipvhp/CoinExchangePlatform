@@ -10,7 +10,7 @@ function Chart(props) {
       data.views.length >= 2 && (
         <LiveChart
           data={data.profit}
-          color={theme.palette.secondary.light}
+          color={theme.palette.warning.dark}
           height="35px"
         />
       )

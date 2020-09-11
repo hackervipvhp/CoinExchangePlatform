@@ -163,7 +163,7 @@ function Landing(props) {
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -171,11 +171,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -183,11 +183,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -195,11 +195,11 @@ function Landing(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline" className={classes.iconsubtext}>>
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>

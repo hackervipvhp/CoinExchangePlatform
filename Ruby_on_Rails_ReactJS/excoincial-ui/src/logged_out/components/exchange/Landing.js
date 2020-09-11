@@ -1,4 +1,4 @@
-import React, {Fragment } from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   withStyles,
@@ -7,7 +7,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import landingImage from "../../../assets/images/Main-Home-page-banner.png";
+import marketImage1 from "../../../assets/images/blue.png";
+import marketImage2 from "../../../assets/images/red.png";
 import buyImage from "../../../assets/images/icons/icon.png";
+
 
 const styles = theme => ({
   landingBackgroundImage: {
@@ -16,14 +19,22 @@ const styles = theme => ({
     background: `url("${landingImage}") center center no-repeat`,
     paddingTop: 50,
     paddingBottom: 50,
-  },
-  marketImage: {
-    padding: theme.spacing(2),
+    [theme.breakpoints.down("md")]:{
+        backgroundColor:'black',
+        paddingBottom: '50px',
+        paddingTop:'70px',
+    },
+    [theme.breakpoints.down("sm")]:{
+        backgroundColor:'black',
+        paddingBottom: '50px',
+        paddingTop:'70px',
+    }
   },
   bestSeller: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundImage: `linear-gradient(to right, rgb(14,13,81) 25%, rgb(74,59,144) 50%, rgb(14,13,81) 75%)`,
     paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3)
+    paddingBottom: theme.spacing(3),
+    
   },
   bestSellerItem: {
     color: theme.palette.background.default,
@@ -33,26 +44,67 @@ const styles = theme => ({
   transactions: {
     backgroundColor: theme.palette.background.default,
   },
+  marketImageBlue:{
+    background: `url("${marketImage1}") center center no-repeat`,
+    backgroundSize: `100% 100%`,
+    height: 250,
+    paddingLeft: 20,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  marketImageRed:{
+    background: `url("${marketImage2}") center center no-repeat`,
+    backgroundSize: `100% 100%`,
+    height: 250,
+    paddingLeft: 20,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  pOrMBlue:{
+    marginTop: 20,
+    backgroundColor: `rgb(6,168,155)`,
+    height: 45,
+    padding: 8,
+    marginRight:5,
+    borderRadius: `25px 0 0 25px`,
+  },
+  pOrMRed:{
+    marginTop: 20,
+    backgroundColor: `rgb(222,13,44)`,
+    height: 45,
+    padding: 8,
+    marginRight:5,
+    borderRadius: `25px 0 0 25px`,
+  },
   icon:{
     paddingLeft:'10px', 
-    paddingRight:'10px'
+    paddingRight:'10px',
+    width:`30%`,
   },
   icontext:{
+    fontSize:`1rem`,
     [theme.breakpoints.down('md')]:{
       paddingLeft:'10px'
     },
     [theme.breakpoints.down('sm')]:{
       paddingLeft:'10px'
     },
-  }
+  },
+  iconsubtext:{
+    fontSize:`0.6rem`,
+  },
+  landingbottomtext:{
+    color: theme.palette.background.default, 
+    paddingTop: 20,
+  },
 });
 
-function HeadSection(props) {
-  const { classes } = props;
+function Landing(props) {
+  const { classes, theme } = props;
 
   return (
     <Fragment>
-      <div key={"market-landing-1"} className={classes.landingBackgroundImage} >
+      <div key={"market-landing-1"} className={classes.landingBackgroundImage} >        
       </div>
       <div key={"market-best-seller-1"} className={classes.bestSeller}>
         <Grid container>
@@ -60,11 +112,11 @@ function HeadSection(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -72,11 +124,11 @@ function HeadSection(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -84,11 +136,11 @@ function HeadSection(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -96,11 +148,11 @@ function HeadSection(props) {
             <Typography variant="h6" className={classes.icontext}>
               BUST/USDT
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;33517.1 BUSD
               <img src={buyImage} alt="Buy" className={classes.icon}/>
             </Typography>
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.iconsubtext}>
               &nbsp;Large Buy 22:41:56
             </Typography>
           </Grid>
@@ -110,12 +162,12 @@ function HeadSection(props) {
   );
 }
 
-HeadSection.propTypes = {
+Landing.propTypes = {
   classes: PropTypes.object,
   width: PropTypes.string,
   theme: PropTypes.object
 };
 
 export default withWidth()(
-  withStyles(styles, { withTheme: true })(HeadSection)
+  withStyles(styles, { withTheme: true })(Landing)
 );

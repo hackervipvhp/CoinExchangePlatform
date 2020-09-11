@@ -166,21 +166,24 @@ const styles = theme => ({
 		margin: `0px !important`,
 	},
 	menuButtonTextSign: {
-		fontWeight: theme.typography.h6.fontWeight,
 		color: theme.palette.common.white,
-		fontSize: 16,
+		fontSize: 12,
 		[theme.breakpoints.down("lg")]: {
-			fontSize: 13
+			fontSize: 12
 		},
 		[theme.breakpoints.down("md")]: {
 			fontSize: 10,
 		},
+	},
+	menuappIcon:{
+		marginTop:`20px`,
 	},
 	socialIcons: {
 		position: 'absolute',
 		right: 0,
 		top: 250,
 		zIndex:101,
+		width:40,
 		[theme.breakpoints.down("md")]:{
 			height:33,
 			width:31
@@ -347,7 +350,7 @@ function NavBar(props) {
 									className={classes.noDecoration}
 									onClick={handleClick_App}
 								>
-									<AppIcon color="primary" style={{marginTop:24}}/>
+									<AppIcon color="primary" className={classes.menuappIcon}/>
 								</Link>
 								<Menu
 									id="app-submenu"
@@ -558,7 +561,7 @@ function NavBar(props) {
 								className={classes.noDecoration}
 								onClick={handleClick_App}
 							>
-								<AppIcon color="primary" style={{marginTop:24}}/>
+								<AppIcon color="primary" className={classes.menuappIcon}/>
 							</Link>
 							<Menu
 								id="app-submenu"

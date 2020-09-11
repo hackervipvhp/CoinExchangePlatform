@@ -17,26 +17,25 @@ const styles = theme => ({
     // backgroundSize: `100% 100%`,
     height: '100%',
     paddingTop: theme.spacing(5),
+    paddingBottom:`4vh`,
+    [theme.breakpoints.down("md")]:{
+      paddingBottom:`10vh`,
+    }
+  },
+  sliderHide:{
+    paddingLeft:10,
+    paddingRight:10,
+    [theme.breakpoints.down("sm")]:{
+      display:'none',
+    }
   },
   slider:{
     display: `flex`,
     justifyContent: `center`,
-    [theme.breakpoints.down("md")]:{
-      justifyContent:`left`,
-    },
-    [theme.breakpoints.down("sm")]:{
-      justifyContent:`left`,
-    }
   },
   sliderDiv:{
     paddingLeft:10,
     paddingRight:10,
-    // [theme.breakpoints.down("md")]:{
-    //   padding: 0,
-    // },
-    // [theme.breakpoints.down("sm")]:{
-    //   padding: 0,
-    // },
   },
   sliderImage:{
     borderRadius: 25,
@@ -54,10 +53,10 @@ function slideSection(props) {
             <div key={`slider1-1`} className={classes.sliderDiv}>
               <img src={image1} className={classes.sliderImage} alt=""/>
             </div>
-            <div key={`slider1-2`} className={classes.sliderDiv}>
+            <div key={`slider1-2`} className={classes.sliderHide}>
               <img src={image2} className={classes.sliderImage} alt=""/>
             </div>
-            <div key={`slider1-3`} className={classes.sliderDiv}>
+            <div key={`slider1-3`} className={classes.sliderHide}>
               <img src={image3} className={classes.sliderImage} alt=""/>
             </div>
           </div>
@@ -65,10 +64,10 @@ function slideSection(props) {
             <div key={`slider2-2`} className={classes.sliderDiv}>
               <img src={image2} className={classes.sliderImage} alt=""/>
             </div>
-            <div key={`slider2-3`} className={classes.sliderDiv}>
+            <div key={`slider2-3`} className={classes.sliderHide}>
               <img src={image3} className={classes.sliderImage} alt=""/>
             </div>
-            <div key={`slider2-1`} className={classes.sliderDiv}>
+            <div key={`slider2-1`} className={classes.sliderHide}>
               <img src={image1} className={classes.sliderImage} alt=""/>
             </div>
           </div>
@@ -76,10 +75,10 @@ function slideSection(props) {
             <div key={`slider3-3`} className={classes.sliderDiv}>
               <img src={image3} className={classes.sliderImage} alt=""/>
             </div>
-            <div key={`slider3-1`} className={classes.sliderDiv}>
+            <div key={`slider3-1`} className={classes.sliderHide}>
               <img src={image1} className={classes.sliderImage} alt=""/>
             </div>
-            <div key={`slider3-2`} className={classes.sliderDiv}>
+            <div key={`slider3-2`} className={classes.sliderHide}>
               <img src={image2} className={classes.sliderImage} alt=""/>
             </div>
           </div>
